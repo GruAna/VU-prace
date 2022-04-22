@@ -1,0 +1,71 @@
+%% --- zde jsou zavedeny některé "konstanty" - některé musíte změnit! --- %%
+\newcommand{\cvut}{České vysoké učení technické v~Praze}
+\newcommand{\fjfi}{Fakulta jaderná a fyzikálně inženýrská}
+\newcommand{\ksi}{Katedra softwarového inženýrství}
+\newcommand{\km}{Katedra matematiky}
+% \newcommand{\program}{Aplikace přírodních věd} % změňte, pokud máte jiný stud. program
+\newcommand{\obor}{Aplikace informatiky v přírodních vědách} % změňte, pokud máte kurzívujiný obor
+
+\newcommand{\druh}{Výzkumný úkol} % nebo "Diplomová práce"
+\newcommand{\woman}{a} % pokud jste ŽENA, ZMĚŇTE na: ...{\woman}{a} (je to do Prohlášení)
+
+\newcommand{\logoCVUT}{\includegraphics{symbol_cvut_konturova_verze_cb.pdf}} % logo ČVUT -- podle grafického manuálu ČVUT platného od prosince 2016. Pokud nevyhovuje PDF-verze, tak použijte jinou variantu loga: https://www.cvut.cz/logo-a-graficky-manual -> "Symbol a logo ČVUT v Praze"). Pokud chcete logo úplně vynechat, zadejte místo "\includegraphics{...}" text "\vspace{35mm}"
+
+% přesně podle formuláře "Zadání bak./dipl. práce" VYPLŇTE:
+\newcommand{\nazevczT}{Optické rozpoznávání znaků \\ na naskenovaných historických plakátech pomocí \\nejmodernějších metod}    % český název práce (přesně podle zadání!)
+\newcommand{\nazevenT}{Optical Character Recognition \\on Scanned Historical Posters Using the State-of-the-Art Methods}          % anglický název práce (přesně podle zadání!)
+\newcommand{\nazevcz}{Optické rozpoznávání znaků na naskenovaných historických plakátech pomocí nejmodernějších metod}    % český název práce (přesně podle zadání!)
+\newcommand{\nazeven}{Optical Character Recognition on Scanned Historical Posters Using the State-of-the-Art Methods}          % anglický název práce (přesně podle zadání!)
+\newcommand{\autor}{Anna Gruberová}   % vyplňte své jméno a příjmení (s akademickým titulem, máte-li jej)
+\newcommand{\vedouci}{Ing. Adam Novozámský, Ph.D.} % vyplňte jméno a příjmení vedoucího práce, včetně titulů, např.: Doc. Ing. Ivo Malý, Ph.D.
+\newcommand{\pracovisteVed}{Computer Vision Lab, Institute of Visual Computing \& Human-Centered Technology, TU Wien - Faculty of Informatics} % ZMĚŇTE, pokud vedoucí Vaší práce není z KSI
+\newcommand{\konzultant}{--} % POKUD MÁTE určeného konzultanta, NAPIŠTE jeho jméno a příjmení
+\newcommand{\pracovisteKonz}{--} % POKUD MÁTE konzultanta, NAPIŠTE jeho pracoviště
+
+% podle skutečnosti VYPLŇTE:
+\newcommand{\rok}{2022}  % rok odevzdání práce (jen rok odevzdání, nikoli celý akademický rok!)
+\newcommand{\kde}{Praze} % studenti z Děčína ZMĚNÍ na: "Děčíně" (doplní se k "prohlášení")
+
+\newcommand{\klicova}{.}   % zde NAPIŠTE česky max. 5 klíčových slov
+\newcommand{\keyword}{.}       % zde NAPIŠTE anglicky max. 5 klíčových slov (přeložte z češtiny)
+\newcommand{\abstrCZ}{.}
+
+
+% zde NAPIŠTE abstrakt v češtině (cca 7 vět, min. 80 slov)
+\newcommand{\abstrEN}{.} % zde NAPIŠTE abstrakt v angličtině
+
+\newcommand{\prohlaseni}{Prohlašuji, že jsem svou bakalářskou práci vypracoval\woman{} samostatně a použil\woman{} jsem pouze podklady (literaturu, projekty, SW atd.) uvedené v přiloženém seznamu.} % text prohlášení můžete mírně upravit :-)
+
+\newcommand{\podekovani}{.} % NAPIŠTE poděkování, např. svému vedoucímu:
+% Děkuji Ing. Eleonoře Krtečkové, Ph.D. za vedení mé bakalářské práce a za podnětné návrhy, které ji obohatily.
+% NEBO:
+% Děkuji vedoucímu práce doc. Pafnutijovi Snědldítětikaši, Ph.D. za neocenitelné rady a pomoc při tvorbě bakalářské práce.
+
+\newcommand{\ti}{\textit} % zkrácený příkaz pro kurzívu
+\newcommand{\tb}{\textbf} % zkrácený příkaz pro tučné písmo
+\newcommand{\tn}{\texttt} % zkrácený příkaz pro neproporcionalni písmo
+
+
+% Vzhled kódu
+\renewcommand{\lstlistingname}{Kód}
+
+
+\newenvironment{repl}
+{\fontfamily{cmvtt}\selectfont \begin{mdframed}
+
+}{\end{mdframed}}
+
+\usepackage[linewidth=1pt]{mdframed}
+
+
+\newcolumntype{L}{>{\centering\arraybackslash}m{2cm}}
+\newcolumntype{N}{>{\centering\arraybackslash}m{1.7cm}}
+\newcolumntype{M}{>{\centering\arraybackslash}m{1.6cm}}
+\newcolumntype{K}{>{\centering\arraybackslash}m{1.5cm}}
+\newcolumntype{S}{>{\centering\arraybackslash}m{1cm}}
+\renewcommand{\arraystretch}{1.3}
+
+\newcommand{\cmark}{\textcolor{green!80!black}{\ding{51}}}
+\newcommand{\xmark}{\textcolor{red}{\ding{55}}}
+
+
