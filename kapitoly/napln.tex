@@ -8,18 +8,24 @@
     \item Text recognition
     \item End-to-end systems
     \begin{itemize}
+        \item[] Reading scanned documents
         \item EasyOCR
         \item keras-ocr
-        \item tesseract (PyTesseract)
+        \item Tesseract (PyTesseract)
         \item (Google Cloud Vision free) paid
         \item (AWS Recognition) paid 
         \item (Kili) paid
     \end{itemize}
     \item Results evaluation
     \begin{itemize}
-        \item Comparicion of output and ground-truth
+        \item Comparison of output and ground-truth
         \item 
     \end{itemize}
+    \item Testing methods on free datasets
+    \item[] Description of datasets
+    \item Using methods on historical posters    
+    \item[] Description of dataset
+
 \end{itemize}
 
 
@@ -30,9 +36,11 @@
 
 \section{End-to-end systems}
 \subsection{EasyOCR}
-\subsection{keras-ocr}
+\subsection{Keras-ocr}
 
-\emph{keras-ocr} is a python library used for detecting and recognizing text in images. It unites the CRAFT text detection model and an implementation in Keras python library of CRNN for recognizing text. 
+Keras-ocr is a python library used for detecting and recognizing text in images. It unites the CRAFT text detection model \footnote{hereinafter referred to as CRAFT} and an implementation in Keras python library of CRNN for recognizing text \footnote{hereinafter referred to as CRNN}. \cite{keras-ocr1}
+
+CRNN already provides pretrained model which can be used directly without modification for recognition or it is used as initial model for training a new model on new data. 
 
 \subsection{tesseract}
 
