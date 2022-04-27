@@ -38,9 +38,15 @@
 \subsection{EasyOCR}
 \subsection{Keras-ocr}
 
-Keras-ocr is a python library used for detecting and recognizing text in images. It unites the CRAFT text detection model \footnote{hereinafter referred to as CRAFT} and an implementation in Keras python library of CRNN for recognizing text \footnote{hereinafter referred to as CRNN}. \cite{keras-ocr1}
+Keras-ocr is a python library used for detecting and recognizing text in images created by Fausto Morales. It unites the CRAFT text detection model\footnote{hereinafter referred to as CRAFT} and an implementation in Keras python library of CRNN for recognizing text\footnote{hereinafter referred to as CRNN}. \cite{keras-ocr1}
 
-CRNN already provides pretrained model which can be used directly without modification for recognition or it is used as initial model for training a new model on new data. 
+On the official website\footnote{\url{https://pypi.org/project/keras-ocr/}} of the package there is a comparison of this method with two other OCR APIs -- Google Cloud Vision and AWS Rekognition. Their performance was tested on 1,000 images from the COCO-Text validation set using a basic pretrained model of each method. None of the investigated methods performed poorly; however, AWS Rekognition had the worst precision and recall results. Google's method and keras-ocr has similar results. It is important to mention that no tuning parameters were used in any of these methods. Another candidate for comparison was Tesseract but it performed on very badly on given data, most likely due to the fact that Tesseract is suitable for scanned documents rather than for photos of real life scenery and objects with text. \cite{keras-ocr1}
+
+CRAFT already provides a pretrained model which can be used directly without modification for text detection or it is used as initial model for training a new model on new data. This model was trained on three datasets (SynthText, IC13, IC17) and supports English and multi language text detection. \cite{craft1}
+Similarly for recognition, CRNN also has a pretrained model  This model was trained on the synthetic word dataset which consists of 9 million images with vocabulary of 90K English words. \cite{synth}
+To use these models in the keras-ocr library one either doesn't specify anything and use the defaults, or pass the value \texttt{clovaai-general} for the CRAFT pretrained model or \texttt{kurapan} for the CRNN model.
+
+
 
 \subsection{tesseract}
 

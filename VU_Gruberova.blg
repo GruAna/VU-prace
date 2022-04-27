@@ -4,45 +4,46 @@ The top-level auxiliary file: VU_Gruberova.aux
 The style file: PhDbiblio-url.bst
 Database file #1: sources.bib
 Warning--to sort, need author or key in keras-ocr1
-You've used 1 entry,
+Warning--to sort, need author or key in synth
+You've used 3 entries,
             2776 wiz_defined-function locations,
-            605 strings with 4984 characters,
-and the built_in function-call counts, 288 in all, are:
-= -- 27
-> -- 1
+            614 strings with 5340 characters,
+and the built_in function-call counts, 834 in all, are:
+= -- 83
+> -- 9
 < -- 0
-+ -- 1
-- -- 0
-* -- 12
-:= -- 50
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 2
++ -- 5
+- -- 2
+* -- 34
+:= -- 115
+add.period$ -- 9
+call.type$ -- 3
+change.case$ -- 7
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 10
-empty$ -- 36
-format.name$ -- 0
-if$ -- 73
+cite$ -- 5
+duplicate$ -- 31
+empty$ -- 106
+format.name$ -- 2
+if$ -- 221
 int.to.chr$ -- 0
-int.to.str$ -- 1
+int.to.str$ -- 3
 missing$ -- 0
-newline$ -- 8
-num.names$ -- 0
-pop$ -- 14
+newline$ -- 18
+num.names$ -- 2
+pop$ -- 39
 preamble$ -- 1
-purify$ -- 2
+purify$ -- 7
 quote$ -- 0
-skip$ -- 19
+skip$ -- 61
 stack$ -- 0
-substring$ -- 5
-swap$ -- 2
+substring$ -- 15
+swap$ -- 7
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
-warning$ -- 1
-while$ -- 0
-width$ -- 2
-write$ -- 11
-(There was 1 warning)
+type$ -- 12
+warning$ -- 2
+while$ -- 2
+width$ -- 4
+write$ -- 29
+(There were 2 warnings)

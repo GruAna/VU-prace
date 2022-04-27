@@ -5,4 +5,16 @@
 \newblock Last accessed 2022.
 \newblock Available from: \url{https://pypi.org/project/keras-ocr/}.
 
+\bibitem{synth}
+{\bf Text recognition data - Visual Geometry Group - University of Oxford}.
+\newblock Last accessed 2022.
+\newblock Available from:
+  \url{https://www.robots.ox.ac.uk/~vgg/data/text/#sec-synth}.
+
+\bibitem{craft1}
+{\sc Clova~AI Research}.
+\newblock {\bf Clovaai/Craft-pytorch: Official implementation of character
+  region awareness for text detection (CRAFT)}.
+\newblock Available from: \url{https://github.com/clovaai/CRAFT-pytorch}.
+
 \end{thebibliography}
