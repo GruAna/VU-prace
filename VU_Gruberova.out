@@ -13,4 +13,7 @@
 \BOOKMARK [2][-]{subsection.2.3.4}{AWS Rekognition}{section.2.3}% 13
 \BOOKMARK [2][-]{subsection.2.3.5}{Google Cloud Vision}{section.2.3}% 14
 \BOOKMARK [0][-]{chapter.3}{Datasets}{}% 15
-\BOOKMARK [0][-]{chapter.4}{Testing methods}{}% 16
+\BOOKMARK [1][-]{section.3.1}{Synthetic datasets}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{Scene text image datasets}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.3}{Wien TU dataset}{chapter.3}% 18
+\BOOKMARK [0][-]{chapter.4}{Testing methods}{}% 19

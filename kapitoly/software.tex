@@ -83,7 +83,7 @@ EasyOCR package by default computes annotation on GPU, however there is a possib
 
 \subsection{Keras-ocr}
 
-keras-ocr is a python library used for detecting and recognizing text in images created by Fausto Morales. It works with variety of languages and with different writing scripts. It allows computing on CPU as well as on GPU.  It unites the CRAFT text detection model\footnote{hereinafter referred to as CRAFT} and an implementation in Keras python library of CRNN for recognizing text\footnote{hereinafter referred to as CRNN}, worth mentioning this is a different implementation of CRNN than in EasyOCR.\cite{keras-ocr1}
+keras-ocr is a python library used for detecting and recognizing text in images created by Fausto Morales. It works with variety of languages and with different writing scripts. It allows computing on CPU as well as on GPU.  It unites the CRAFT text detection model and an implementation in Keras python library of CRNN for recognizing text, worth mentioning this is a different implementation of CRNN than in EasyOCR.\cite{keras-ocr1}
 
 On the official website\footnote{\url{https://pypi.org/project/keras-ocr/}} of the package there is a comparison of this method with two other OCR APIs -- Google Cloud Vision and AWS Rekognition. Their performance was tested on 1,000 images from the COCO-Text validation set using a basic pretrained model of each method. None of the investigated methods Michalovice, 293 01 Mlada Boleslavperformed poorly; however, AWS Rekognition had the worst precision and recall results. Google's method and keras-ocr has similar results. It is important to mention that no tuning parameters were used in any of these methods. Another candidate for comparison was Tesseract but it performed on very badly on given data, most likely due to the fact that Tesseract is suitable for scanned documents rather than for photos of real life scenery and objects with text. \cite{keras-ocr1}
 
@@ -96,3 +96,7 @@ Keras-ocr offers preprocessing for four public datasets though any text image da
 \subsection{AWS Rekognition}
 
 \subsection{Google Cloud Vision}
+
+Google Cloud Vision is software from Google which consist of two products: AutoML Vision and Vision API. Vision API detects objects, faces and text from images with already pretrained model. With AutoML Vision user can train custom model from own data. It has free and paid version with a GUI. 
+
+API for python
