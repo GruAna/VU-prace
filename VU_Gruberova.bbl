@@ -27,6 +27,10 @@
 \newblock {\bf Jaidedai/EasyOCR}.
 \newblock Available from: \url{https://github.com/JaidedAI/EasyOCR}.
 
+\bibitem{google1}
+{\bf Vision AI | derive image insights via ML | cloud vision API google cloud}.
+\newblock Available from: \url{https://cloud.google.com/vision/}.
+
 \bibitem{craft1}
 {\sc Clova~AI Research}.
 \newblock {\bf Clovaai/Craft-pytorch: Official implementation of character

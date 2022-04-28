@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.4.4)  28 APR 2022 13:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.4.4)  28 APR 2022 14:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1452,10 +1452,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 88.
  (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15 </home/anna/Documents/skola/VU/text/obrazky/easyocr_framework.jpeg>]) (/home/anna/Documents/skola/VU/text/kapitoly/datasets.tex [16]
+) [15 </home/anna/Documents/skola/VU/text/obrazky/easyocr_framework.jpeg>]) (/home/anna/Documents/skola/VU/text/kapitoly/datasets.tex [16]
 Chapter 3.
 ) (/home/anna/Documents/skola/VU/text/kapitoly/testing.tex [17
 
@@ -1477,22 +1474,22 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 272.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 272.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 272.
 Package rerunfilecheck Info: File `VU_Gruberova.out' has not changed.
-(rerunfilecheck)             Checksum: 38D849B5F83826ABCC155B4C11926939;1139.
+(rerunfilecheck)             Checksum: 477319257A2D3506AC36CECE964DCC87;1129.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 272.
  ) 
 Here is how much of TeX's memory you used:
- 30164 strings out of 494848
- 562987 string characters out of 6178431
- 637253 words of memory out of 5000000
- 32919 multiletter control sequences out of 15000+600000
+ 30167 strings out of 494848
+ 563018 string characters out of 6178431
+ 637282 words of memory out of 5000000
+ 32920 multiletter control sequences out of 15000+600000
  607132 words of font info for 91 fonts, out of 8000000 for 9000
  46 hyphenation exceptions out of 8191
  62i,18n,56p,10458b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
-Output written on /home/anna/Documents/skola/VU/text/VU_Gruberova.pdf (21 pages, 2342493 bytes).
+Output written on /home/anna/Documents/skola/VU/text/VU_Gruberova.pdf (21 pages, 2342955 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
- 257 compressed objects within 3 object streams
- 55 named destinations out of 1000 (max. 500000)
+ 308 PDF objects out of 1000 (max. 8388607)
+ 261 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
  205 words of extra memory for PDF output out of 10000 (max. 10000000)
 
