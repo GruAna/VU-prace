@@ -44,6 +44,14 @@ CRAFT is framework for scene text detection.
 
 \section{End-to-end systems}
 
+\subsection{Tesseract}
+
+Tesseract is an open source text recognition engine. It supports over 160 languages. Originally Tesseract was created by Hewlett-Packard in late 1980s, from 2006 it is developed and maintained by Google. As it does not have a built-in GUI direct use is via command line. However, there exist a significant number of GUIs for Linux, Windows, Mac for computer usage and also for Android and iOS to use on mobile phones and few online OCR services. Another way how to use the engine is via libraries for computer languages, namely for example they exist for Java called tess4j, Python called PyTesseract, R, Ruby and others. \cite{tesseract1}
+
+Tesseract is mainly used as tool for recognizing documents (with both computer font text or hadwritten text). Best results are obtained on preprocessed images. The preprocessing includes noise reduction, horizontal alignment of text, elimination of dark borders around text region, conversion to binary black and white picture and other adjustments depending on the nature of the picture. Thus when used on scene text images it gives generally worse results than other OCR softwares. 
+
+Computarions with Tesseract are supported for GPU and also CPU. Tesseract uses for recognition Long Short Term Memory (LSTM) model (kind of RNN).
+
 \subsection{EasyOCR}
 
 EasyOCR is a product of Jaded AI for both image text detection and recognition. it supports over 80 languages and various scripts such as Latin, Chinese, Arabic etc. The company offers software with web interface for free and also prepaid version which enables usage of a new model for custom data. However, in addition to the web interface, the company also created a python package under the same name.\cite{easyocr1}
@@ -70,12 +78,3 @@ Similarly for recognition, CRNN also has a pretrained model  This model was trai
 To use these models in the keras-ocr library one either doesn't specify anything and use the defaults, or pass the value \texttt{clovaai-general} for the CRAFT pretrained model or \texttt{kurapan} for the CRNN model.
 
 Keras-ocr offers preprocessing for four public datasets though any text image dataset can be examined using this tool. These four datasets are: BornDigital dataset, COCO-Text dataset, ICDAR 2013 dataset, ICDAR 2019 dataset (only Latin-only scripts).\cite{keras-ocrDocu}
-
-\subsection{Tesseract}
-
-Tesseract is an open source text recognition engine. It supports over 160 languages. As it does not have a built-in GUI direct use is via command line. However, there exist a significant number of GUIs for Linux, Windows, Mac for computer usage and also for Android and iOS to use on mobile phones and few online OCR services. \cite{tesseract1}
-
-
-
-
-
