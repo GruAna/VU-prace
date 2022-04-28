@@ -10,8 +10,8 @@
 \contentsline {section}{\numberline {2.3}End-to-end systems}{13}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Tesseract}{14}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}EasyOCR}{14}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Keras-ocr}{14}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Google Cloud Vision}{15}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.3}Keras-ocr}{15}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Google Cloud Vision}{16}{subsection.2.3.4}
 \contentsline {subsection}{\numberline {2.3.5}Other}{16}{subsection.2.3.5}
 \contentsline {subsubsection}{AWS Rekognition}{16}{section*.5}
 \contentsline {chapter}{\numberline {3}Datasets}{17}{chapter.3}

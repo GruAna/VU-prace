@@ -27,6 +27,12 @@
 \newblock {\bf Jaidedai/EasyOCR}.
 \newblock Available from: \url{https://github.com/JaidedAI/EasyOCR}.
 
+\bibitem{craft2}
+{\sc Youngmin Baek, Bado Lee, Dongyoon Han, Sangdoo Yun, and Hwalsuk Lee}.
+\newblock {\bf Character region awareness for text detection}.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
+  Pattern Recognition}, pages 9365--9374, 2019.
+
 \bibitem{google1}
 {\bf Vision AI | derive image insights via ML | cloud vision API google cloud}.
 \newblock Available from: \url{https://cloud.google.com/vision/}.

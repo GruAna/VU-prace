@@ -27,7 +27,7 @@
     \item Results evaluation
     \begin{itemize}
         \item Comparison of output and ground-truth
-        \item 
+        \item Bag of words
     \end{itemize}
     \item Testing methods on free datasets
     \item[] Description of datasets
@@ -44,8 +44,7 @@
 \section*{Methods}
 \subsection{CRAFT}
 
-CRAFT is framework for scene text detection.
-
+Character Region Awareness for Text Detection (CRAFT) is framework for scene text detection. It uses a Convolutional Neural Network. It performs good also on curved or differently deformed texts. Its methodology is to localize individual characters then characters belonging to the same word (based on distance) can be connected into word box or polygon. After that bounding box is created around it and output contains the rectangle coordinates.\cite{craft2}
 
 \section{Scene text recognition}
 
