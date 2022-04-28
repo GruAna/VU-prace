@@ -1,6 +1,16 @@
-\BOOKMARK [1][-]{section.0.1}{Scene text detection}{}% 1
-\BOOKMARK [2][-]{subsection.0.1.1}{CRAFT}{section.0.1}% 2
-\BOOKMARK [1][-]{section.0.2}{End-to-end systems}{}% 3
-\BOOKMARK [2][-]{subsection.0.2.1}{Tesseract}{section.0.2}% 4
-\BOOKMARK [2][-]{subsection.0.2.2}{EasyOCR}{section.0.2}% 5
-\BOOKMARK [2][-]{subsection.0.2.3}{Keras-ocr}{section.0.2}% 6
+\BOOKMARK [0][-]{chapter.1}{OCR}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Text detection}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Text recognition}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Software}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Scene text detection}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.1.1}{CRAFT}{section.2.1}% 6
+\BOOKMARK [1][-]{section.2.2}{Scene text recognition}{chapter.2}% 7
+\BOOKMARK [2][-]{subsection.2.2.1}{CRNN}{section.2.2}% 8
+\BOOKMARK [1][-]{section.2.3}{End-to-end systems}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.3.1}{Tesseract}{section.2.3}% 10
+\BOOKMARK [2][-]{subsection.2.3.2}{EasyOCR}{section.2.3}% 11
+\BOOKMARK [2][-]{subsection.2.3.3}{Keras-ocr}{section.2.3}% 12
+\BOOKMARK [2][-]{subsection.2.3.4}{AWS Rekognition}{section.2.3}% 13
+\BOOKMARK [2][-]{subsection.2.3.5}{Google Cloud Vision}{section.2.3}% 14
+\BOOKMARK [0][-]{chapter.3}{Datasets}{}% 15
+\BOOKMARK [0][-]{chapter.4}{Testing methods}{}% 16
