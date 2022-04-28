@@ -1,9 +1,15 @@
 \begin{thebibliography}{1}
 
 \bibitem{keras-ocr1}
-{\bf Keras-OCR}.
+{\bf keras-OCR}.
 \newblock Last accessed 2022.
 \newblock Available from: \url{https://pypi.org/project/keras-ocr/}.
+
+\bibitem{keras-ocrDocu}
+{\bf keras-ocr documentation}.
+\newblock Last accessed 2022.
+\newblock Available from:
+  \url{https://keras-ocr.readthedocs.io/en/latest/index.html}.
 
 \bibitem{synth}
 {\bf Text recognition data - Visual Geometry Group - University of Oxford}.
@@ -11,10 +17,26 @@
 \newblock Available from:
   \url{https://www.robots.ox.ac.uk/~vgg/data/text/#sec-synth}.
 
+\bibitem{easyocr1}
+{\sc Jaided AI}.
+\newblock {\bf Jaided AI - Distribute the benefits of AI to the world}.
+\newblock Available from: \url{https://www.jaided.ai/}.
+
+\bibitem{easyocr2}
+{\sc Jaided AI}.
+\newblock {\bf Jaidedai/EasyOCR}.
+\newblock Available from: \url{https://github.com/JaidedAI/EasyOCR}.
+
 \bibitem{craft1}
 {\sc Clova~AI Research}.
 \newblock {\bf Clovaai/Craft-pytorch: Official implementation of character
   region awareness for text detection (CRAFT)}.
+\newblock Last accessed 2022.
 \newblock Available from: \url{https://github.com/clovaai/CRAFT-pytorch}.
+
+\bibitem{tesseract1}
+{\sc Tesseract-Ocr}.
+\newblock {\bf Tesseract-OCR/tessdoc: Tesseract documentation}.
+\newblock Available from: \url{https://github.com/tesseract-ocr/tessdoc}.
 
 \end{thebibliography}

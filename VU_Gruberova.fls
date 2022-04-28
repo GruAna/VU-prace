@@ -397,6 +397,9 @@ INPUT /home/anna/Documents/skola/VU/text/kapitoly/napln.tex
 INPUT /usr/share/texmf/tex/latex/lm/omslmr.fd
 INPUT /usr/share/texmf/tex/latex/lm/omslmr.fd
 INPUT /usr/share/texmf/fonts/tfm/public/lm/rm-lmbx12.tfm
+INPUT /home/anna/Documents/skola/VU/text/obrazky/easyocr_framework.jpeg
+INPUT /home/anna/Documents/skola/VU/text/obrazky/easyocr_framework.jpeg
+INPUT /home/anna/Documents/skola/VU/text/obrazky/easyocr_framework.jpeg
 INPUT /usr/share/texmf/fonts/tfm/public/lm/rm-lmr5.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/lmmi5.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/lmsy5.tfm
