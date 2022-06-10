@@ -1,0 +1,25 @@
+Ground truth (GT)
+
+Frequently, not the character accuracy, but the Character Error
+Rate (CER) is used. CER is the inverted accuracy, and defined as
+CER = (i + s + d) / n, where n is the total number of characters, i the
+minimal number of character insertions, s the substitutions and d
+the deletions required to transform the reference text into the OCR
+output.6
+[16] propose an “end-to-end measure” which is based on
+the CER, but with alignment between GT and OCR results in a way
+that makes it configurable whether differences in the reading order
+or the over-/under-segmentation of text lines are penalized.
+https://www.primaresearch.org/www/assets/papers/HIP21_CNeudecker_OcrEvalSurvey.pdf
+
+
+accuracy (1,0) not good, confusion matrix
+Levenshtein distance
+https://towardsdatascience.com/evaluating-ocr-output-quality-with-character-error-rate-cer-and-word-error-rate-wer-853175297510
+
+Levenshtein distance
+uprava vypoctu added weights
+https://arxiv.org/pdf/1101.1232.pdf
+
+keras-ocr
+(top-left, top-right, bottom-right, bottom-left) 
