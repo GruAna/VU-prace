@@ -1,30 +1,15 @@
-\begin{thebibliography}{1}
-
-\bibitem{keras-ocr1}
-{\bf keras-OCR}.
-\newblock Last accessed 2022.
-\newblock Available from: \url{https://pypi.org/project/keras-ocr/}.
-
-\bibitem{keras-ocrDocu}
-{\bf keras-ocr documentation}.
-\newblock Last accessed 2022.
-\newblock Available from:
-  \url{https://keras-ocr.readthedocs.io/en/latest/index.html}.
-
-\bibitem{synth}
-{\bf Text recognition data - Visual Geometry Group - University of Oxford}.
-\newblock Last accessed 2022.
-\newblock Available from:
-  \url{https://www.robots.ox.ac.uk/~vgg/data/text/#sec-synth}.
+\begin{thebibliography}{10}
 
 \bibitem{easyocr1}
 {\sc Jaided AI}.
 \newblock {\bf Jaided AI - Distribute the benefits of AI to the world}.
+\newblock Last accessed 20 May. 2022.
 \newblock Available from: \url{https://www.jaided.ai/}.
 
 \bibitem{easyocr2}
 {\sc Jaided AI}.
 \newblock {\bf Jaidedai/EasyOCR}.
+\newblock Last accessed 13 Jun. 2022.
 \newblock Available from: \url{https://github.com/JaidedAI/EasyOCR}.
 
 \bibitem{craft2}
@@ -37,16 +22,53 @@
 {\bf Vision AI | derive image insights via ML | cloud vision API google cloud}.
 \newblock Available from: \url{https://cloud.google.com/vision/}.
 
+\bibitem{kaist}
+{\bf Kaist scene text database}.
+\newblock Last accessed 10 Jun. 2022.
+\newblock Available from:
+  \url{http://www.iapr-tc11.org/mediawiki/index.php/KAIST_Scene_Text_Database}.
+
+\bibitem{keras-ocrDocu}
+{\bf keras-ocr documentation}.
+\newblock Last accessed 29 Apr. 2022.
+\newblock Available from:
+  \url{https://keras-ocr.readthedocs.io/en/latest/index.html}.
+
+\bibitem{keras-ocr1}
+{\bf keras-OCR}.
+\newblock Last accessed 29 Apr. 2022.
+\newblock Available from: \url{https://pypi.org/project/keras-ocr/}.
+
+\bibitem{ctw2}
+{\sc Yuliang Liu, Lianwen Jin, Shuaitao Zhang, Canjie Luo, and Sheng Zhang}.
+\newblock {\bf Curved scene text detection via transverse and longitudinal
+  sequence connection}.
+\newblock {\em Pattern Recognition}, {\bf 90}:337--345, 2019.
+
 \bibitem{craft1}
 {\sc Clova~AI Research}.
 \newblock {\bf Clovaai/Craft-pytorch: Official implementation of character
   region awareness for text detection (CRAFT)}.
-\newblock Last accessed 2022.
+\newblock Last accessed 29 Apr. 2022.
 \newblock Available from: \url{https://github.com/clovaai/CRAFT-pytorch}.
+
+\bibitem{synth}
+{\bf Text recognition data - Visual Geometry Group - University of Oxford}.
+\newblock Last accessed 2022.
+\newblock Available from:
+  \url{https://www.robots.ox.ac.uk/~vgg/data/text/#sec-synth}.
 
 \bibitem{tesseract1}
 {\sc Tesseract-Ocr}.
 \newblock {\bf Tesseract-OCR/tessdoc: Tesseract documentation}.
+\newblock Last accessed 6 May. 2022.
 \newblock Available from: \url{https://github.com/tesseract-ocr/tessdoc}.
+
+\bibitem{ctw}
+{\sc Yuliang-Liu}.
+\newblock {\bf Yuliang-Liu/curve-text-detector}.
+\newblock Last accessed 13 Jun. 2022.
+\newblock Available from:
+  \url{https://github.com/Yuliang-Liu/Curve-Text-Detector}.
 
 \end{thebibliography}
