@@ -15,10 +15,11 @@
 \contentsline {subsection}{\numberline {2.3.5}Other}{16}{subsection.2.3.5}
 \contentsline {subsubsection}{AWS Rekognition}{16}{section*.5}
 \contentsline {chapter}{\numberline {3}Datasets}{17}{chapter.3}
-\contentsline {section}{\numberline {3.1}Synthetic datasets}{17}{section.3.1}
-\contentsline {section}{\numberline {3.2}Scene text image datasets}{17}{section.3.2}
-\contentsline {section}{\numberline {3.3}Wien TU dataset}{18}{section.3.3}
-\contentsline {chapter}{\numberline {4}Testing methods}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}EasyOCR}{19}{section.4.1}
-\contentsline {section}{\numberline {4.2}Tesseract}{19}{section.4.2}
-\contentsline {section}{\numberline {4.3}}{19}{section.4.3}
+\contentsline {section}{\numberline {3.1}SCUT-CTW dataset}{17}{section.3.1}
+\contentsline {section}{\numberline {3.2}KAIST Scene Text Database}{17}{section.3.2}
+\contentsline {section}{\numberline {3.3}Born-Digital Images}{18}{section.3.3}
+\contentsline {section}{\numberline {3.4}Wien TU dataset}{19}{section.3.4}
+\contentsline {chapter}{\numberline {4}Testing methods}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}EasyOCR}{21}{section.4.1}
+\contentsline {section}{\numberline {4.2}Tesseract}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}}{21}{section.4.3}

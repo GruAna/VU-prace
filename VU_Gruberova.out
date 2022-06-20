@@ -13,10 +13,11 @@
 \BOOKMARK [2][-]{subsection.2.3.4}{Google Cloud Vision}{section.2.3}% 13
 \BOOKMARK [2][-]{subsection.2.3.5}{Other}{section.2.3}% 14
 \BOOKMARK [0][-]{chapter.3}{Datasets}{}% 15
-\BOOKMARK [1][-]{section.3.1}{Synthetic datasets}{chapter.3}% 16
-\BOOKMARK [1][-]{section.3.2}{Scene text image datasets}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.3}{Wien TU dataset}{chapter.3}% 18
-\BOOKMARK [0][-]{chapter.4}{Testing methods}{}% 19
-\BOOKMARK [1][-]{section.4.1}{EasyOCR}{chapter.4}% 20
-\BOOKMARK [1][-]{section.4.2}{Tesseract}{chapter.4}% 21
-\BOOKMARK [1][-]{section.4.3}{}{chapter.4}% 22
+\BOOKMARK [1][-]{section.3.1}{SCUT-CTW dataset}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{KAIST Scene Text Database}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.3}{Born-Digital Images}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.4}{Wien TU dataset}{chapter.3}% 19
+\BOOKMARK [0][-]{chapter.4}{Testing methods}{}% 20
+\BOOKMARK [1][-]{section.4.1}{EasyOCR}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.2}{Tesseract}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.3}{}{chapter.4}% 23
