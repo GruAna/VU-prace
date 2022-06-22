@@ -3,44 +3,47 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: VU_Gruberova.aux
 The style file: PhDbiblio-url.bst
 Database file #1: sources.bib
-You've used 12 entries,
+Warning--I didn't find a database entry for "synth"
+Warning--empty booktitle in svtp
+You've used 18 entries,
             2776 wiz_defined-function locations,
-            663 strings with 6615 characters,
-and the built_in function-call counts, 4020 in all, are:
-= -- 419
-> -- 96
-< -- 1
-+ -- 42
-- -- 30
-* -- 192
-:= -- 535
-add.period$ -- 40
-call.type$ -- 12
-change.case$ -- 44
+            695 strings with 7617 characters,
+and the built_in function-call counts, 6081 in all, are:
+= -- 629
+> -- 157
+< -- 2
++ -- 70
+- -- 50
+* -- 297
+:= -- 801
+add.period$ -- 59
+call.type$ -- 18
+change.case$ -- 69
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 146
-empty$ -- 448
-format.name$ -- 30
-if$ -- 1037
+cite$ -- 19
+duplicate$ -- 224
+empty$ -- 666
+format.name$ -- 50
+if$ -- 1567
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 2
-newline$ -- 67
-num.names$ -- 14
-pop$ -- 155
+int.to.str$ -- 18
+missing$ -- 4
+newline$ -- 98
+num.names$ -- 20
+pop$ -- 233
 preamble$ -- 1
-purify$ -- 44
+purify$ -- 69
 quote$ -- 0
-skip$ -- 268
+skip$ -- 405
 stack$ -- 0
-substring$ -- 125
-swap$ -- 44
-text.length$ -- 1
+substring$ -- 185
+swap$ -- 68
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
-warning$ -- 0
-while$ -- 19
-width$ -- 14
-write$ -- 122
+type$ -- 72
+warning$ -- 1
+while$ -- 27
+width$ -- 20
+write$ -- 180
+(There were 2 warnings)

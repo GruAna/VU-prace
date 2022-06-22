@@ -3,13 +3,13 @@
 \bibitem{easyocr1}
 {\sc Jaided AI}.
 \newblock {\bf Jaided AI - Distribute the benefits of AI to the world}.
-\newblock Last accessed 20 May. 2022.
+\newblock Last accessed 20 May. 2022. [Online].
 \newblock Available from: \url{https://www.jaided.ai/}.
 
 \bibitem{easyocr2}
 {\sc Jaided AI}.
 \newblock {\bf Jaidedai/EasyOCR}.
-\newblock Last accessed 13 Jun. 2022.
+\newblock Last accessed 13 Jun. 2022. [Online].
 \newblock Available from: \url{https://github.com/JaidedAI/EasyOCR}.
 
 \bibitem{craft2}
@@ -18,25 +18,37 @@
 \newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
   Pattern Recognition}, pages 9365--9374, 2019.
 
+\bibitem{born-digital1}
+{\sc Robust~Reading Competition}.
+\newblock {\bf Overview - born-digital images (web and email)}.
+\newblock Last accessed 21 Jun. 2022. [Online].
+\newblock Available from: \url{https://rrc.cvc.uab.es/?ch=1}.
+
 \bibitem{google1}
 {\bf Vision AI | derive image insights via ML | cloud vision API google cloud}.
-\newblock Available from: \url{https://cloud.google.com/vision/}.
+\newblock Available from: \url{https://cloud.google.com/vision/. [Online].}
+
+\bibitem{IIIT}
+{\bf The IIIT 5K-word | Graviti}.
+\newblock Last accessed 22 Jun. 2022. [Online].
+\newblock Available from:
+  \url{https://gas.graviti.com/dataset/graviti/IIIT5KWord}.
 
 \bibitem{kaist}
 {\bf Kaist scene text database}.
-\newblock Last accessed 10 Jun. 2022.
+\newblock Last accessed 10 Jun. 2022.. [Online].
 \newblock Available from:
   \url{http://www.iapr-tc11.org/mediawiki/index.php/KAIST_Scene_Text_Database}.
 
 \bibitem{keras-ocrDocu}
 {\bf keras-ocr documentation}.
-\newblock Last accessed 29 Apr. 2022.
+\newblock Last accessed 29 Apr. 2022. [Online].
 \newblock Available from:
   \url{https://keras-ocr.readthedocs.io/en/latest/index.html}.
 
 \bibitem{keras-ocr1}
 {\bf keras-OCR}.
-\newblock Last accessed 29 Apr. 2022.
+\newblock Last accessed 29 Apr. 2022. [Online].
 \newblock Available from: \url{https://pypi.org/project/keras-ocr/}.
 
 \bibitem{ctw2}
@@ -45,29 +57,52 @@
   sequence connection}.
 \newblock {\em Pattern Recognition}, {\bf 90}:337--345, 2019.
 
+\bibitem{mjsynth}
+{\bf Text recognition data - Visual Geometry Group - University of Oxford}.
+\newblock Last accessed 21 Jul. 2022. [Online].
+\newblock Available from:
+  \url{https://www.robots.ox.ac.uk/~vgg/data/text/#sec-synth}.
+
+\bibitem{svtp}
+{\sc Trung Phan, Palaiahnakote Shivakumara, Shuangxuan Tian, and Chew~Lim Tan}.
+\newblock {\bf Recognizing Text with Perspective Distortion in Natural Scenes}.
+\newblock pages 569--576, 12 2013.
+
+\bibitem{raisi2020text}
+{\sc Zobeir Raisi, Mohamed~A Naiel, Paul Fieguth, Steven Wardell, and John
+  Zelek}.
+\newblock {\bf Text detection and recognition in the wild: A review}.
+\newblock {\em arXiv preprint arXiv:2006.04305}, 2020.
+
 \bibitem{craft1}
 {\sc Clova~AI Research}.
 \newblock {\bf Clovaai/Craft-pytorch: Official implementation of character
   region awareness for text detection (CRAFT)}.
-\newblock Last accessed 29 Apr. 2022.
+\newblock Last accessed 29 Apr. 2022. [Online].
 \newblock Available from: \url{https://github.com/clovaai/CRAFT-pytorch}.
 
-\bibitem{synth}
-{\bf Text recognition data - Visual Geometry Group - University of Oxford}.
-\newblock Last accessed 2022.
+\bibitem{svt}
+{\bf The street view text dataset}.
+\newblock Last accessed 22 Jul. 2022. [Online].
+\newblock Available from: \url{http://vision.ucsd.edu/~kai/svt/}.
+
+\bibitem{synthtext}
+{\bf Synthtext in the wild dataset - Visual Geometry Group - University of
+  Oxford}.
+\newblock Last accessed 21 Jul. 2022. [Online].
 \newblock Available from:
-  \url{https://www.robots.ox.ac.uk/~vgg/data/text/#sec-synth}.
+  \url{https://www.robots.ox.ac.uk/~vgg/data/scenetext/}.
 
 \bibitem{tesseract1}
 {\sc Tesseract-Ocr}.
 \newblock {\bf Tesseract-OCR/tessdoc: Tesseract documentation}.
-\newblock Last accessed 6 May. 2022.
+\newblock Last accessed 6 May. 2022. [Online].
 \newblock Available from: \url{https://github.com/tesseract-ocr/tessdoc}.
 
 \bibitem{ctw}
 {\sc Yuliang-Liu}.
 \newblock {\bf Yuliang-Liu/curve-text-detector}.
-\newblock Last accessed 13 Jun. 2022.
+\newblock Last accessed 13 Jun. 2022. [Online].
 \newblock Available from:
   \url{https://github.com/Yuliang-Liu/Curve-Text-Detector}.
 
