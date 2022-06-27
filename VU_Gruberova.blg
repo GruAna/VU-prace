@@ -4,46 +4,46 @@ The top-level auxiliary file: VU_Gruberova.aux
 The style file: PhDbiblio-url.bst
 Database file #1: sources.bib
 Warning--I didn't find a database entry for "synth"
-Warning--empty booktitle in svtp
-You've used 18 entries,
+Warning--empty journal in svtp
+You've used 21 entries,
             2776 wiz_defined-function locations,
-            695 strings with 7617 characters,
-and the built_in function-call counts, 6081 in all, are:
-= -- 629
-> -- 157
+            722 strings with 7936 characters,
+and the built_in function-call counts, 7112 in all, are:
+= -- 733
+> -- 204
 < -- 2
-+ -- 70
-- -- 50
-* -- 297
-:= -- 801
-add.period$ -- 59
-call.type$ -- 18
-change.case$ -- 69
++ -- 90
+- -- 66
+* -- 355
+:= -- 956
+add.period$ -- 69
+call.type$ -- 21
+change.case$ -- 84
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 224
-empty$ -- 666
-format.name$ -- 50
-if$ -- 1567
+cite$ -- 22
+duplicate$ -- 259
+empty$ -- 756
+format.name$ -- 66
+if$ -- 1816
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 4
-newline$ -- 98
-num.names$ -- 20
-pop$ -- 233
+int.to.str$ -- 21
+missing$ -- 7
+newline$ -- 114
+num.names$ -- 24
+pop$ -- 264
 preamble$ -- 1
-purify$ -- 69
+purify$ -- 84
 quote$ -- 0
-skip$ -- 405
+skip$ -- 473
 stack$ -- 0
-substring$ -- 185
-swap$ -- 68
+substring$ -- 201
+swap$ -- 74
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 82
 warning$ -- 1
-while$ -- 27
-width$ -- 20
-write$ -- 180
+while$ -- 31
+width$ -- 23
+write$ -- 211
 (There were 2 warnings)

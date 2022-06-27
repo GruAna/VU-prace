@@ -1,0 +1,125 @@
+\chapter{Neural Networks}
+
+% Pridat uvodni povidani k sitim, proc, a co se deje v nasledujici kapitole
+% ---------------------------------------------------------------------------
+
+% Perceptron
+
+A perceptron unit is able to find a linear boundary between two separable classes. In \emph{n}-dimensional space we talk about a separating hyperplane. The following equation \begin{equation} \bm{w}^\top \bm{x}+ w_{n+1} = 0\end{equation} is a vector form of the hyperplane equation, where $\bm{w}$ is a weight, \emph{n}-dimensional column vector, $\bm{x}$ is also \emph{n}-dimensional vector and it contains the coordinates of a point, which is being classified, $w_{n+1}$ is a bias. We can simplify the notation by creating a \emph{n+1}-dimensional vectors: $\bm{x} = [x_1, \dots, x_n, 1]^\top$ and $\bm{w} = [w_1, \dots, w_n, w_{n+1}]^\top$.
+We want to find a weight coefficients that satisfies the following property:
+\begin{equation}
+\bm{w}^\top \bm{x} > 0 \qquad \bm{x} \in {class_1}\end{equation}
+\begin{equation}
+\bm{w}^\top \bm{x} < 0 \qquad \bm{x} \in {class_2}
+\end{equation}
+Then the perceptron learning algortihm can be described as follows:
+
+For any $\bm{x}(k)$, at step $k$:
+\begin{enumerate}
+    \item If $\bm{x}( k ) \in class_1$ and $\bm{w}^\top \bm{x} \leq 0$ , let    
+    \begin{equation}\bm{w} ( k + 1 ) = \bm{w} ( k ) + \alpha  \bm{x }( k )\end{equation}
+    \item If $\bm{x}( k ) \in class_2$ and $\bm{w}^\top \bm{x} \geq 0$ , let   
+    \begin{equation}\bm{w} ( k + 1 ) = \bm{w} ( k ) - \alpha  \bm{x }( k )\end{equation}
+    \item Otherwise, let 
+    \begin{equation}\bm{w} ( k + 1 ) = \bm{w} ( k )\end{equation}
+\end{enumerate}
+
+where $\bm{w}(1)$ is arbitrary and $\alpha > 0$ is a constant called learning rate. Sum of the products, $\sum_{k=1}^{n}w_kx  + w_{n+1}$ is then passed through an activation function. In case of perceptron it is a threshold function returning either 1, when $\bm{x}$ belongs to $class_1$, or -1 when it belongs to the second class $class_2$. In Figure \ref*{img:percneuron}.a.
+is shown a model of a perceptron.\cite{raisi2020text}
+
+% obrazky perceptronu a neuronu vedel sebe, l jsou vrstvy
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.41]{obrazky/perceptron.png}
+    \includegraphics[scale=0.41]{obrazky/artneuron.png}
+
+    \caption{Model of a perceptron unit (a), model of an artificial neuron (b) with used operations. The letter $h$ denotes an activation function, $l$ denotes a particular layer in a multilayer network. The element on the right is sometimes called a sigmoid neuron.\cite{DIP}}
+    \label{img:percneuron}
+\end{figure}
+
+Linearly separable data are rather rare in real life problems. One possibilities is to use more perceptron units, however, the solution comes with neural networks and computing elements called artificial neurons. These elements are similar to perceptrons as they perform the same computations, but have a different attitude to processing the results. Schematics of a perceptron unit and an artificial neuron can be comapred in figure \ref*{img:percneuron}.
+The perceptron activation function is very insensitive to small signals which can lead to false results. If the activation function is changed from a hard threshold to smooth function, results are then handled more carefully. There are few commonly used smooth activation functions, such as sigmoid, hyperbolic tangent or ReLu (rectifier linear unit) function. In Figure %obrazek
+are the equations and shapes of the mentioned functions.\cite{DIP}
+
+% obrazky funkci. h je jakoznaceni aktivacni funkce
+ 
+A generic neural network is depicted in Figure \ref*{img:fullyNN}.  By layer we understand a group of neurons, usually symbolized in a column. First layer contains the input vector $\bm{x}$, then every other layer contains the activation values of neurons in this layer. The conntecting lines between each two neurons signifies a fully connected neural network, where  output of every neuron from one layer is used as input for neurons in the following layer. Values of initial layer are known and also are the last output values, all neurons (and layers) between first and last layer are therefore called hidden. When there are more then one hidden layer we talk about deep neural network. Usually the number of output neurons is equal to the number of observed classes. For the rest of this chapter we will assume that there are no loops in the network.\cite{DIP}
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.5]{obrazky/fullyNN.png}
+
+    \caption{Fully connected neural network with processes.\cite{nn1}}
+    \label{img:fullyNN}
+\end{figure}
+
+A forward pass through neural network maps the values of vector $\bm{x}$ (the input layer)  to the output layer, thus to determine the class of the vector $\bm{x}$. Steps of a forward pass can be written in matrix notation. This aproach is good for computing simultaneously with multiple input vectors and all neurons in one layer. The forward pass can be described in three steps:
+
+\begin{enumerate}
+    \item Input \begin{equation}\bm{A}(1)=\bm{X}\end{equation}
+    \item Feedforward step 
+    \begin{equation}\mbox{For } l = 2, \dots, L \qquad \bm{Z}(l) = \bm{W}(l)\bm{A}(l-1)+\bm{B}(l) \mbox{, } \bm{A}(l)=h(\bm{Z}(l))\end{equation}
+    \item Output \begin{equation}\bm{A}(L)=h(\bm{Z}(L))\end{equation}
+\end{enumerate}
+
+Matrix $\bm{W}(l)$ contains all weight vectors of all nodes in one layer $l$, $\bm{X}$ contains input vectors, $\bm{A}(l)$ contains output values from layer $l$, $\bm{B}$ is the matrix of biases, $\bm{Z}(l)$ contains the net inputs to neurons in layer $l$, $h$ is an activation function. This process of predicting works when we know the right values of weights and biases. These can be obtained by training a neural network via backpropagation.\cite{DIP}
+
+During training of neural network we work with data where it is known for each sample to which class it belongs. This means that we know the values of all otuput neurons in the net. However, we do not know the values of outputs of hidden neurons. A process called backpropagation is used to obtain information about hidden neurons. It can be devided into four steps. These steps are repeated until the value of cost function is reduced to a desired level. One repetition is called an epoch, thus the number of iterations is the number of epochs used for training the network. \cite{DIP}
+
+\begin{enumerate}
+    \item Input of data from training set.
+    \begin{equation}\bm{A}(1)=\bm{X}\end{equation}
+    \item A forward pass to classify the data into class and determine the error of misidentified classes (sometimes this error function is called cost function) based on ground thruth from the training data.
+    \begin{align}
+        \begin{split}
+            \mbox{For } l = 2, \dots, L \qquad & \bm{Z}(l) = \bm{W}(l)\bm{A}(l-1)+\bm{B}(l) \mbox{, }  \\
+            & \bm{A}(l)=h(\bm{Z}(l)) \mbox{, }  \\
+            & \bm{D}(L)=(\bm{A}(L)-\bm{R}) \odot h'(\bm{Z}(L))
+        \end{split}
+    \end{align}
+
+    \item A backward pass that sends the output error back through the network, where changes to update neuron paramters are computed.
+    \begin{equation}
+        \mbox{For } l = L - 1 , L - 2 , \dots , 2 \qquad \bm{D}(l) = ( \bm{W}^\top ( l + 1 ) \bm{D} (l + 1 ) \odot h' ( \bm{Z} (l) )
+    \end{equation}
+    \item An update of weights and biases of neurons.
+    \begin{align}
+        \begin{split}
+            \mbox{For } l = 2, \dots, L \qquad & \bm{W}(l) = \bm{W}(l) - \alpha \bm{D}(l)\bm{A}^top(l-1) \mbox{, }  \\
+            & \bm{b}(l)= \bm{b}(l) - \alpha  \sum_{k=1} ^{n_p}  {\delta}_k(l) \mbox{, }   \\
+            & \bm{D}(L)=(\bm{A}(L)-\bm{R}) \odot h'(\bm{Z}(L)) \mbox{, }  \\
+            & \bm{B}(l) \mbox{ consist of horizontally stacked vectors } \bm{b}(l) \\ 
+            & \mbox{for } n_p \mbox{ times,} \\
+            & \bm{\delta}_k(l) \mbox{ are the columns of matrix } \bm{D}(l) \mbox{,}
+        \end{split}
+    \end{align}
+\end{enumerate}
+where $\bm{W}(l)$ is the matrix of weights of all nodes in one layer $l$ for the inputs from $\bm{X}$, which contains multiple input vectors, $\bm{A}(l)$ contains output activation values from layer $l$, $\bm{B}$ are the biases, $\bm{Z}(l)$ contains the net inputs to neurons in layer $l$, $\bm{\delta}(l)$ tells us the rate of error change with respect to a change in the net input to any neuron in the network $\delta_k(l) = $, $\alpha$ is the  learning rate used in training, $h$ is an activation function.  
+$\bm{W}(1)$ and  $\bm{B}(1)$ are set as random small numbers when initializing the process.\cite{DIP}
+
+The error function for all output neurons for a single input $\bm{x}$ is defined as
+\begin{equation} E = \sum_{j=1} ^{n_L} E_j = \frac{1}{2}\sum_{j=1} ^{n_L} (r_j-a_j(L)) = \frac{1}{2} ||\bm{r} - \bm{a}(L)||^2 \end{equation}
+
+where $\bm{r}$ is a desired response for a given input $\bm{x}$, $\bm{a}(L)$ is the output of last layer in the network, in the last term is used the notation of the Euclidan vector norm. The error for all input vectors\footnote{a total  network output error} is equal to the sum of the individual errors. \cite{DIP}
+
+\section{Convolutional Neural Networks}
+
+The procedures described in the previous part dealt only with the case where the input data are in the form of a vector. In optical character recognition we work with image data that are not primarily represented as vector but as a matrix of pixel values. The matrix can be linearized from 2D to 1D when indeces are mapped gradually. However,  this approach does not consider spatial relationships that may be present among specific pixels. For examples edge or color similarities which are significant in text detection. Convolutional neural network (CNN) accepts 2D matrix as input and extracts features from the given image, these features are then fed to a classic fully connected neural network. A diagram describing  a simple CNN is in Figure \ref*{img:CNN}. We will discuss individual steps visible in this figure below.
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.4]{obrazky/CNN.png}
+
+    \caption{A simple convolutional neural network with LeNet architecture.\cite{DIP}}
+    \label{img:CNN}
+\end{figure}
+
+First, a region of of pixels of the input image, a receptive field,  is selected. This field is moved over the image with a certain step. At each position a convolution is performed and values are stored in a 2D matrix. The size of the step determines the size of the resulting matrix (for example step of size two reduces the resolution of the image by one half). To each value obtained by convolution a bias is added and then is passed through an activation function. The new matrix thus obtained is called feature map.
+
+
+
+
+
+
+
+

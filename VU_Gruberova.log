@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.4.4)  22 JUN 2022 16:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.4.4)  27 JUN 2022 12:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1338,7 +1338,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 87.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<symbol_cvut_konturova_verze_cb.pdf, id=99, 126.78566pt x 96.54268pt>
+<symbol_cvut_konturova_verze_cb.pdf, id=107, 126.78566pt x 96.54268pt>
 File: symbol_cvut_konturova_verze_cb.pdf Graphic file (type pdf)
 <use symbol_cvut_konturova_verze_cb.pdf>
 Package pdftex.def Info: symbol_cvut_konturova_verze_cb.pdf  used on input line 92.
@@ -1355,7 +1355,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/anna/Documents/skola/VU/text/symbol_cvut_konturova_verze_cb.pdf>] [2]
-<zadani.pdf, id=114, 597.55246pt x 845.07718pt>
+<zadani.pdf, id=122, 597.55246pt x 845.07718pt>
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf>
 Package pdftex.def Info: zadani.pdf  used on input line 122.
@@ -1368,7 +1368,7 @@ File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf>
 Package pdftex.def Info: zadani.pdf  used on input line 122.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-<zadani.pdf, id=118, page=1, 597.55246pt x 845.07718pt>
+<zadani.pdf, id=126, page=1, 597.55246pt x 845.07718pt>
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 1>
 Package pdftex.def Info: zadani.pdf , page1 used on input line 122.
@@ -1393,7 +1393,7 @@ Package pdftex.def Info: zadani.pdf , page1 used on input line 122.
 
 
  </home/anna/Documents/skola/VU/text/zadani.pdf>]
-<zadani.pdf, id=125, page=2, 597.55246pt x 845.07718pt>
+<zadani.pdf, id=133, page=2, 597.55246pt x 845.07718pt>
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 2>
 Package pdftex.def Info: zadani.pdf , page2 used on input line 122.
@@ -1420,10 +1420,39 @@ Overfull \hbox (186.98453pt too wide) in paragraph at lines 193--212
 \tf@toc=\write5
 \openout5 = `VU_Gruberova.toc'.
 
- [9] (/home/anna/Documents/skola/VU/text/kapitoly/ocr.tex [10
+ [9] (/home/anna/Documents/skola/VU/text/kapitoly/nn.tex [10
 
 ]
 Chapter 1.
+<obrazky/perceptron.png, id=193, 449.68pt x 257.96375pt>
+File: obrazky/perceptron.png Graphic file (type png)
+<use obrazky/perceptron.png>
+Package pdftex.def Info: obrazky/perceptron.png  used on input line 33.
+(pdftex.def)             Requested size: 184.36998pt x 105.76581pt.
+<obrazky/artneuron.png, id=195, 563.10374pt x 259.97125pt>
+File: obrazky/artneuron.png Graphic file (type png)
+<use obrazky/artneuron.png>
+Package pdftex.def Info: obrazky/artneuron.png  used on input line 34.
+(pdftex.def)             Requested size: 230.87402pt x 106.5889pt.
+[11]
+<obrazky/fullyNN.png, id=220, 853.1875pt x 514.92375pt>
+File: obrazky/fullyNN.png Graphic file (type png)
+<use obrazky/fullyNN.png>
+Package pdftex.def Info: obrazky/fullyNN.png  used on input line 50.
+(pdftex.def)             Requested size: 426.59271pt x 257.46124pt.
+ [12 </home/anna/Documents/skola/VU/text/obrazky/perceptron.png> </home/anna/Documents/skola/VU/text/obrazky/artneuron.png>] [13 </home/anna/Documents/skola/VU/text/obrazky/fullyNN.png>]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 103.
+ [14]
+<obrazky/CNN.png, id=267, 1028.84375pt x 317.185pt>
+File: obrazky/CNN.png Graphic file (type png)
+<use obrazky/CNN.png>
+Package pdftex.def Info: obrazky/CNN.png  used on input line 111.
+(pdftex.def)             Requested size: 411.53021pt x 126.87173pt.
+) (/home/anna/Documents/skola/VU/text/kapitoly/ocr.tex [15 </home/anna/Documents/skola/VU/text/obrazky/CNN.png>] [16
+
+]
+Chapter 2.
 ) (/home/anna/Documents/skola/VU/text/kapitoly/software.tex
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 5.
  (/usr/share/texmf/tex/latex/lm/omslmr.fd
@@ -1436,98 +1465,96 @@ Overfull \hbox (13.47275pt too wide) in paragraph at lines 6--7
 []\OT1/lmr/m/n/12 Datasets (types(synthetic, pho-tos, scaned doc-u-ments),problems(languages, noise,
  []
 
-[11] [12]
-Chapter 2.
-[13
+[17] [18]
+Chapter 3.
+[19
 
-] [14]
-<obrazky/easyocr_framework.jpeg, id=210, 1003.75pt x 301.125pt>
+] [20]
+<obrazky/easyocr_framework.jpeg, id=306, 1003.75pt x 301.125pt>
 File: obrazky/easyocr_framework.jpeg Graphic file (type jpg)
 <use obrazky/easyocr_framework.jpeg>
 Package pdftex.def Info: obrazky/easyocr_framework.jpeg  used on input line 82.
 (pdftex.def)             Requested size: 401.49289pt x 120.44786pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 91.
 LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 91.
  (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 
-LaTeX Warning: Citation `synth' on page 15 undefined on input line 94.
+LaTeX Warning: Citation `synth' on page 21 undefined on input line 94.
 
-[15 </home/anna/Documents/skola/VU/text/obrazky/easyocr_framework.jpeg>]) (/home/anna/Documents/skola/VU/text/kapitoly/datasets.tex [16]
-Chapter 3.
+[21 </home/anna/Documents/skola/VU/text/obrazky/easyocr_framework.jpeg>]) (/home/anna/Documents/skola/VU/text/kapitoly/datasets.tex [22]
+Chapter 4.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17
+ [23
 
 ]
-<obrazky/Dataset_ctw.png, id=257, 833.1125pt x 417.56pt>
+<obrazky/Dataset_ctw.png, id=352, 833.1125pt x 417.56pt>
 File: obrazky/Dataset_ctw.png Graphic file (type png)
 <use obrazky/Dataset_ctw.png>
 Package pdftex.def Info: obrazky/Dataset_ctw.png  used on input line 20.
 (pdftex.def)             Requested size: 333.23909pt x 167.02103pt.
- [18]
-<obrazky/Dataset_kaist.png, id=267, 849.1725pt x 417.56pt>
+ [24]
+<obrazky/Dataset_kaist.png, id=362, 849.1725pt x 417.56pt>
 File: obrazky/Dataset_kaist.png Graphic file (type png)
 <use obrazky/Dataset_kaist.png>
 Package pdftex.def Info: obrazky/Dataset_kaist.png  used on input line 36.
 (pdftex.def)             Requested size: 339.66298pt x 167.02103pt.
- [19 </home/anna/Documents/skola/VU/text/obrazky/Dataset_ctw.png> </home/anna/Documents/skola/VU/text/obrazky/Dataset_kaist.png>]
-<obrazky/Dataset_born-digital.png, id=280, 704.6325pt x 417.56pt>
+ [25 </home/anna/Documents/skola/VU/text/obrazky/Dataset_ctw.png>]
+<obrazky/Dataset_born-digital.png, id=373, 704.6325pt x 417.56pt>
 File: obrazky/Dataset_born-digital.png Graphic file (type png)
 <use obrazky/Dataset_born-digital.png>
 Package pdftex.def Info: obrazky/Dataset_born-digital.png  used on input line 49.
 (pdftex.def)             Requested size: 281.848pt x 167.02103pt.
-) (/home/anna/Documents/skola/VU/text/kapitoly/testing.tex [20 </home/anna/Documents/skola/VU/text/obrazky/Dataset_born-digital.png (PNG copy)>]
-Chapter 4.
-) (/home/anna/Documents/skola/VU/text/VU_Gruberova.bbl [21
-
-] [22
+) (/home/anna/Documents/skola/VU/text/kapitoly/testing.tex [26 </home/anna/Documents/skola/VU/text/obrazky/Dataset_kaist.png> </home/anna/Documents/skola/VU/text/obrazky/Dataset_born-digital.png (PNG copy)>] [27] [28
 
 ]
-Underfull \hbox (badness 1142) in paragraph at lines 38--42
-[]\OT1/lmr/bx/n/12 Kaist scene text database\OT1/lmr/m/n/12 .  Last ac-cessed 10 Jun. 2022.. [On-line].
+Chapter 5.
+) (/home/anna/Documents/skola/VU/text/VU_Gruberova.bbl [29] [30
+
+]
+Underfull \hbox (badness 1377) in paragraph at lines 52--56
+[]\OT1/lmr/bx/n/12 Kaist scene text database\OT1/lmr/m/n/12 .  Last ac-cessed 10 Jun. 2022. [On-line].
  []
 
-[23]
-Underfull \hbox (badness 1596) in paragraph at lines 103--108
+[31]
+Underfull \hbox (badness 1596) in paragraph at lines 120--125
 []\OT1/lmr/m/sc/12 Yuliang-Liu\OT1/lmr/m/n/12 .  \OT1/lmr/bx/n/12 Yuliang-Liu/curve-text-detector\OT1/lmr/m/n/12 .  Last ac-cessed 13
  []
 
-) [24]
+) [32]
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 259.
+(hyperref)                removing `\textasciicaron' on input line 260.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 272.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 272.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 273.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 273.
 (/home/anna/Documents/skola/VU/text/VU_Gruberova.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 272.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 272.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 273.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 273.
 Package rerunfilecheck Info: File `VU_Gruberova.out' has not changed.
-(rerunfilecheck)             Checksum: A7DA714675650272B2DC370B1197FC4E;1354.
+(rerunfilecheck)             Checksum: 9E3BC8487316A77FA0C340B41AA84CD0;1481.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 272.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 273.
  ) 
 Here is how much of TeX's memory you used:
- 30221 strings out of 494848
- 563842 string characters out of 6178431
- 639792 words of memory out of 5000000
- 32950 multiletter control sequences out of 15000+600000
+ 30293 strings out of 494848
+ 564855 string characters out of 6178431
+ 643334 words of memory out of 5000000
+ 32974 multiletter control sequences out of 15000+600000
  607132 words of font info for 91 fonts, out of 8000000 for 9000
  46 hyphenation exceptions out of 8191
  62i,18n,56p,10458b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
-Output written on /home/anna/Documents/skola/VU/text/VU_Gruberova.pdf (24 pages, 4138709 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
+Output written on /home/anna/Documents/skola/VU/text/VU_Gruberova.pdf (32 pages, 4357220 bytes).
 PDF statistics:
- 385 PDF objects out of 1000 (max. 8388607)
- 329 compressed objects within 4 object streams
- 77 named destinations out of 1000 (max. 500000)
- 252 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 521 PDF objects out of 1000 (max. 8388607)
+ 440 compressed objects within 5 object streams
+ 118 named destinations out of 1000 (max. 500000)
+ 288 words of extra memory for PDF output out of 10000 (max. 10000000)
 
