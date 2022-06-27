@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.4.4)  27 JUN 2022 12:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.4.4)  27 JUN 2022 14:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -749,24 +749,26 @@ LaTeX Info: Redefining \bm on input line 207.
 ) (/usr/share/texlive/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box41
-) (/home/anna/Documents/skola/VU/text/tex/makra.tex (/usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
+)
+\c@definition=\count141
+ (/home/anna/Documents/skola/VU/text/tex/makra.tex (/usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
  (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2018/02/21 L3 programming layer (loader) 
  (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
 Package: expl3 2018/02/21 L3 programming layer (code)
-\c_max_int=\count141
-\l_tmpa_int=\count142
-\l_tmpb_int=\count143
-\g_tmpa_int=\count144
-\g_tmpb_int=\count145
-\g__intarray_font_int=\count146
-\g__prg_map_int=\count147
-\c_log_iow=\count148
-\l_iow_line_count_int=\count149
-\l__iow_line_target_int=\count150
-\l__iow_one_indent_int=\count151
-\l__iow_indent_int=\count152
+\c_max_int=\count142
+\l_tmpa_int=\count143
+\l_tmpb_int=\count144
+\g_tmpa_int=\count145
+\g_tmpb_int=\count146
+\g__intarray_font_int=\count147
+\g__prg_map_int=\count148
+\c_log_iow=\count149
+\l_iow_line_count_int=\count150
+\l__iow_line_target_int=\count151
+\l__iow_one_indent_int=\count152
+\l__iow_indent_int=\count153
 \c_zero_dim=\dimen154
 \c_max_dim=\dimen155
 \l_tmpa_dim=\dimen156
@@ -785,77 +787,77 @@ Package: expl3 2018/02/21 L3 programming layer (code)
 \l_tmpb_muskip=\muskip15
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
-\l_keys_choice_int=\count153
-\c__fp_leading_shift_int=\count154
-\c__fp_middle_shift_int=\count155
-\c__fp_trailing_shift_int=\count156
-\c__fp_big_leading_shift_int=\count157
-\c__fp_big_middle_shift_int=\count158
-\c__fp_big_trailing_shift_int=\count159
-\c__fp_Bigg_leading_shift_int=\count160
-\c__fp_Bigg_middle_shift_int=\count161
-\c__fp_Bigg_trailing_shift_int=\count162
-\c__fp_rand_size_int=\count163
-\c__fp_rand_four_int=\count164
-\c__fp_rand_eight_int=\count165
-\l__sort_length_int=\count166
-\l__sort_min_int=\count167
-\l__sort_top_int=\count168
-\l__sort_max_int=\count169
-\l__sort_true_max_int=\count170
-\l__sort_block_int=\count171
-\l__sort_begin_int=\count172
-\l__sort_end_int=\count173
-\l__sort_A_int=\count174
-\l__sort_B_int=\count175
-\l__sort_C_int=\count176
-\l__tl_build_start_index_int=\count177
-\l__tl_build_index_int=\count178
-\l__tl_analysis_normal_int=\count179
-\l__tl_analysis_index_int=\count180
-\l__tl_analysis_nesting_int=\count181
-\l__tl_analysis_type_int=\count182
-\l__regex_internal_a_int=\count183
-\l__regex_internal_b_int=\count184
-\l__regex_internal_c_int=\count185
-\l__regex_balance_int=\count186
-\l__regex_group_level_int=\count187
-\l__regex_mode_int=\count188
-\c__regex_cs_in_class_mode_int=\count189
-\c__regex_cs_mode_int=\count190
-\l__regex_catcodes_int=\count191
-\l__regex_default_catcodes_int=\count192
-\c__regex_catcode_D_int=\count193
-\c__regex_catcode_S_int=\count194
-\c__regex_catcode_L_int=\count195
-\c__regex_catcode_O_int=\count196
-\c__regex_catcode_A_int=\count197
-\c__regex_all_catcodes_int=\count198
-\l__regex_show_lines_int=\count199
-\l__regex_min_state_int=\count266
-\l__regex_max_state_int=\count267
-\l__regex_left_state_int=\count268
-\l__regex_right_state_int=\count269
-\l__regex_capturing_group_int=\count270
-\l__regex_min_pos_int=\count271
-\l__regex_max_pos_int=\count272
-\l__regex_curr_pos_int=\count273
-\l__regex_start_pos_int=\count274
-\l__regex_success_pos_int=\count275
-\l__regex_curr_char_int=\count276
-\l__regex_curr_catcode_int=\count277
-\l__regex_last_char_int=\count278
-\l__regex_case_changed_char_int=\count279
-\l__regex_curr_state_int=\count280
-\l__regex_step_int=\count281
-\l__regex_min_active_int=\count282
-\l__regex_max_active_int=\count283
-\l__regex_replacement_csnames_int=\count284
-\l__regex_match_count_int=\count285
-\l__regex_min_submatch_int=\count286
-\l__regex_submatch_int=\count287
-\l__regex_zeroth_submatch_int=\count288
-\g__regex_trace_regex_int=\count289
+\l_keys_choice_int=\count154
+\c__fp_leading_shift_int=\count155
+\c__fp_middle_shift_int=\count156
+\c__fp_trailing_shift_int=\count157
+\c__fp_big_leading_shift_int=\count158
+\c__fp_big_middle_shift_int=\count159
+\c__fp_big_trailing_shift_int=\count160
+\c__fp_Bigg_leading_shift_int=\count161
+\c__fp_Bigg_middle_shift_int=\count162
+\c__fp_Bigg_trailing_shift_int=\count163
+\c__fp_rand_size_int=\count164
+\c__fp_rand_four_int=\count165
+\c__fp_rand_eight_int=\count166
+\l__sort_length_int=\count167
+\l__sort_min_int=\count168
+\l__sort_top_int=\count169
+\l__sort_max_int=\count170
+\l__sort_true_max_int=\count171
+\l__sort_block_int=\count172
+\l__sort_begin_int=\count173
+\l__sort_end_int=\count174
+\l__sort_A_int=\count175
+\l__sort_B_int=\count176
+\l__sort_C_int=\count177
+\l__tl_build_start_index_int=\count178
+\l__tl_build_index_int=\count179
+\l__tl_analysis_normal_int=\count180
+\l__tl_analysis_index_int=\count181
+\l__tl_analysis_nesting_int=\count182
+\l__tl_analysis_type_int=\count183
+\l__regex_internal_a_int=\count184
+\l__regex_internal_b_int=\count185
+\l__regex_internal_c_int=\count186
+\l__regex_balance_int=\count187
+\l__regex_group_level_int=\count188
+\l__regex_mode_int=\count189
+\c__regex_cs_in_class_mode_int=\count190
+\c__regex_cs_mode_int=\count191
+\l__regex_catcodes_int=\count192
+\l__regex_default_catcodes_int=\count193
+\c__regex_catcode_D_int=\count194
+\c__regex_catcode_S_int=\count195
+\c__regex_catcode_L_int=\count196
+\c__regex_catcode_O_int=\count197
+\c__regex_catcode_A_int=\count198
+\c__regex_all_catcodes_int=\count199
+\l__regex_show_lines_int=\count266
+\l__regex_min_state_int=\count267
+\l__regex_max_state_int=\count268
+\l__regex_left_state_int=\count269
+\l__regex_right_state_int=\count270
+\l__regex_capturing_group_int=\count271
+\l__regex_min_pos_int=\count272
+\l__regex_max_pos_int=\count273
+\l__regex_curr_pos_int=\count274
+\l__regex_start_pos_int=\count275
+\l__regex_success_pos_int=\count276
+\l__regex_curr_char_int=\count277
+\l__regex_curr_catcode_int=\count278
+\l__regex_last_char_int=\count279
+\l__regex_case_changed_char_int=\count280
+\l__regex_curr_state_int=\count281
+\l__regex_step_int=\count282
+\l__regex_min_active_int=\count283
+\l__regex_max_active_int=\count284
+\l__regex_replacement_csnames_int=\count285
+\l__regex_match_count_int=\count286
+\l__regex_min_submatch_int=\count287
+\l__regex_submatch_int=\count288
+\l__regex_zeroth_submatch_int=\count289
+\g__regex_trace_regex_int=\count290
 \c_empty_box=\box42
 \l_tmpa_box=\box43
 \l_tmpb_box=\box44
@@ -898,18 +900,18 @@ Package: expl3 2018/02/21 L3 programming layer (code)
 \l__coffin_scaled_width_dim=\dimen184
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count290
+\l__driver_color_stack_int=\count291
 \l__driver_tmp_box=\box57
 ))
 Package: xparse 2018/02/21 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count291
-\g__xparse_grabber_int=\count292
-\l__xparse_m_args_int=\count293
-\l__xparse_mandatory_args_int=\count294
-\l__xparse_v_nesting_int=\count295
+\l__xparse_current_arg_int=\count292
+\g__xparse_grabber_int=\count293
+\l__xparse_m_args_int=\count294
+\l__xparse_mandatory_args_int=\count295
+\l__xparse_v_nesting_int=\count296
 ) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count296
+\etb@tempcnta=\count297
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/zref-abspage.sty
 Package: zref-abspage 2016/05/21 v2.26 Module abspage for zref (HO)
  (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/zref-base.sty
@@ -918,13 +920,13 @@ Package zref Info: New property list: main on input line 759.
 Package zref Info: New property: default on input line 760.
 Package zref Info: New property: page on input line 761.
 )
-\c@abspage=\count297
+\c@abspage=\count298
 Package zref Info: New property: abspage on input line 62.
 ) (/usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
 \mdf@templength=\skip63
-\c@mdf@globalstyle@cnt=\count298
+\c@mdf@globalstyle@cnt=\count299
 \mdf@skipabove@length=\skip64
 \mdf@skipbelow@length=\skip65
 \mdf@leftmargin@length=\skip66
@@ -999,7 +1001,7 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@horizontalspaceofbox=\skip127
 \mdfsubtitleheight=\skip128
 \mdfsubsubtitleheight=\skip129
-\c@mdfcountframes=\count299
+\c@mdfcountframes=\count300
 
 ****** mdframed patching \endmdf@trivlist
 
@@ -1015,10 +1017,10 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 . 
 . Defining command \mdtheorem with sig. ' O{} m o m o ' on line 701.
 .................................................
-\mdf@envdepth=\count300
-\c@mdf@env@i=\count301
-\c@mdf@env@ii=\count302
-\c@mdf@zref@counter=\count303
+\mdf@envdepth=\count301
+\c@mdf@env@i=\count302
+\c@mdf@env@ii=\count303
+\c@mdf@zref@counter=\count304
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )) (/usr/share/texlive/texmf-dist/tex/latex/todonotes/todonotes.sty
 Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
@@ -1029,7 +1031,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks31
 \XKV@tempa@toks=\toks32
 )
-\XKV@depth=\count304
+\XKV@depth=\count305
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks33
@@ -1061,10 +1063,10 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 \pgf@yc=\dimen194
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count305
-\c@pgf@countb=\count306
-\c@pgf@countc=\count307
-\c@pgf@countd=\count308
+\c@pgf@counta=\count306
+\c@pgf@countb=\count307
+\c@pgf@countc=\count308
+\c@pgf@countd=\count309
 \t@pgf@toka=\toks37
 \t@pgf@tokb=\toks38
 \t@pgf@tokc=\toks39
@@ -1078,21 +1080,21 @@ File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 ))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count309
-\pgfsyssoftpath@bigbuffer@items=\count310
+\pgfsyssoftpath@smallbuffer@items=\count310
+\pgfsyssoftpath@bigbuffer@items=\count311
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
 )) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen195
-\pgfmath@count=\count311
+\pgfmath@count=\count312
 \pgfmath@box=\box64
 \pgfmath@toks=\toks40
 \pgfmath@stack@operand=\toks41
 \pgfmath@stack@operation=\toks42
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count312
+\c@pgfmathroundto@lastzeros=\count313
 )) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@picminx=\dimen196
@@ -1122,7 +1124,7 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box65
 \pgf@hbox=\box66
 \pgf@layerbox@main=\box67
-\pgf@picture@serial@count=\count313
+\pgf@picture@serial@count=\count314
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
 \pgflinewidth=\dimen270
@@ -1143,7 +1145,7 @@ File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen275
-\pgf@sys@shading@range@num=\count314
+\pgf@sys@shading@range@num=\count315
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -1177,7 +1179,7 @@ Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count315
+\pgf@plot@mark@count=\count316
 \pgfplotmarksize=\dimen280
 )
 \tikz@lastx=\dimen281
@@ -1190,55 +1192,55 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box71
 \tikz@tempbox=\box72
 \tikz@tempbox@bg=\box73
-\tikztreelevel=\count316
-\tikznumberofchildren=\count317
-\tikznumberofcurrentchild=\count318
-\tikz@fig@count=\count319
+\tikztreelevel=\count317
+\tikznumberofchildren=\count318
+\tikznumberofcurrentchild=\count319
+\tikz@fig@count=\count320
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count320
-\pgfmatrixcurrentcolumn=\count321
-\pgf@matrix@numberofcolumns=\count322
+\pgfmatrixcurrentrow=\count321
+\pgfmatrixcurrentcolumn=\count322
+\pgf@matrix@numberofcolumns=\count323
 )
-\tikz@expandcount=\count323
+\tikz@expandcount=\count324
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 ))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 )
-\c@@todonotes@numberoftodonotes=\count324
+\c@@todonotes@numberoftodonotes=\count325
 ) (/home/anna/Documents/skola/VU/text/VU_Gruberova.aux)
 \openout1 = `VU_Gruberova.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 76.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 78.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count325
+\scratchcounter=\count326
 \scratchdimen=\dimen287
 \scratchbox=\box74
-\nofMPsegments=\count326
-\nofMParguments=\count327
+\nofMPsegments=\count327
+\nofMParguments=\count328
 \everyMPshowfont=\toks45
-\MPscratchCnt=\count328
+\MPscratchCnt=\count329
 \MPscratchDim=\dimen288
-\MPnumerator=\count329
-\makeMPintoPDFobject=\count330
+\MPnumerator=\count330
+\makeMPintoPDFobject=\count331
 \everyMPtoPDFconversion=\toks46
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1295,60 +1297,60 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-Package hyperref Info: Link coloring OFF on input line 76.
+Package hyperref Info: Link coloring OFF on input line 78.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count331
+\c@section@level=\count332
 )
-LaTeX Info: Redefining \ref on input line 76.
-LaTeX Info: Redefining \pageref on input line 76.
-LaTeX Info: Redefining \nameref on input line 76.
+LaTeX Info: Redefining \ref on input line 78.
+LaTeX Info: Redefining \pageref on input line 78.
+LaTeX Info: Redefining \nameref on input line 78.
  (/home/anna/Documents/skola/VU/text/VU_Gruberova.out) (/home/anna/Documents/skola/VU/text/VU_Gruberova.out)
 \@outlinefile=\write4
 \openout4 = `VU_Gruberova.out'.
 
-\c@lstlisting=\count332
+\c@lstlisting=\count333
  ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 87.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 89.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 87.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 89.
  (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 87.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 89.
  (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 87.
+(Font)              <12> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 87.
+(Font)              <8> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 87.
-LaTeX Font Info:    Try loading font information for U+msa on input line 87.
+(Font)              <6> on input line 89.
+LaTeX Font Info:    Try loading font information for U+msa on input line 89.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 87.
+LaTeX Font Info:    Try loading font information for U+msb on input line 89.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 <symbol_cvut_konturova_verze_cb.pdf, id=107, 126.78566pt x 96.54268pt>
 File: symbol_cvut_konturova_verze_cb.pdf Graphic file (type pdf)
 <use symbol_cvut_konturova_verze_cb.pdf>
-Package pdftex.def Info: symbol_cvut_konturova_verze_cb.pdf  used on input line 92.
+Package pdftex.def Info: symbol_cvut_konturova_verze_cb.pdf  used on input line 94.
 (pdftex.def)             Requested size: 126.78534pt x 96.54243pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 103.
+(Font)              <14.4> on input line 105.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 103.
+(Font)              <10> on input line 105.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 103.
+(Font)              <7> on input line 105.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1358,36 +1360,36 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <zadani.pdf, id=122, 597.55246pt x 845.07718pt>
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf>
-Package pdftex.def Info: zadani.pdf  used on input line 122.
+Package pdftex.def Info: zadani.pdf  used on input line 124.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf>
-Package pdftex.def Info: zadani.pdf  used on input line 122.
+Package pdftex.def Info: zadani.pdf  used on input line 124.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf>
-Package pdftex.def Info: zadani.pdf  used on input line 122.
+Package pdftex.def Info: zadani.pdf  used on input line 124.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 <zadani.pdf, id=126, page=1, 597.55246pt x 845.07718pt>
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 1>
-Package pdftex.def Info: zadani.pdf , page1 used on input line 122.
+Package pdftex.def Info: zadani.pdf , page1 used on input line 124.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 1>
-Package pdftex.def Info: zadani.pdf , page1 used on input line 122.
+Package pdftex.def Info: zadani.pdf , page1 used on input line 124.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 1>
-Package pdftex.def Info: zadani.pdf , page1 used on input line 122.
+Package pdftex.def Info: zadani.pdf , page1 used on input line 124.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 1>
-Package pdftex.def Info: zadani.pdf , page1 used on input line 122.
+Package pdftex.def Info: zadani.pdf , page1 used on input line 124.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 1>
-Package pdftex.def Info: zadani.pdf , page1 used on input line 122.
+Package pdftex.def Info: zadani.pdf , page1 used on input line 124.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
  [3
 
@@ -1396,21 +1398,21 @@ Package pdftex.def Info: zadani.pdf , page1 used on input line 122.
 <zadani.pdf, id=133, page=2, 597.55246pt x 845.07718pt>
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 2>
-Package pdftex.def Info: zadani.pdf , page2 used on input line 122.
+Package pdftex.def Info: zadani.pdf , page2 used on input line 124.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 2>
-Package pdftex.def Info: zadani.pdf , page2 used on input line 122.
+Package pdftex.def Info: zadani.pdf , page2 used on input line 124.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 2>
-Package pdftex.def Info: zadani.pdf , page2 used on input line 122.
+Package pdftex.def Info: zadani.pdf , page2 used on input line 124.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
  [4 </home/anna/Documents/skola/VU/text/zadani.pdf>] [5] [6]
 \odstavecbox=\box76
 \vyskaodstavce=\skip130
 
-Overfull \hbox (186.98453pt too wide) in paragraph at lines 193--212
+Overfull \hbox (186.98453pt too wide) in paragraph at lines 195--214
 [][] 
  []
 
@@ -1444,14 +1446,12 @@ Package pdftex.def Info: obrazky/fullyNN.png  used on input line 50.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 103.
  [14]
-<obrazky/CNN.png, id=267, 1028.84375pt x 317.185pt>
+<obrazky/CNN.png, id=268, 1028.84375pt x 394.47375pt>
 File: obrazky/CNN.png Graphic file (type png)
 <use obrazky/CNN.png>
 Package pdftex.def Info: obrazky/CNN.png  used on input line 111.
-(pdftex.def)             Requested size: 411.53021pt x 126.87173pt.
-) (/home/anna/Documents/skola/VU/text/kapitoly/ocr.tex [15 </home/anna/Documents/skola/VU/text/obrazky/CNN.png>] [16
-
-]
+(pdftex.def)             Requested size: 411.53021pt x 157.7867pt.
+ [15 </home/anna/Documents/skola/VU/text/obrazky/CNN.png>]) (/home/anna/Documents/skola/VU/text/kapitoly/ocr.tex [16]
 Chapter 2.
 ) (/home/anna/Documents/skola/VU/text/kapitoly/software.tex
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 5.
@@ -1465,12 +1465,14 @@ Overfull \hbox (13.47275pt too wide) in paragraph at lines 6--7
 []\OT1/lmr/m/n/12 Datasets (types(synthetic, pho-tos, scaned doc-u-ments),problems(languages, noise,
  []
 
-[17] [18]
+[17
+
+] [18]
 Chapter 3.
 [19
 
 ] [20]
-<obrazky/easyocr_framework.jpeg, id=306, 1003.75pt x 301.125pt>
+<obrazky/easyocr_framework.jpeg, id=314, 1003.75pt x 301.125pt>
 File: obrazky/easyocr_framework.jpeg Graphic file (type jpg)
 <use obrazky/easyocr_framework.jpeg>
 Package pdftex.def Info: obrazky/easyocr_framework.jpeg  used on input line 82.
@@ -1490,19 +1492,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [23
 
 ]
-<obrazky/Dataset_ctw.png, id=352, 833.1125pt x 417.56pt>
+<obrazky/Dataset_ctw.png, id=359, 833.1125pt x 417.56pt>
 File: obrazky/Dataset_ctw.png Graphic file (type png)
 <use obrazky/Dataset_ctw.png>
 Package pdftex.def Info: obrazky/Dataset_ctw.png  used on input line 20.
 (pdftex.def)             Requested size: 333.23909pt x 167.02103pt.
  [24]
-<obrazky/Dataset_kaist.png, id=362, 849.1725pt x 417.56pt>
+<obrazky/Dataset_kaist.png, id=369, 849.1725pt x 417.56pt>
 File: obrazky/Dataset_kaist.png Graphic file (type png)
 <use obrazky/Dataset_kaist.png>
 Package pdftex.def Info: obrazky/Dataset_kaist.png  used on input line 36.
 (pdftex.def)             Requested size: 339.66298pt x 167.02103pt.
  [25 </home/anna/Documents/skola/VU/text/obrazky/Dataset_ctw.png>]
-<obrazky/Dataset_born-digital.png, id=373, 704.6325pt x 417.56pt>
+<obrazky/Dataset_born-digital.png, id=380, 704.6325pt x 417.56pt>
 File: obrazky/Dataset_born-digital.png Graphic file (type png)
 <use obrazky/Dataset_born-digital.png>
 Package pdftex.def Info: obrazky/Dataset_born-digital.png  used on input line 49.
@@ -1519,7 +1521,7 @@ Underfull \hbox (badness 1377) in paragraph at lines 52--56
  []
 
 [31]
-Underfull \hbox (badness 1596) in paragraph at lines 120--125
+Underfull \hbox (badness 1596) in paragraph at lines 127--132
 []\OT1/lmr/m/sc/12 Yuliang-Liu\OT1/lmr/m/n/12 .  \OT1/lmr/bx/n/12 Yuliang-Liu/curve-text-detector\OT1/lmr/m/n/12 .  Last ac-cessed 13
  []
 
@@ -1527,34 +1529,34 @@ Underfull \hbox (badness 1596) in paragraph at lines 120--125
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 260.
+(hyperref)                removing `\textasciicaron' on input line 262.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 273.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 273.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 275.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 275.
 (/home/anna/Documents/skola/VU/text/VU_Gruberova.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 273.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 273.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 275.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 275.
 Package rerunfilecheck Info: File `VU_Gruberova.out' has not changed.
 (rerunfilecheck)             Checksum: 9E3BC8487316A77FA0C340B41AA84CD0;1481.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 273.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 275.
  ) 
 Here is how much of TeX's memory you used:
- 30293 strings out of 494848
- 564855 string characters out of 6178431
- 643334 words of memory out of 5000000
- 32974 multiletter control sequences out of 15000+600000
+ 30304 strings out of 494848
+ 564990 string characters out of 6178431
+ 643421 words of memory out of 5000000
+ 32982 multiletter control sequences out of 15000+600000
  607132 words of font info for 91 fonts, out of 8000000 for 9000
  46 hyphenation exceptions out of 8191
  62i,18n,56p,10458b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
-Output written on /home/anna/Documents/skola/VU/text/VU_Gruberova.pdf (32 pages, 4357220 bytes).
+Output written on /home/anna/Documents/skola/VU/text/VU_Gruberova.pdf (32 pages, 4370582 bytes).
 PDF statistics:
- 521 PDF objects out of 1000 (max. 8388607)
- 440 compressed objects within 5 object streams
- 118 named destinations out of 1000 (max. 500000)
+ 530 PDF objects out of 1000 (max. 8388607)
+ 449 compressed objects within 5 object streams
+ 121 named destinations out of 1000 (max. 500000)
  288 words of extra memory for PDF output out of 10000 (max. 10000000)
 

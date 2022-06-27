@@ -104,17 +104,32 @@ where $\bm{r}$ is a desired response for a given input $\bm{x}$, $\bm{a}(L)$ is 
 
 \section{Convolutional Neural Networks}
 
-The procedures described in the previous part dealt only with the case where the input data are in the form of a vector. In optical character recognition we work with image data that are not primarily represented as vector but as a matrix of pixel values. The matrix can be linearized from 2D to 1D when indeces are mapped gradually. However,  this approach does not consider spatial relationships that may be present among specific pixels. For examples edge or color similarities which are significant in text detection. Convolutional neural network (CNN) accepts 2D matrix as input and extracts features from the given image, these features are then fed to a classic fully connected neural network. A diagram describing  a simple CNN is in Figure \ref*{img:CNN}. We will discuss individual steps visible in this figure below.
+The procedures described in the previous part dealt only with the case where the input data are in the form of a vector. In optical character recognition we work with image data that are not primarily represented as vector but as a matrix of pixel values. The matrix can be linearized from 2D to 1D when indeces are mapped gradually. However,  this approach does not consider spatial relationships that may be present among specific pixels. For examples edge or color similarities which are significant in text detection. Convolutional neural network (CNN) accepts 2D matrix as input and extracts features from the given image, these features are then fed to a classic fully connected neural network. A diagram describing  a simple CNN is in Figure \ref*{img:CNN}. We will discuss individual steps visible in this figure below.\cite{DIP}
 
 \begin{figure}[hbtp]
     \centering
     \includegraphics[scale=0.4]{obrazky/CNN.png}
 
-    \caption{A simple convolutional neural network with LeNet architecture.\cite{DIP}}
+    \caption{A simple CNN with LeNet architecture.\cite[altered]{DIP}}
     \label{img:CNN}
 \end{figure}
 
-First, a region of of pixels of the input image, a receptive field,  is selected. This field is moved over the image with a certain step. At each position a convolution is performed and values are stored in a 2D matrix. The size of the step determines the size of the resulting matrix (for example step of size two reduces the resolution of the image by one half). To each value obtained by convolution a bias is added and then is passed through an activation function. The new matrix thus obtained is called feature map.
+First, a region of of pixels of the input image, a receptive field,  is selected. This field is moved over the image with a certain step. At each position a convolution is performed and values are stored in a 2D matrix. The size of the step determines the size of the resulting matrix (for example step of size two reduces the resolution of the image by one half). To each value obtained by convolution a bias is added and then is passed through an activation function. The new matrix thus obtained is called feature map. A single feature map is generated with same weights in convolution kernel and same bias, because this way a same feature is detected through the image. For another feature map different weight and bias is used. A group of feature maps in a CNN are called a convolutional layer. After the convolution step pooling is performed (sometimes called subsampling).\cite{DIP}
+
+\begin{definition}
+    Let $f(x,y)$ be in image and $w$ a kernel of size $m \times n$. Convolution with kernel $w$ is denoted as 
+    $(w\star f)$     and defined as
+    \begin{equation}
+        (w\star f)(x,y) = \sum_{u=-k} ^{k} \sum_{v=-l} ^{l} w(u,v) f(x-u, y-v).
+    \end{equation}
+\end{definition}
+
+Pooling is responsible for reduction of output dimension and causes a translational invariance. It is done by dividing a feature map into $2 \times 2 $ adjacent (non-overlapping) regions, the four values in this region are replaced by only one value. Common pooling methods are: average pooling, the values in region are replaced by the average of the values; max pooling, the values are replaced by the maximal value from the region; $L_2$ pooling, the final value is obtained by computing the Euclidan norm of the four values. We obtain one matrix for each feature map from the convolution step. The bunch of matrices from the pooling step is called a pooling layer. The result of the last pooling layer is vectorized and sent to the fully connected neural network. The training procedure of the CNN is analogical to the training of a fully connected neural network. However, convolution is used instead of matrix multiplication and the output from fully connected network has to be converted into 2D matrix.\cite{DIP}
+
+% napsat definici konvoluce Convolution!!!
+
+
+
 
 
 

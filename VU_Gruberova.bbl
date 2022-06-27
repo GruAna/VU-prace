@@ -77,6 +77,13 @@
 \newblock Available from:
   \url{https://www.robots.ox.ac.uk/~vgg/data/text/#sec-synth}.
 
+\bibitem{ocrhist}
+{\bf Technology | The technology for converting books and documents into
+  electronic files.}
+\newblock Last accessed 27 Jul. 2022. [Online].
+\newblock Available from:
+  \url{https://www.abbyy.co.il/?categoryId=72050&amp;itemId=168963}.
+
 \bibitem{svtp}
 {\sc T.~Phan, P.~Shivakumara, S.~Tian, and Ch.~L. Tan}.
 \newblock {\bf Recognizing Text with Perspective Distortion in Natural Scenes}.
