@@ -1,7 +1,20 @@
 \chapter{OCR}
 
-Optical character recognition (OCR) is a branch of digital image processing. Its aim is to detect and convert a text on an image into a machine-readable text. This discipline can be devided into three similar, yet different tasks: reading text on scanned printed documents, reading of handwritten texts and scene text recognition (also called text in the wild). The first task is very well developed, first successful results date back to the second half twentieth and were used in commercial sector \cite{ocrhist}. If we assume the handwritten text is on scanned single colored paper or created using a digital pen and that it was written legibly and without omitting letters in words due to fast writing, then recognition is similar to printed documents. The last task -- scene text recognition (STR) is the most challenging one. 
+Optical character recognition (OCR) is a branch of digital image processing. Its aim is to detect and convert a text on an image into a machine-readable text. This discipline can be divided into three similar, yet different tasks: reading text on scanned printed documents, reading of handwritten texts and scene text recognition (also called text in the wild). The first task is very well developed, first successful results date back to the second half twentieth and were used in commercial sector \cite{ocrhist}. If we assume the handwritten text is on scanned single colored paper or created using a digital pen and that it was written legibly and without omitting letters in words due to fast writing, then recognition is similar to printed documents. The last task -- scene text recognition (STR) is the most challenging one. 
+The main factors that make STR a more difficult task are listed below.
+
+\begin{itemize}
+    \item Complex background: in scanned documents background is white and without  a distinctive pattern (omitting lines is an easy preprocessing task), while in scene images there are objects that can be mistaken for letters.
+    \item Text diversity: text can appear in various colors, fonts, sizes or orientations.
+    \item Distortions: photographs often suffer from noise due to bad illumination, also from motion or out-of-focus blurring, perspective distortion due to the capturing angle. Other problems come from the insufficient resolution that might be set on the camera.
+\end{itemize}
+
+Apart from these main categories of image text data, there exist born-digital images (e. g. web advertisements or any cases where text was digitally added on images or videos) and poster/newspaper images. These share with scene images the diversity of text but are free from visual distortions caused by cameras. Examples of different image data are in the chapter \ref*{ch:datasets}. 
+
+Digital reading of a text on an image consists of two main tasks -- text detection and text recognition. Both processes are described in the next sections.
 
 \section{Text detection}
+
+
 
 \section{Text recognition}

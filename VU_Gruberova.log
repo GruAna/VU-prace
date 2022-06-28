@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.4.4)  27 JUN 2022 14:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.4.4)  28 JUN 2022 13:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1422,52 +1422,51 @@ Overfull \hbox (186.98453pt too wide) in paragraph at lines 195--214
 \tf@toc=\write5
 \openout5 = `VU_Gruberova.toc'.
 
- [9] (/home/anna/Documents/skola/VU/text/kapitoly/nn.tex [10
+ [9] (/home/anna/Documents/skola/VU/text/kapitoly/ocr.tex [10
 
 ]
 Chapter 1.
-<obrazky/perceptron.png, id=193, 449.68pt x 257.96375pt>
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 7.
+(/usr/share/texmf/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 7.
+) (/home/anna/Documents/skola/VU/text/kapitoly/nn.tex [11] [12]
+Chapter 2.
+<obrazky/perceptron.png, id=204, 449.68pt x 257.96375pt>
 File: obrazky/perceptron.png Graphic file (type png)
 <use obrazky/perceptron.png>
 Package pdftex.def Info: obrazky/perceptron.png  used on input line 33.
 (pdftex.def)             Requested size: 184.36998pt x 105.76581pt.
-<obrazky/artneuron.png, id=195, 563.10374pt x 259.97125pt>
+<obrazky/artneuron.png, id=206, 563.10374pt x 259.97125pt>
 File: obrazky/artneuron.png Graphic file (type png)
 <use obrazky/artneuron.png>
 Package pdftex.def Info: obrazky/artneuron.png  used on input line 34.
 (pdftex.def)             Requested size: 230.87402pt x 106.5889pt.
-[11]
-<obrazky/fullyNN.png, id=220, 853.1875pt x 514.92375pt>
+[13
+
+]
+<obrazky/fullyNN.png, id=231, 853.1875pt x 514.92375pt>
 File: obrazky/fullyNN.png Graphic file (type png)
 <use obrazky/fullyNN.png>
 Package pdftex.def Info: obrazky/fullyNN.png  used on input line 50.
 (pdftex.def)             Requested size: 426.59271pt x 257.46124pt.
- [12 </home/anna/Documents/skola/VU/text/obrazky/perceptron.png> </home/anna/Documents/skola/VU/text/obrazky/artneuron.png>] [13 </home/anna/Documents/skola/VU/text/obrazky/fullyNN.png>]
+ [14 </home/anna/Documents/skola/VU/text/obrazky/perceptron.png> </home/anna/Documents/skola/VU/text/obrazky/artneuron.png>] [15 </home/anna/Documents/skola/VU/text/obrazky/fullyNN.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 103.
- [14]
-<obrazky/CNN.png, id=268, 1028.84375pt x 394.47375pt>
+ [16]
+<obrazky/CNN.png, id=278, 1028.84375pt x 394.47375pt>
 File: obrazky/CNN.png Graphic file (type png)
 <use obrazky/CNN.png>
 Package pdftex.def Info: obrazky/CNN.png  used on input line 111.
 (pdftex.def)             Requested size: 411.53021pt x 157.7867pt.
- [15 </home/anna/Documents/skola/VU/text/obrazky/CNN.png>]) (/home/anna/Documents/skola/VU/text/kapitoly/ocr.tex [16]
-Chapter 2.
-) (/home/anna/Documents/skola/VU/text/kapitoly/software.tex
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 5.
- (/usr/share/texmf/tex/latex/lm/omslmr.fd
-File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 5.
-
+ [17 </home/anna/Documents/skola/VU/text/obrazky/CNN.png>]) (/home/anna/Documents/skola/VU/text/kapitoly/software.tex
 Overfull \hbox (13.47275pt too wide) in paragraph at lines 6--7
 []\OT1/lmr/m/n/12 Datasets (types(synthetic, pho-tos, scaned doc-u-ments),problems(languages, noise,
  []
 
-[17
-
-] [18]
+[18]
 Chapter 3.
 [19
 
@@ -1537,7 +1536,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 275.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 275.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 275.
 Package rerunfilecheck Info: File `VU_Gruberova.out' has not changed.
-(rerunfilecheck)             Checksum: 9E3BC8487316A77FA0C340B41AA84CD0;1481.
+(rerunfilecheck)             Checksum: 8531135D54D32C1FD477B11DB4312A4D;1481.
 
 
 LaTeX Warning: There were undefined references.
@@ -1545,15 +1544,15 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 275.
  ) 
 Here is how much of TeX's memory you used:
- 30304 strings out of 494848
- 564990 string characters out of 6178431
- 643421 words of memory out of 5000000
- 32982 multiletter control sequences out of 15000+600000
+ 30305 strings out of 494848
+ 565003 string characters out of 6178431
+ 643453 words of memory out of 5000000
+ 32983 multiletter control sequences out of 15000+600000
  607132 words of font info for 91 fonts, out of 8000000 for 9000
  46 hyphenation exceptions out of 8191
  62i,18n,56p,10458b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rmsc.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
-Output written on /home/anna/Documents/skola/VU/text/VU_Gruberova.pdf (32 pages, 4370582 bytes).
+Output written on /home/anna/Documents/skola/VU/text/VU_Gruberova.pdf (32 pages, 4371323 bytes).
 PDF statistics:
  530 PDF objects out of 1000 (max. 8388607)
  449 compressed objects within 5 object streams
