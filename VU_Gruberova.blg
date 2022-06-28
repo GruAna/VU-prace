@@ -5,45 +5,45 @@ The style file: PhDbiblio-url.bst
 Database file #1: sources.bib
 Warning--I didn't find a database entry for "synth"
 Warning--empty journal in svtp
-You've used 22 entries,
+You've used 28 entries,
             2776 wiz_defined-function locations,
-            728 strings with 8130 characters,
-and the built_in function-call counts, 7363 in all, are:
-= -- 760
-> -- 205
-< -- 2
-+ -- 91
-- -- 66
-* -- 364
-:= -- 981
-add.period$ -- 72
-call.type$ -- 22
-change.case$ -- 87
+            762 strings with 9216 characters,
+and the built_in function-call counts, 10687 in all, are:
+= -- 1089
+> -- 388
+< -- 4
++ -- 163
+- -- 132
+* -- 610
+:= -- 1480
+add.period$ -- 90
+call.type$ -- 28
+change.case$ -- 132
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 269
-empty$ -- 791
-format.name$ -- 66
-if$ -- 1888
+cite$ -- 29
+duplicate$ -- 380
+empty$ -- 1044
+format.name$ -- 132
+if$ -- 2649
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 7
-newline$ -- 119
-num.names$ -- 24
-pop$ -- 277
+int.to.str$ -- 28
+missing$ -- 13
+newline$ -- 149
+num.names$ -- 36
+pop$ -- 353
 preamble$ -- 1
-purify$ -- 87
+purify$ -- 132
 quote$ -- 0
-skip$ -- 493
+skip$ -- 659
 stack$ -- 0
-substring$ -- 206
-swap$ -- 76
-text.length$ -- 2
+substring$ -- 363
+swap$ -- 121
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 86
+type$ -- 110
 warning$ -- 1
-while$ -- 31
-width$ -- 24
-write$ -- 220
+while$ -- 53
+width$ -- 30
+write$ -- 284
 (There were 2 warnings)

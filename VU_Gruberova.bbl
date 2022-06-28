@@ -25,6 +25,11 @@
 \newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
   Pattern Recognition}, pages 9365--9374, 2019.
 
+\bibitem{chen2021text}
+{\sc X.~Chen, L.~Jin, Y.~Zhu, C.~Luo, and T.~Wang}.
+\newblock {\bf Text recognition in the wild: A survey}.
+\newblock {\em ACM Computing Surveys (CSUR)}, {\bf 54}(2):1--35, 2021.
+
 \bibitem{coco}
 {\bf COCO-Text V2.0}.
 \newblock Last accessed 22 Jun. 2022. [Online].
@@ -64,6 +69,24 @@
 {\bf keras-OCR}.
 \newblock Last accessed 29 Apr. 2022. [Online].
 \newblock Available from: \url{https://pypi.org/project/keras-ocr/}.
+
+\bibitem{liao2018textboxes++}
+{\sc M.~Liao, B.~Shi, and X.~Bai}.
+\newblock {\bf Textboxes++: A single-shot oriented scene text detector}.
+\newblock {\em IEEE transactions on image processing}, {\bf 27}(8):3676--3690,
+  2018.
+
+\bibitem{liao2017textboxes}
+{\sc M.~Liao, B.~Shi, X.~Bai, X.~Wang, and W.~Liu}.
+\newblock {\bf Textboxes: A fast text detector with a single deep neural
+  network}.
+\newblock In {\em Thirty-first AAAI conference on artificial intelligence},
+  2017.
+
+\bibitem{liu2019pyramid}
+{\sc Jingchao Liu, Xuebo Liu, Jie Sheng, Ding Liang, Xin Li, and Qingjie Liu}.
+\newblock {\bf Pyramid mask text detector}.
+\newblock {\em arXiv preprint arXiv:1903.11800}, 2019.
 
 \bibitem{ctw2}
 {\sc Y.~Liu, L.~Jin, S.~Zhang, C.~Luo, and S.~Zhang}.
@@ -123,11 +146,24 @@
 {\bf Vision AI | derive image insights via ML | cloud vision API google cloud}.
 \newblock Available from: \url{https://cloud.google.com/vision/. [Online].}
 
+\bibitem{wang2019shape}
+{\sc W.~Wang, E.~Xie, X.~Li, W.~Hou, T.~Lu, G.~Yu, and S.~Shao}.
+\newblock {\bf Shape robust text detection with progressive scale expansion
+  network}.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
+  Pattern Recognition}, pages 9336--9345, 2019.
+
 \bibitem{ctw}
 {\sc Yuliang-Liu}.
 \newblock {\bf Yuliang-Liu/curve-text-detector}.
 \newblock Last accessed 13 Jun. 2022. [Online].
 \newblock Available from:
   \url{https://github.com/Yuliang-Liu/Curve-Text-Detector}.
+
+\bibitem{zhou2017east}
+{\sc X.~Zhou, C.~Yao, H.~Wen, Y.~Wang, S.~Zhou, W.~He, and J.~Liang}.
+\newblock {\bf East: an efficient and accurate scene text detector}.
+\newblock In {\em Proceedings of the IEEE conference on Computer Vision and
+  Pattern Recognition}, pages 5551--5560, 2017.
 
 \end{thebibliography}

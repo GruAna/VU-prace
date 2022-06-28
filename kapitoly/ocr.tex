@@ -1,7 +1,7 @@
-\chapter{OCR}
+\chapter{Optical Character Recognition}
 
 Optical character recognition (OCR) is a branch of digital image processing. Its aim is to detect and convert a text on an image into a machine-readable text. This discipline can be divided into three similar, yet different tasks: reading text on scanned printed documents, reading of handwritten texts and scene text recognition (also called text in the wild). The first task is very well developed, first successful results date back to the second half twentieth and were used in commercial sector \cite{ocrhist}. If we assume the handwritten text is on scanned single colored paper or created using a digital pen and that it was written legibly and without omitting letters in words due to fast writing, then recognition is similar to printed documents. The last task -- scene text recognition (STR) is the most challenging one. 
-The main factors that make STR a more difficult task are listed below.
+The main factors that make STR a more difficult task are listed below.\cite{chen2021text, raisi2020text}
 
 \begin{itemize}
     \item Complex background: in scanned documents background is white and without  a distinctive pattern (omitting lines is an easy preprocessing task), while in scene images there are objects that can be mistaken for letters.
@@ -9,12 +9,25 @@ The main factors that make STR a more difficult task are listed below.
     \item Distortions: photographs often suffer from noise due to bad illumination, also from motion or out-of-focus blurring, perspective distortion due to the capturing angle. Other problems come from the insufficient resolution that might be set on the camera.
 \end{itemize}
 
-Apart from these main categories of image text data, there exist born-digital images (e. g. web advertisements or any cases where text was digitally added on images or videos) and poster/newspaper images. These share with scene images the diversity of text but are free from visual distortions caused by cameras. Examples of different image data are in the chapter \ref*{ch:datasets}. 
+Apart from these main categories of image text data there exist born-digital images (e. g. web advertisements or any cases where text was digitally added on images or videos) and poster/newspaper images. These share with scene images the diversity of text but are free from visual distortions caused by cameras. Examples of different image data are in the chapter \ref*{ch:datasets}. 
 
 Digital reading of a text on an image consists of two main tasks -- text detection and text recognition. Both processes are described in the next sections.
 
-\section{Text detection}
+\section{Text Detection}
 
+The first phase of digital text processing is to detect the text regions on the image. The goal is to determine a bounding box surrounding a group of letters -- usually one word, but it can be also a text line consisting of few words. This box may be a bounding rectangle or a polygon which is more accurate for curved or skewed text. It is ideal when the bounding box contains the letters with as little background as possible. % When text candidates are found they have to be verified.
+Methods used for text detection can be categorizes into formerly used classical machine learning methods and deep learning methods. 
 
+\subsection*{Classical Methods}
 
-\section{Text recognition}
+Classical methods include connected component methods and sliding window methods. In the latter method an image is scanned with a moving window of certain size. In each position of the window features are computed, for example, standard deviation or histogram of oriented gradients and are compared with values known from training images with text.    This approach does not have a good response for scene images, because many objects can be misunderstood as letters and vice versa. Connected component based methods extract from the image features like color, texture, edges or corners. Then they are classified either as text or non-text by a traditional classifier such as support vector machines, nearest neighbor or random forest. Detected letters are then combine into words or text lines if desired \cite{raisi2020text}. Classical methods are generally not very successful with scene images where most of the observed values are negatively influenced by distorting factors listed above. In recent years the development of neural networks enabled a new, efficient way of detecting text in images.
+
+\subsection*{Deep Learning Methods}
+
+Deep learning methods are faster, more precise than the classical methods. They are automated and need less of human assistance therefore they can process bigger amounts of data. Another advantage is that algorithms can be generalized and used for other image detection tasks. Most of the state-of-the-art methods utilize convolutional neural network (CNN). Deep learning methods can be split into bounding-box regression based, segmentation based and hybrid methods according to the survey of Raisi et al. \cite{raisi2020text}.
+
+Bounding-box regression based methods treat text as an object and predict directly the bounding box around text. However, the bounding boxes have different aspect ratio than typical objects, because text is usually long and thin. Some methods decompose the text on smaller units and concentrate on distances between the units. These methods are hard to tune during training an usually fail on distinctly curved text. Examples of bounding-box methods are TextBoxes \cite{liao2017textboxes}, TextBoxes++ \cite{liao2018textboxes++} or EAST \cite{zhou2017east}. Segmentation based methods investigate the image at pixel level. The image data are processed by a CNN which produces a segmentation map from which a bounding box is generated. An example of this method is PSENet \cite{wang2019shape}. Hybrid methods combine the features obtained by regression and the segmentation map from CNN. The segmentation methods tend to return false positive detection. They select pixels that are not text at the borders of letters or when there is a complicated background. Hybrid methods further process the results from segmentation and precisely detect text. Example methods are PMTD \cite{liu2019pyramid}.
+
+A popular method in recent years is Character Region Awareness for Text Detection -- CRAFT. This method in contrast to the previously mentioned methods detects text based on character level rather than word (group of characters) level. CRAFT trains a CNN which produces two results for a character -- a region score and an affinity score. "The region score represents the probability that the given pixel is the center of the character and the affinity score represents the center probability of the space between adjacent characters" \cite[page 3]{craft2}. Because this method goes over individual characters it performs very well on curved and deformed text and outperforms 15 popular detection methods according to the authors of CRAFT in their paper \cite{craft2}.
+
+\section{Text Recognition}
