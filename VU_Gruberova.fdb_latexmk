@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex VU_Gruberova"] 1656441847 "VU_Gruberova.aux" "VU_Gruberova.bbl" "VU_Gruberova" 1656441848
+["bibtex VU_Gruberova"] 1656665330 "VU_Gruberova.aux" "VU_Gruberova.bbl" "VU_Gruberova" 1656670236
   "./PhDbiblio-url.bst" 1651000038 29751 f3f2124eb09a4babf2c6cffa005d9366 ""
-  "VU_Gruberova.aux" 1656441848 7581 a7a263230b69805e86b745960fd0e23c "pdflatex"
+  "VU_Gruberova.aux" 1656670236 7655 02a31611a10584879bade47dfb926bc9 "pdflatex"
   "sources.bib" 1656438165 7413 2b544a53e31a80cde3ac4ddd1543e354 ""
   (generated)
-  "VU_Gruberova.blg"
   "VU_Gruberova.bbl"
-["pdflatex"] 1656441847 "/home/anna/Documents/skola/VU/text/VU_Gruberova.tex" "/home/anna/Documents/skola/VU/text/VU_Gruberova.pdf" "VU_Gruberova" 1656441848
+  "VU_Gruberova.blg"
+["pdflatex"] 1656670235 "/home/anna/Documents/skola/VU/text/VU_Gruberova.tex" "/home/anna/Documents/skola/VU/text/VU_Gruberova.pdf" "VU_Gruberova" 1656670236
   "/etc/texmf/web2c/texmf.cnf" 1617537731 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/anna/Documents/skola/VU/text/VU_Gruberova.aux" 1656441848 7581 a7a263230b69805e86b745960fd0e23c ""
+  "/home/anna/Documents/skola/VU/text/VU_Gruberova.aux" 1656670236 7655 02a31611a10584879bade47dfb926bc9 ""
   "/home/anna/Documents/skola/VU/text/VU_Gruberova.tex" 1656414150 9540 29b59c5669aba1ad65e055da871e303e ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1480098689 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -242,14 +242,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1617544837 129077 24cbf589999c8ecc119537f52317a989 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1617544839 932025 8259eec953c0959361f004a0d6a7bb22 ""
-  "VU_Gruberova.aux" 1656441848 7581 a7a263230b69805e86b745960fd0e23c "pdflatex"
-  "VU_Gruberova.bbl" 1656441847 6184 fd746dce37fa0618c1f631e674668557 "bibtex VU_Gruberova"
-  "VU_Gruberova.out" 1656441848 1507 4418779810ab0ab5af848e4ba897acd9 "pdflatex"
+  "VU_Gruberova.aux" 1656670236 7655 02a31611a10584879bade47dfb926bc9 "pdflatex"
+  "VU_Gruberova.bbl" 1656665330 6184 fd746dce37fa0618c1f631e674668557 "bibtex VU_Gruberova"
+  "VU_Gruberova.out" 1656670236 1507 4418779810ab0ab5af848e4ba897acd9 "pdflatex"
   "VU_Gruberova.tex" 1656414150 9540 29b59c5669aba1ad65e055da871e303e ""
-  "VU_Gruberova.toc" 1656441848 1983 e539a03253abbd55a0fc38ead1cdf87b "pdflatex"
+  "VU_Gruberova.toc" 1656670236 1984 5ab8ce9856745635e35a9ac414dc8398 "pdflatex"
   "kapitoly/datasets.tex" 1656413656 9706 0a0126ca0ced1e13b15410a1b739899d ""
   "kapitoly/nn.tex" 1656332156 12486 f9e565fbd204725398b540abdcb66e21 ""
-  "kapitoly/ocr.tex" 1656441845 6481 9047e903aae453ebf0629417bc12bab8 ""
+  "kapitoly/ocr.tex" 1656670235 8799 dadf63193f0961c7743b293112269d2d ""
   "kapitoly/software.tex" 1655132199 8661 f6ae4bd5328e8cb2c6b35425b78263b3 ""
   "kapitoly/testing.tex" 1655545524 733 d635431af08492319c0a3e9708859b69 ""
   "obrazky/CNN.png" 1656327094 73657 c727462290b88719123a10800a19663a ""
@@ -265,9 +265,9 @@
   "zadani.pdf" 1636483345 2003904 f9080c34600129f59a7b43959640bc8c ""
   (generated)
   "VU_Gruberova.toc"
-  "VU_Gruberova.aux"
   "/home/anna/Documents/skola/VU/text/VU_Gruberova.log"
-  "VU_Gruberova.pdf"
-  "VU_Gruberova.out"
   "/home/anna/Documents/skola/VU/text/VU_Gruberova.pdf"
+  "VU_Gruberova.pdf"
+  "VU_Gruberova.aux"
+  "VU_Gruberova.out"
   "VU_Gruberova.log"
