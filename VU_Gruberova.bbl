@@ -70,6 +70,12 @@
 \newblock Last accessed 29 Apr. 2022. [Online].
 \newblock Available from: \url{https://pypi.org/project/keras-ocr/}.
 
+\bibitem{ctc}
+{\sc S.~Kim, T.~Hori, and S.~Watanabe}.
+\newblock {\bf Joint CTC-Attention based End-to-End Speech Recognition using
+  Multi-task Learning}.
+\newblock 09 2016.
+
 \bibitem{liao2018textboxes++}
 {\sc M.~Liao, B.~Shi, and X.~Bai}.
 \newblock {\bf Textboxes++: A single-shot oriented scene text detector}.
