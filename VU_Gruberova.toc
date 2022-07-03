@@ -2,26 +2,28 @@
 \contentsline {chapter}{\numberline {1}Optical Character Recognition}{11}{chapter.1}
 \contentsline {section}{\numberline {1.1}Text Detection}{12}{section.1.1}
 \contentsline {section}{\numberline {1.2}Text Recognition}{13}{section.1.2}
-\contentsline {chapter}{\numberline {2}Neural Networks}{15}{chapter.2}
-\contentsline {section}{\numberline {2.1}Convolutional Neural Networks}{18}{section.2.1}
-\contentsline {chapter}{\numberline {3}Software}{21}{chapter.3}
-\contentsline {section}{\numberline {3.1}Scene text detection}{21}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}CRAFT}{21}{subsection.3.1.1}
-\contentsline {section}{\numberline {3.2}Scene text recognition}{21}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}CRNN}{21}{subsection.3.2.1}
-\contentsline {section}{\numberline {3.3}End-to-end systems}{21}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Tesseract}{22}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}EasyOCR}{22}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Keras-ocr}{23}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {3.3.4}Google Cloud Vision}{24}{subsection.3.3.4}
-\contentsline {subsection}{\numberline {3.3.5}Other}{24}{subsection.3.3.5}
-\contentsline {subsubsection}{AWS Rekognition}{24}{section*.10}
-\contentsline {chapter}{\numberline {4}Datasets}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}SCUT-CTW1500 dataset}{26}{section.4.1}
-\contentsline {section}{\numberline {4.2}KAIST Scene Text Database}{26}{section.4.2}
-\contentsline {section}{\numberline {4.3}Born-Digital Images}{27}{section.4.3}
-\contentsline {section}{\numberline {4.4}Wien TU dataset}{29}{section.4.4}
-\contentsline {chapter}{\numberline {5}Testing methods}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}EasyOCR}{31}{section.5.1}
-\contentsline {section}{\numberline {5.2}Tesseract}{31}{section.5.2}
-\contentsline {section}{\numberline {5.3}Keras}{31}{section.5.3}
+\contentsline {section}{\numberline {1.3}Datasets}{15}{section.1.3}
+\contentsline {section}{\numberline {1.4}Evaluation}{16}{section.1.4}
+\contentsline {chapter}{\numberline {2}Neural Networks}{17}{chapter.2}
+\contentsline {section}{\numberline {2.1}Convolutional Neural Networks}{20}{section.2.1}
+\contentsline {chapter}{\numberline {3}Software}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Scene text detection}{23}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}CRAFT}{23}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Scene text recognition}{23}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}CRNN}{23}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}End-to-end systems}{23}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Tesseract}{24}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}EasyOCR}{24}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Keras-ocr}{25}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Google Cloud Vision}{26}{subsection.3.3.4}
+\contentsline {subsection}{\numberline {3.3.5}Other}{26}{subsection.3.3.5}
+\contentsline {subsubsection}{AWS Rekognition}{26}{section*.9}
+\contentsline {chapter}{\numberline {4}Experiments}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}Datasets}{27}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}SCUT-CTW1500 dataset}{27}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}KAIST Scene Text Database}{28}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Born-Digital Images}{29}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Wien TU dataset}{30}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}Results}{30}{section.4.2}
+\contentsline {section}{\numberline {4.3}Tesseract}{30}{section.4.3}
+\contentsline {section}{\numberline {4.4}Keras}{31}{section.4.4}

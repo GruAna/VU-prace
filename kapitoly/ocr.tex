@@ -1,4 +1,5 @@
 \chapter{Optical Character Recognition}
+\label{ch:OCR}
 
 Optical character recognition (OCR) is a branch of digital image processing. Its aim is to detect and convert a text on an image into a machine-readable text. This discipline can be divided into three similar, yet different tasks: reading text on scanned printed documents, reading of handwritten texts and scene text recognition (also called text in the wild). The first task is very well developed, first successful results date back to the second half twentieth and were used in commercial sector \cite{ocrhist}. If we assume the handwritten text is on scanned single colored paper or created using a digital pen and that it was written legibly and without omitting letters in words due to fast writing, then recognition is similar to printed documents. The last task -- scene text recognition (STR) is the most challenging one. 
 The main factors that make STR a more difficult task are listed below.\cite{chen2021text, raisi2020text}
@@ -9,7 +10,7 @@ The main factors that make STR a more difficult task are listed below.\cite{chen
     \item Distortions: photographs often suffer from noise due to bad illumination, also from motion or out-of-focus blurring, perspective distortion due to the capturing angle. Other problems come from the insufficient resolution that might be set on the camera.
 \end{itemize}
 
-Apart from these main categories of image text data there exist born-digital images (e. g. web advertisements or any cases where text was digitally added on images or videos) and poster/newspaper images. These share with scene images the diversity of text but are free from visual distortions caused by cameras. Examples of different image data are in the chapter \ref*{ch:datasets}. 
+Apart from these main categories of image text data there exist born-digital images (e. g. web advertisements or any cases where text was digitally added on images or videos) and poster/newspaper images. These share with scene images the diversity of text but are free from visual distortions caused by cameras. Examples of different image data are in sections \ref*{sec:datasets} and \ref*{sec:expDatasets}. 
 
 Digital reading of a text on an image consists of two main tasks -- text detection and text recognition. Both processes are described in the next sections.
 
@@ -58,3 +59,16 @@ Traditional methods work with image features such as histogram of gradients, fea
 
 
 % various scripts... popsat nekde...!!!
+
+\section{Datasets}
+\label{sec:datasets}
+
+Optical Character Recognition requires data as any other machine learning task. Data are usually divided in two main types - scene and synthetic. Scene datasets contains photographs of real world objects and sceneries where some text occurs, for example shop signs, road signs or car plates. Synthetic dataset are automatically generated images where words are chosen from a extensive dictionary, a font is picked for each word and some sort of deformation is applied. It can be a text distortion to make the text curved or projectively altered, as well as blurring or lighting changes that make the text less obvious for the detector.
+
+Synthetic datasets are usually used for training the models, because it is easier to generate millions of synthetic images rather than to take even one hundredth of a such number of photographs. Needless to say that when generating an image, the ground truth is known and can be saved during the generation process while photographs have to be manually labeled which takes time and might be inaccurate or automatically labeled which also often leads to many mistakes. Scene datasets are then used for testing purposes or for fine tuning a pretrained model.
+
+In this paragraph sample datasets are introduced. To begin with synthetic dataset MJSynth is a very important dataset because it consists of almost 9 million images covering 90,000 English words. It includes data only for recognition which means that one image has only one word and border of the image  represents the word bounding rectangle.\cite{mjsynth}. Another synthetic dataset is called SynthText and contains 800 thousand images with approximately 8 million word instances written on the images \cite{synthtext}. Three scene text datasets were created for International Conference on Document Analysis and Recognition (ICDAR) competition. Sets ICDAR03, ICDAR13 and ICDAR15 were used in competitions in years 2003, 2013 and 2015, respectively. First two ICDAR datasets include only horizontal text, text of various orientation appears  in set from 2015 \cite{raisi2020text}. Another widely used dataset is The Street View Text (SVT) which contains images with text harvested from Google Street View \cite{svt}. SVT and most other scene text datasets offers mainly frontal text with minimal perspective distortion. However, perspective text is frequent in real life applications of OCR for example previously mentioned street photographs, where it is impossible to capture every visible text from frontal view. Thus Phan et. al \cite{svtp} created a new StreetViewText-Perspective derived from SVT, it shows the same places as SVT but from different perspective. Another dataset CUT80 focuses on curved text as well as CTW1500 dataset. For text recognition there exist for example IIIT5k dataset containing 5000 cropped images harvested from Google image search. It combines both scene text images and born-digital images \cite{IIIT}. One of the most widely used dataset is COCO-Text which includes over 60,000 images with almost 250,000 word instances \cite{coco}.
+
+Datasets that were used for comparison of detection and recognition methods, namely, SCUT-CTW1500 dataset, Kaist Scene Text Database, Born-Digital Images, are described in more detail in Chapter \ref{ch:testing}. 
+
+\section{Evaluation}
