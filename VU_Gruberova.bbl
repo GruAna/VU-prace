@@ -41,6 +41,13 @@
 \newblock Last accessed 21 Jun. 2022. [Online].
 \newblock Available from: \url{https://rrc.cvc.uab.es/?ch=1}.
 
+\bibitem{rnn}
+{\sc IBM~Cloud Education}.
+\newblock {\bf What are recurrent neural networks?}
+\newblock Last accessed 4 Jul. 2022. [Online].
+\newblock Available from:
+  \url{https://www.ibm.com/cloud/learn/recurrent-neural-networks}.
+
 \bibitem{DIP}
 {\sc R.~C. Gonzalez and R.~E. Woods}.
 \newblock {\em Digital Image Processing (4th ed.)}.
@@ -130,6 +137,18 @@
 \newblock Last accessed 29 Apr. 2022. [Online].
 \newblock Available from: \url{https://github.com/clovaai/CRAFT-pytorch}.
 
+\bibitem{lstm}
+{\sc H.~Sak, A.~W. Senior, and F.~Beaufays}.
+\newblock {\bf Long short-term memory recurrent neural network architectures
+  for large scale acoustic modeling}.
+\newblock In {\em INTERSPEECH}, pages 338--342, 2014.
+
+\bibitem{crnn}
+{\sc B.~Shi, X.~Bai, and C.~Yao}.
+\newblock {\bf An End-to-End Trainable Neural Network for Image-based Sequence
+  Recognition and Its Application to Scene Text Recognition}, 2015.
+\newblock Available from: \url{https://arxiv.org/abs/1507.05717}.
+
 \bibitem{svt}
 {\bf The street view text dataset}.
 \newblock Last accessed 22 Jul. 2022. [Online].
@@ -171,5 +190,13 @@
 \newblock {\bf East: an efficient and accurate scene text detector}.
 \newblock In {\em Proceedings of the IEEE conference on Computer Vision and
   Pattern Recognition}, pages 5551--5560, 2017.
+
+\bibitem{baueldungLSTM}
+{\sc E.~Zvornicanin}.
+\newblock {\bf Differences between bidirectional and Unidirectional LSTM}, Feb
+  2022.
+\newblock Last accessed 4 Jul. 2022. [Online].
+\newblock Available from:
+  \url{https://www.baeldung.com/cs/bidirectional-vs-unidirectional-lstm}.
 
 \end{thebibliography}

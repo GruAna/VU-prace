@@ -114,7 +114,7 @@ The procedures described in the previous part dealt only with the case where the
     \label{img:CNN}
 \end{figure}
 
-First, a region of of pixels of the input image, a receptive field,  is selected. This field is moved over the image with a certain step. At each position a convolution is performed and values are stored in a 2D matrix. The size of the step determines the size of the resulting matrix (for example step of size two reduces the resolution of the image by one half). To each value obtained by convolution a bias is added and then is passed through an activation function. The new matrix thus obtained is called feature map. A single feature map is generated with same weights in convolution kernel and same bias, because this way a same feature is detected through the image. For another feature map different weight and bias is used. A group of feature maps in a CNN are called a convolutional layer. After the convolution step pooling is performed (sometimes called subsampling).\cite{DIP}
+First, a region of of pixels of the input image, a receptive field,  is selected. This field is moved over the image with a certain step. At each position a convolution is performed and values are stored in a 2D matrix. The size of the step determines the size of the resulting matrix (for example step of size two reduces the resolution of the image by one half). A mathematical definition of convolution operation is written in Definition \ref*{math:def:conv}. To each value obtained by convolution a bias is added and then is passed through an activation function. The new matrix thus obtained is called feature map. A single feature map is generated with same weights in convolution kernel and same bias, because this way a same feature is detected through the image. For another feature map different weight and bias is used. A group of feature maps in a CNN are called a convolutional layer. After the convolution step pooling is performed (sometimes called subsampling).\cite{DIP}
 
 \begin{definition}
     Let $f(x,y)$ be in image and $w$ a kernel of size $m \times n$. Convolution with kernel $w$ is denoted as 
@@ -122,13 +122,51 @@ First, a region of of pixels of the input image, a receptive field,  is selected
     \begin{equation}
         (w\star f)(x,y) = \sum_{u=-k} ^{k} \sum_{v=-l} ^{l} w(u,v) f(x-u, y-v).
     \end{equation}
+    \label{math:def:conv}
 \end{definition}
 
 Pooling is responsible for reduction of output dimension and causes a translational invariance. It is done by dividing a feature map into $2 \times 2 $ adjacent (non-overlapping) regions, the four values in this region are replaced by only one value. Common pooling methods are: average pooling, the values in region are replaced by the average of the values; max pooling, the values are replaced by the maximal value from the region; $L_2$ pooling, the final value is obtained by computing the Euclidan norm of the four values. We obtain one matrix for each feature map from the convolution step. The bunch of matrices from the pooling step is called a pooling layer. The result of the last pooling layer is vectorized and sent to the fully connected neural network. The training procedure of the CNN is analogical to the training of a fully connected neural network. However, convolution is used instead of matrix multiplication and the output from fully connected network has to be converted into 2D matrix.\cite{DIP}
 
-% napsat definici konvoluce Convolution!!!
+\section{Recurrent Neural Networks}
+\label{sec:RNN}
+
+Recurrent neural networks (RNN) same as feedforward networks has an input, hidden and output layer. Unlike the classic networks RNNs share parameters (weights and biases) across each layer of the network and they remember results of computations. This approach is very useful in contextual tasks such as language problems (speech and written text recognition) where the position of a word in a sentence and surrounding words can help predict text.
+
+During training of RNN errors from output to input layer are calculated but unlike in standard backpropagation the errors are summed up because of the shared parameters. This process makes RNNs prone to two problems called exploding and vanishing gradients. The former one happens when gradients are large and by summing they enlarge too much to be represented as undefined (NaN) value, which leads to instability of the model. The latter refers to the case when gradients are contrarily too small, they continue to decrease and the weights become insignificant.\cite{rnn}
+
+\subsection*{Long short-term memory}
+\label{sec:LSTM}
+
+Long short-term memory (LSTM) is a type of RNN. It contains so-called memory blocks, which are memory blocks (cells) located in the hidden recurrent layer. Each memory block contains three gates -- input, output and forget gate. The input one controls the flow of information in to the cell. The output gate controls what information is to be passed to the rest of the network. The forget gate was added later and it manages the amount of information stored in cell before new information is received. Generally the cell input and cell output activation functions is $\tanh$ and the network activation function is softmax. A scheme of LSTM is in Figure \ref*{img:LSTM}.\cite{lstm}
+
+LSTM network has some variations. It is possible to stack LSTM layers on top of each other between the input and output layer and create a deep LSTM. Another type is a bidirectional LSTM (BLSTM) which differs from normal LSTM that it remembers not only information from the past but also from the future (e. g. when the model wants to predict a word in a sentence, it knows all the words behind the currently predicted word and also all the following words). It enables better usage of contextual information which is crucial in language processing.\cite{lstm,baueldungLSTM}
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.4]{obrazky/lstm.png}
+
+    \caption{Scheme of a LSTM recurrent neural network.\cite{baueldungLSTM}}
+    \label{img:LSTM}
+\end{figure}
 
 
+\section{Convolutional Recurrent Neural Networks}
+\label{sec:CRNN}
+
+Convolutional recurrent neural network is a type of a neural network designed for the purposes of image object recognition. It was introduced by Shi and al. \cite{crnn} in the year 2015. It combines the advantages of a deep CNN and RNN. It reads directly features from image data without prior feature extraction or image preprocessing such as binarization as CNN does. It produces a sequence of labels as RNN. Further it has no restriction on the length of an object (texts are rather long and flat), it can learn from words so there is no need to segment text to individual characters. CRNN also has a smaller amount of parameters than a deep CNN thus it requires less storage space.\cite{crnn}
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.46]{obrazky/crnn.png}
+
+    \caption{An architecture of CRNN for recognizing objects in images.\cite{crnn}}
+    \label{img:CRNN}
+\end{figure}
+
+First CNN with max pooling extracts features directly from the image input. The convolutional layers are followed by recurrent ones, which take the frame output of CNN and predict labels for each frame, then a transcription layer translates the segmented labels into a continuous text. This architecture is visible in Figure \ref*{img:CRNN}.
+
+The images, that are to be recognized, are scaled to the same height and then feature map is obtained by CNN. Feature
+vectors are extracted from each column of the feature map, so a vector covers a rectangle area of the input image. This are is called a receptive field. CRNN uses then a deep bidirectional LSTM network to predict labels. During transcription the model picks the label of a frame which has the highest probability. This can be made either with a help of a lexicon or without it.\cite{crnn}
 
 
 

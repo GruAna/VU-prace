@@ -45,13 +45,13 @@ Character Region Awareness for Text Detection (CRAFT) is framework for scene tex
 \section{Scene text recognition}
 
 \section*{Methods}
-\subsection{CRNN}
+% \subsection{CRNN}
 
-Convolutional Recurrent Neural Network
+% Convolutional Recurrent Neural Network
 
 \section{End-to-end systems}
 
-End-to-end system when given an image with text it can both detect and recognize the text and produces a string output of the text. The supply of such tools is wide, ranging from open source libraries for various programming languages to commercial softwares with modern GUI. New methods are still being developed as there is always space for improvement. New methods can come from commercial background or are developed for international OCR competitions. In the next section some of the free available tools are described.
+An end-to-end system can both detect and recognize the text when given an image with text. It and produces a string output of the recognized text. The supply of such tools is wide, ranging from open source libraries for various programming languages to commercial softwares with modern GUI. New methods are still being developed as there is always space for improvement. New methods can come from commercial background or are developed for international OCR competitions. In the next section some of the free available tools are described.
 
 \subsection{Tesseract}
 
@@ -69,7 +69,7 @@ https://pyimagesearch.com/2021/11/15/tesseract-page-segmentation-modes-psms-expl
 
 EasyOCR is a product of Jaded AI for both image text detection and recognition. it supports over 80 languages and various scripts such as Latin, Chinese, Arabic etc. The company offers software with web interface for free and also prepaid version which enables usage of a new model for custom data. However, in addition to the web interface, the company also created a python package under the same name.\cite{easyocr1}
 
-The product is still in development and aims for wider functionality. A future idea of EasyOCR package is to provide an easy-to-use tool where one can plug-in already created state-of-art models and use them for annotating. Pipeline of EasyOCR behavior is shown in the image \ref*{img:easyocrPipeline}. As it can be seen in this image, default detection model is CRAFT and for recognition is used CRNN (Convolutional Recurrent Neural Network) which model is composed of following components: feature extraction (Resnet is used) and VGG (Convolutional Neural Network), sequence labeling (LSTM is used) and decoding (CTC is used).\cite{easyocr2}
+The product is still in development and aims for wider functionality. A future idea of EasyOCR package is to provide an easy-to-use tool where one can plug-in already created state-of-the-art models and use them for annotating. Pipeline of EasyOCR behavior is shown in the image \ref*{img:easyocrPipeline}. As it can be seen in this image, default detection model is CRAFT and for recognition is used CRNN (Convolutional Recurrent Neural Network)\footnote{The description of this network is in Chapter \ref*{sec:CRNN}.}. The implementation of this network is composed of following components: feature extraction (Resnet is used) and VGG (Convolutional Neural Network), sequence labeling (BLSTM is used) and decoding (CTC is used).\cite{easyocr2}
 
 EasyOCR package by default computes annotation on GPU, however there is a possibility for CPU computations (provided that the selected model supports it). 
 

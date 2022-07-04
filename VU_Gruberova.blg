@@ -6,45 +6,45 @@ Database file #1: sources.bib
 Warning--I didn't find a database entry for "synth"
 Warning--empty journal in ctc
 Warning--empty journal in svtp
-You've used 29 entries,
+You've used 33 entries,
             2776 wiz_defined-function locations,
-            767 strings with 9343 characters,
-and the built_in function-call counts, 11033 in all, are:
-= -- 1121
-> -- 406
-< -- 4
-+ -- 170
-- -- 138
-* -- 633
-:= -- 1536
-add.period$ -- 93
-call.type$ -- 29
-change.case$ -- 137
+            793 strings with 10074 characters,
+and the built_in function-call counts, 12608 in all, are:
+= -- 1285
+> -- 456
+< -- 5
++ -- 191
+- -- 154
+* -- 714
+:= -- 1752
+add.period$ -- 107
+call.type$ -- 33
+change.case$ -- 153
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 393
-empty$ -- 1071
-format.name$ -- 138
-if$ -- 2727
+cite$ -- 35
+duplicate$ -- 451
+empty$ -- 1232
+format.name$ -- 154
+if$ -- 3127
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 14
-newline$ -- 154
-num.names$ -- 38
-pop$ -- 365
+int.to.str$ -- 33
+missing$ -- 15
+newline$ -- 176
+num.names$ -- 46
+pop$ -- 416
 preamble$ -- 1
-purify$ -- 137
+purify$ -- 153
 quote$ -- 0
-skip$ -- 678
+skip$ -- 783
 stack$ -- 0
-substring$ -- 368
-swap$ -- 123
-text.length$ -- 4
+substring$ -- 417
+swap$ -- 145
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 114
+type$ -- 130
 warning$ -- 2
-while$ -- 55
-width$ -- 31
-write$ -- 293
+while$ -- 65
+width$ -- 35
+write$ -- 337
 (There were 3 warnings)

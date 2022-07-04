@@ -52,10 +52,9 @@ Segmentation free methods follow a pipeline with four stages: image preprocessin
 
 
 
-\subsection*{Classical Methods}
-
-Traditional methods work with image features such as histogram of gradients, features from SIFT\footnote{Scale-Invariant Feature Transform}, which are then classified by SVM or nearest neighbor algorithms. These methods 
-\subsection*{Deep Learning Methods}
+% \subsection*{Classical Methods}
+% Traditional methods work with image features such as histogram of gradients, features from SIFT\footnote{Scale-Invariant Feature Transform}, which are then classified by SVM or nearest neighbor algorithms. These methods 
+% \subsection*{Deep Learning Methods}
 
 
 % various scripts... popsat nekde...!!!
@@ -72,3 +71,5 @@ In this paragraph sample datasets are introduced. To begin with synthetic datase
 Datasets that were used for comparison of detection and recognition methods, namely, SCUT-CTW1500 dataset, Kaist Scene Text Database, Born-Digital Images, are described in more detail in Chapter \ref{ch:testing}. 
 
 \section{Evaluation}
+
+To test how is the model successful various evaluation metrics were created. The simplest that comes to a mind is compare the word in the image with the predicted one. This approach is straightforward and it is a useful for long text ,for example scanned books or documents. However, used on scene text or generally images with sparse text that does  not contain sentences, it has some drawbacks. 
