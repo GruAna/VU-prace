@@ -37,10 +37,16 @@
 
 \section{Scene text detection}
 
-\section*{Methods}
 \subsection{CRAFT}
 
-Character Region Awareness for Text Detection (CRAFT) is framework for scene text detection. It uses a Convolutional Neural Network. It performs good also on curved or differently deformed texts. Its methodology is to localize individual characters then characters belonging to the same word (based on distance) can be connected into word box or polygon. After that bounding box is created around it and output contains the rectangle coordinates.\cite{craft2}
+Character Region Awareness for Text Detection (CRAFT) is framework for scene text detection. It uses a Convolutional Neural Network. It performs well also on curved or differently deformed texts. Its methodology is to localize individual characters then characters belonging to the same word (based on distance) can be connected into word box or polygon. After that bounding box is created around it and output contains the rectangle coordinates.\cite{craft2}
+
+CRAFT uses  a fully convolutional neural network based on VGG-16.%najit vgg16 a popsat!!!
+The network returns two values -- an affinity and region score. "The region score represents the probability that the given pixel is the center of the character and the affinity score represents the center probability of the space between adjacent characters" \cite[page 3]{craft2}. Because CRAFT detect individual characters it was necessary for the authors to create ground truth with bounding boxes for each character. Both scores, thus the probabilities they represent, are encoded with a Gaussian heatmap which is often used were ground truth regions are not strictly bounded. The model was trained on a synthetic dataset SynthText for 50k iterations, further weakly-supervised training was performed on ICDAR datasets.\cite{craft2}
+
+This method has an 
+
+
 
 \section{Scene text recognition}
 
