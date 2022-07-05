@@ -38,16 +38,20 @@ is shown a model of a perceptron.\cite{raisi2020text}
 \end{figure}
 
 Linearly separable data are rather rare in real life problems. One possibilities is to use more perceptron units, however, the solution comes with neural networks and computing elements called artificial neurons. These elements are similar to perceptrons as they perform the same computations, but have a different attitude to processing the results. Schematics of a perceptron unit and an artificial neuron can be comapred in figure \ref*{img:percneuron}.
-The perceptron activation function is very insensitive to small signals which can lead to false results. If the activation function is changed from a hard threshold to smooth function, results are then handled more carefully. There are few commonly used smooth activation functions, such as sigmoid, hyperbolic tangent or ReLu (rectifier linear unit) function. In Figure %obrazek
-are the equations and shapes of the mentioned functions.\cite{DIP}
+The perceptron activation function is very insensitive to small signals which can lead to false results. If the activation function is changed from a hard threshold to smooth function, results are then handled more carefully. There are few commonly used smooth activation functions, such as sigmoid, hyperbolic tangent or ReLu (rectifier linear unit) function. In Figure \ref*{img:actfunc} are the equations and shapes of the mentioned functions.\cite{DIP}
 
-% obrazky funkci. h je jakoznaceni aktivacni funkce
- 
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.4]{obrazky/Common-neural-network-activation-functions.png}
+
+    \caption{Commonly used activation functions in neural networks.\cite[altered]{activation}}
+    \label{img:actfunc}
+\end{figure} 
 A generic neural network is depicted in Figure \ref*{img:fullyNN}.  By layer we understand a group of neurons, usually symbolized in a column. First layer contains the input vector $\bm{x}$, then every other layer contains the activation values of neurons in this layer. The conntecting lines between each two neurons signifies a fully connected neural network, where  output of every neuron from one layer is used as input for neurons in the following layer. Values of initial layer are known and also are the last output values, all neurons (and layers) between first and last layer are therefore called hidden. When there are more then one hidden layer we talk about deep neural network. Usually the number of output neurons is equal to the number of observed classes. For the rest of this chapter we will assume that there are no loops in the network.\cite{DIP}
 
 \begin{figure}[hbtp]
     \centering
-    \includegraphics[scale=0.5]{obrazky/fullyNN.png}
+    \includegraphics[scale=0.4]{obrazky/fullyNN.png}
 
     \caption{Fully connected neural network with processes.\cite{nn1}}
     \label{img:fullyNN}
@@ -64,7 +68,7 @@ A forward pass through neural network maps the values of vector $\bm{x}$ (the in
 
 Matrix $\bm{W}(l)$ contains all weight vectors of all nodes in one layer $l$, $\bm{X}$ contains input vectors, $\bm{A}(l)$ contains output values from layer $l$, $\bm{B}$ is the matrix of biases, $\bm{Z}(l)$ contains the net inputs to neurons in layer $l$, $h$ is an activation function. This process of predicting works when we know the right values of weights and biases. These can be obtained by training a neural network via backpropagation.\cite{DIP}
 
-During training of neural network we work with data where it is known for each sample to which class it belongs. This means that we know the values of all otuput neurons in the net. However, we do not know the values of outputs of hidden neurons. A process called backpropagation is used to obtain information about hidden neurons. It can be devided into four steps. These steps are repeated until the value of cost function is reduced to a desired level. One repetition is called an epoch, thus the number of iterations is the number of epochs used for training the network. \cite{DIP}
+During training of neural network we work with data where it is known for each sample to which class it belongs. This means that we know the values of all otuput neurons in the net. However, we do not know the values of outputs of hidden neurons. A process called backpropagation is used to obtain information about hidden neurons. It can be devided into four steps. These steps are repeated until the value of cost function is reduced to a desired level. One repetition is called an epoch, thus the number of iterations is the number of epochs used for training the network.\cite{DIP}
 
 \begin{enumerate}
     \item Input of data from training set.
@@ -100,7 +104,7 @@ $\bm{W}(1)$ and  $\bm{B}(1)$ are set as random small numbers when initializing t
 The error function for all output neurons for a single input $\bm{x}$ is defined as
 \begin{equation} E = \sum_{j=1} ^{n_L} E_j = \frac{1}{2}\sum_{j=1} ^{n_L} (r_j-a_j(L)) = \frac{1}{2} ||\bm{r} - \bm{a}(L)||^2 \end{equation}
 
-where $\bm{r}$ is a desired response for a given input $\bm{x}$, $\bm{a}(L)$ is the output of last layer in the network, in the last term is used the notation of the Euclidan vector norm. The error for all input vectors\footnote{a total  network output error} is equal to the sum of the individual errors. \cite{DIP}
+where $\bm{r}$ is a desired response for a given input $\bm{x}$, $\bm{a}(L)$ is the output of last layer in the network, in the last term is used the notation of the Euclidan vector norm. The error for all input vectors\footnote{a total  network output error} is equal to the sum of the individual errors.\cite{DIP}
 
 \section{Convolutional Neural Networks}
 

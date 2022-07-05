@@ -25,7 +25,7 @@ Classical methods include connected component methods and sliding window methods
 
 \subsection*{Deep Learning Methods}
 
-Deep learning methods are faster, more precise than the classical methods. They are automated and need less of human assistance therefore they can process bigger amounts of data. Another advantage is that algorithms can be generalized and used for other image detection tasks. Most of the state-of-the-art methods utilize convolutional neural network (CNN). Deep learning methods can be split into bounding-box regression based, segmentation based and hybrid methods according to the survey of Raisi et al. \cite{raisi2020text}.
+Deep learning methods are faster, more precise than the classical methods. They are automated and need less of human assistance therefore they can process bigger amounts of data. Another advantage is that algorithms can be generalized and used for other image detection tasks. Most of the state-of-the-art methods utilize convolutional neural network (CNN). Deep learning methods can be split into bounding-box regression based, segmentation based and hybrid methods according to the survey of Raisi et al.\cite{raisi2020text}.
 
 Bounding-box regression based methods treat text as an object and predict directly the bounding box around text. However, the bounding boxes have different aspect ratio than typical objects, because text is usually long and thin. Some methods decompose the text on smaller units and concentrate on distances between the units. These methods are hard to tune during training an usually fail on distinctly curved text. Examples of bounding-box methods are TextBoxes \cite{liao2017textboxes}, TextBoxes++ \cite{liao2018textboxes++} or EAST \cite{zhou2017east}. Segmentation based methods investigate the image at pixel level. The image data are processed by a CNN which produces a segmentation map from which a bounding box is generated. An example of this method is PSENet \cite{wang2019shape}. Hybrid methods combine the features obtained by regression and the segmentation map from CNN. The segmentation methods tend to return false positive detection. They select pixels that are not text at the borders of letters or when there is a complicated background. Hybrid methods further process the results from segmentation and precisely detect text. Example methods are PMTD \cite{liu2019pyramid}.
 
@@ -72,4 +72,60 @@ Datasets that were used for comparison of detection and recognition methods, nam
 
 \section{Evaluation}
 
-To test how is the model successful various evaluation metrics were created. The simplest that comes to a mind is compare the word in the image with the predicted one. This approach is straightforward and it is a useful for long text ,for example scanned books or documents. However, used on scene text or generally images with sparse text that does  not contain sentences, it has some drawbacks. 
+\subsection*{Text Detection}
+A detection model tries to detect a text regions as precise as possible. It predicts a bounding box around the text and return its coordinates. As said earlier it can be an irregular polygon or a rectangle.
+% In experiments performed in this thesis I used results only in the rectangular shape, therefore I will concern in this section only this case.
+
+For measuring the performance of a detection model in general object detection a intersection over union (IOU) is used and it can be evenly applied on text detection. The principle is to compute the intersection of a ground truth bounding box and predicted bounding box and divide it by union of those two areas.\cite{pyimage_iou}
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.4]{obrazky/iou_equation.png}
+    \caption{Iou formula with a bounding box visual interpretation.}
+    \label{Im:iou}
+\end{figure}
+
+\subsection*{Text Recognition}
+To test how much is the recognition model successful various evaluation metrics were created. The simplest that comes to a mind is compare the word in the image with the predicted one. We can either compare words strictly and as correct classify only when all characters match and even a small mistake makes the prediction false, or we can use  the metric called word error rate (WER). Before we define how it is computed, we must introduce three types of error that are taken into account:
+\begin{itemize}
+    \item \textbf{substitutions}: words with one or more misspelled characters,
+    \item \textbf{insertions}: words that were added (do not appear in original text),
+    \item \textbf{deletions}: missing words.
+\end{itemize}
+
+WER is then defined as follows.
+\begin{equation}
+    WER = \frac{(i_w + s_w + d_w)}{n_w},
+\end{equation}
+where $i_w$ is the number of inserted words, $s_w$ is the number of altered words, $d_w$ is the number of lost words and $n_w$ is the number of all words in a ground truth text. The chosen value of WER is the one where the sum in numerator is minimal.\cite{cersite}
+
+This approach is straightforward and it is a useful for long text, for example scanned books or documents. However, used on scene text or generally images with sparse text that does  not contain sentences, it has some drawbacks. Scene text images do not have a long contextual information, there are words that belong together (such as names of countries) but mostly there are street signs, telephone numbers, names of people or companies that do not occur in lexicon. In these cases it is often that the recognizer makes mistake in just one character, that can be barely legible due to an extravagant font or lighting conditions or other distortions. Therefore, it is better to focus on characters and validate each letter in a word separately. For this purpose is used, similar to word error rate, a character error rate (CER). There are again three possible error types -- substitution, insertion and deletion of a character in a word.
+
+The formula for CER computations is also analogous
+\begin{equation}
+    CER = \frac{(i + s + d)}{n},
+\end{equation}
+
+where $i$ is the number of inserted characters, $s$ is the number of substituted characters, $d$ is the number of deleted characters and $n$ is the number of all characters in a ground truth word.\cite{cersite}
+
+The sum of the three error operations is called a Levenshtein distance. Let $s$ be the ground truth (source) string and $t$ the predicted (target) string. The steps of the  algorithm are \cite{cerpaper}:
+\begin{enumerate}
+    \item Let $n$ be the length of $\bm{s}$ and $m$ the length of $\bm{t}$. Construct an empty matrix $\bm{d}$ with $0,\dots, n$ columns and $0,\dots, m$ rows.
+    \item Initialize the first row to $0,\dots, n$ and first column to $0,\dots, m$.
+    \item Go through $\bm{s}$ ($i=1,\dots,n$) and $\bm{t}$($j=1,\dots, m$).
+    \begin{itemize}
+        \item Compare $\bm{s}[i]$ and $\bm{t}[j]$: 
+        \subitem if it equals, set $cost = 0$,
+        \subitem if it does not, set $cost = 1$.
+        \item Set $\bm{d}[i,j]$ equal to the minimum value of:
+        \subitem $\bm{d}[i-1,j]+1$ (deletion),
+        \subitem $\bm{d}[i,j-1]+1$ (insertion),
+        \subitem $\bm{d}[i-1,j-1]+cost$ (substitution).
+    \end{itemize} 
+    \item Repeat step 3 until $\bm{d}[m,n]$ value is computed. That is the Levenshtein distance.
+\end{enumerate}
+
+It is clear that the number of mistakes can exceed the length of the source word, which leads to error rate larger than one hundred percent. For this purpose sometimes normalized CER is used. To obtain it the sum of errors is divided not by the number of characters in the source word but by the sum $(i+s+d+c)$, where $i,s,d$ are the error operations and $c$ is the number of correct characters the predicted word and can be computed as $c = n - d - s$. This way the denominator is always larger than the numerator (or equal). After modifications we get the following formula:
+\begin{equation}
+    CER = \frac{i+s+d}{n+i}=\frac{Levenshtein\ distance}{n+i}.
+\end{equation}

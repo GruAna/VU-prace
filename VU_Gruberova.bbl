@@ -25,6 +25,13 @@
 \newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
   Pattern Recognition}, pages 9365--9374, 2019.
 
+\bibitem{cersite}
+{\sc R.~C. Carrasco}.
+\newblock {\bf Text digitisation}.
+\newblock Last accessed 5 Jul. 2022. [Online].
+\newblock Available from:
+  \url{https://sites.google.com/site/textdigitisation/}.
+
 \bibitem{chen2021text}
 {\sc X.~Chen, L.~Jin, Y.~Zhu, C.~Luo, and T.~Wang}.
 \newblock {\bf Text recognition in the wild: A survey}.
@@ -53,6 +60,18 @@
 \newblock {\em Digital Image Processing (4th ed.)}.
 \newblock Pearson, 2018.
 \newblock ISBN 9353062985.
+
+\bibitem{cerpaper}
+{\sc R.~Haldar and D.~Mukhopadhyay}.
+\newblock {\bf Levenshtein Distance Technique in Dictionary Lookup Methods: An
+  Improved Approach}, 2011.
+\newblock Available from: \url{https://arxiv.org/abs/1101.1232}.
+
+\bibitem{activation}
+{\sc D.~Hughes and N.~Correll}.
+\newblock {\bf Distributed Machine Learning in Materials that Couple Sensing,
+  Actuation, Computation and Communication}.
+\newblock 06 2016.
 
 \bibitem{IIIT}
 {\bf The IIIT 5K-word | Graviti}.
@@ -136,6 +155,13 @@
   region awareness for text detection (CRAFT)}.
 \newblock Last accessed 29 Apr. 2022. [Online].
 \newblock Available from: \url{https://github.com/clovaai/CRAFT-pytorch}.
+
+\bibitem{pyimage_iou}
+{\sc A.~Rosebrock}.
+\newblock {\bf Intersection over union (IOU) for object detection}, Apr 2022.
+\newblock Last accessed 5 Jul. 2022. [Online].
+\newblock Available from:
+  \url{https://pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/}.
 
 \bibitem{lstm}
 {\sc H.~Sak, A.~W. Senior, and F.~Beaufays}.
