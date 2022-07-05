@@ -32,32 +32,19 @@
 %     \item Using methods on historical posters    
 %     \item[] Description of dataset
 
-\chapter{Software}
+\chapter{OCR tools}
 \label{ch:sw}
+OCR software can be divided in four main types by its functionality - text detector, text recognizer and full OCR engine. The last one can either be an end-to-end system, which does both detection and recognition together which means that these two processes influence each other, or a tool that combines a separate detector and recognizer. For an end user who needs to convert text from an image into a computer readable format. The supply of such tools is wide, ranging from open source libraries for various programming languages to commercial softwares with modern GUI. New methods are still being developed as there is always space for improvement. New methods can come from commercial background or are developed for international OCR competitions. In the next sections a selection of the free available tools is described.
 
-\section{Scene text detection}
-
-\subsection{CRAFT}
+\section{CRAFT}
 
 Character Region Awareness for Text Detection (CRAFT) is framework for scene text detection. It uses a Convolutional Neural Network. It performs well also on curved or differently deformed texts. Its methodology is to localize individual characters then characters belonging to the same word (based on distance) can be connected into word box or polygon. After that bounding box is created around it and output contains the rectangle coordinates.\cite{craft2}
 
 CRAFT uses  a fully convolutional neural network based on VGG-16.%najit vgg16 a popsat!!!
 The network returns two values -- an affinity and region score. "The region score represents the probability that the given pixel is the center of the character and the affinity score represents the center probability of the space between adjacent characters" \cite[page 3]{craft2}. Because CRAFT detect individual characters it was necessary for the authors to create ground truth with bounding boxes for each character. Both scores, thus the probabilities they represent, are encoded with a Gaussian heatmap which is often used were ground truth regions are not strictly bounded. The model was trained on a synthetic dataset SynthText for 50k iterations, further weakly-supervised training was performed on ICDAR datasets.\cite{craft2}
 
-This method has an 
+This method has similarly successful performance as other state-of-the-art methods and in last years it is often used as a detection tool in systems that recognize text from unsegmented images.
 
-
-
-\section{Scene text recognition}
-
-\section*{Methods}
-% \subsection{CRNN}
-
-% Convolutional Recurrent Neural Network
-
-\section{End-to-end systems}
-
-An end-to-end system can both detect and recognize the text when given an image with text. It and produces a string output of the recognized text. The supply of such tools is wide, ranging from open source libraries for various programming languages to commercial softwares with modern GUI. New methods are still being developed as there is always space for improvement. New methods can come from commercial background or are developed for international OCR competitions. In the next section some of the free available tools are described.
 
 \subsection{Tesseract}
 
