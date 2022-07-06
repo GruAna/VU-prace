@@ -131,6 +131,8 @@ First, a region of of pixels of the input image, a receptive field,  is selected
 
 Pooling is responsible for reduction of output dimension and causes a translational invariance. It is done by dividing a feature map into $2 \times 2 $ adjacent (non-overlapping) regions, the four values in this region are replaced by only one value. Common pooling methods are: average pooling, the values in region are replaced by the average of the values; max pooling, the values are replaced by the maximal value from the region; $L_2$ pooling, the final value is obtained by computing the Euclidan norm of the four values. We obtain one matrix for each feature map from the convolution step. The bunch of matrices from the pooling step is called a pooling layer. The result of the last pooling layer is vectorized and sent to the fully connected neural network. The training procedure of the CNN is analogical to the training of a fully connected neural network. However, convolution is used instead of matrix multiplication and the output from fully connected network has to be converted into 2D matrix.\cite{DIP}
 
+VGG16 is an example of a CNN used in OCR. The basic configuration consists of 16 weight layers and uses a $3 \times 3$ receptive field for convolution. The output dimension is reduced by max pooling.\cite{ulhassan2021}
+
 \section{Recurrent Neural Networks}
 \label{sec:RNN}
 

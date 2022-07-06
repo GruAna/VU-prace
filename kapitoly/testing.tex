@@ -2,7 +2,7 @@
 \label{ch:testing}
 I wrote all testing scripts and auxiliary functions in Python programming language. The scripts were written as Jupyter Notebook environment and saved in the corresponding file format \texttt{.ipynb}, lately these notebooks were saved as \texttt{.py} Python scripts. The set of utility functions is located in a file called \texttt{utils.py}. All experiments were run within Google Colaboratory\footnote{Google Colaboratory (Colab for short) is an product from Google Research. It allow Google users to write and execute python code within a web browser using a remote computer and its computing power. In the free version of Colab the computational resources are limited and vary over time due to the demands of other users. The product is available at \url{https://colab.research.google.com/}.} which provides a 12 GB RAM and a GPU Nvidia K80 with 12 GB memory.
 
-In the experiments I chose three methods to be tested, namely, Tesseract, EasyOCR and keras-ocr. Each of them has corresponding Python package. I used four datasets that are described below in the following section. The three freely available datasets were chosen as representatives of OCR datasets. I tried to 
+In the experiments I chose three methods to be tested, namely, Tesseract, EasyOCR and keras-ocr. Each of them has corresponding Python package. For Tesseract I tried two approaches, one with pure Tesseract and another with CRAFT detection tool followed by Tesseract recognizer. I used four datasets that are described below in the following section. The three freely available datasets were chosen as representatives of OCR datasets.
 
 \section{Datasets}
 \label{sec:expDatasets}
@@ -24,7 +24,7 @@ The ground truth for train data are in XML format and each file carries informat
 
 This dataset contains 3000 images of photographed text. It can be divided into three major categories -- text of Korean language, English language and mixed languages. As I concentrate on text in latin script in this paper further information relates to the English language dataset. The number of images is then reduced to less than four hundred images. Figure \ref*{Im:Dkaist} shows few samples of this dataset. Photographed objects are mostly shop banners or parts of magazine front pages. Photographs were either taken by a high-resolution digital camera or a low-resolution mobile phone camera.\cite{kaist} Each photography has a ground truth description and a bitmap image. In the bitmap file only text is highlighted (by white or red color) and everything else apart from text is set as black. Ground truth files are in XML format and includes a name of an image, its resolution and bounding box for each word and also a bounding box for each letter of the word.
 
-To use this dataset for testing and training the XML ground truth needed to be converted to string and int values. I wrote a parser, that combines letters to form a word that is within a given bounding box. I changed the notation of bounding boxes from one coordinate, width and height attributes to two top left and bottom right coordinates.
+To use this dataset for testing and training the XML ground truth needed to be converted to string and int values. I wrote a parser, that combines letters to form a word that is within a given bounding box. I changed the notation of bounding boxes from one coordinate, width and height attributes to two top left and bottom right coordinates. The name of the parsing function is \texttt{read\_gt\_kaist}.
 
 Unfortunately this dataset has few errors in filenames of corresponding files or in the content of XML files. Usually these are only typos, however they prevent automatic preprocessing of dataset. Due to this problem these mistakes need to be found and  manually corrected. Also there is a small number of ground truth XML file with fully missing data. 
 Despite these shortcomings this dataset is useful because of the bitmap files. This allows to compare results of both images affected by shooting conditions and images dependent only on font and position.
@@ -40,7 +40,7 @@ Despite these shortcomings this dataset is useful because of the bitmap files. T
 
 Born-Digital Images contains data of images with text that can be found on various websites. Samples of this dataset can be found is in Figure \ref*{Im:Dbd}. There are mostly advertisements, company logos or website headers. Such pictures cannot be classified neither as real scene dataset, neither as synthetic one. On one hand  this dataset shares with scene datasets the variability in font styles and sizes, different text orientations and complex colour placement. On the other hand it differs in size because low resolution is significant in smooth and fast loading on websites. Also no noise is present due to lighting conditions. Geometrical deformations that result when capturing a real scene with camera also do not appear here. However compression to lower resolution can lead to artifacts and aliasing. In general we can say that letters are more clearly visible than in photographed text as easy readability is crucial in successful advertising.\cite{born-digital1}
 
-The dataset is available for download from the website of Robust Reading Competition. First version was published in 2011 and revised two years later, it contains separate dataset for text localization, segmentation and then for word recognition. In 2015 they published an end-to-end dataset with ground truth for all tasks. The dataset is split in training and testing data. However, ground truth for testing data contains only a possible vocabulary of words in images and no coordinates. This might be due to the fact that the competition might be still ongoing or there was not a sufficient demand for complete ground truth. As for training data, each image has a corresponding TXT file with coordinates of four vertices of bounding rectangle and a word. Text lines are separated and the text within rectangle is always one word. Unfortunately, there are quite a few missing words, usually words that have two or less characters. This can affect the evaluation when the model finds such a short, missing word.\cite{born-digital1}
+The dataset is available for download from the website of Robust Reading Competition. First version was published in 2011 and revised two years later, it contains separate dataset for text localization, segmentation and then for word recognition. In 2015 they published an end-to-end dataset with ground truth for all tasks. The dataset is split in training and testing data. However, ground truth for testing data contains only a possible vocabulary of words in images and no coordinates. This might be due to the fact that the competition might be still ongoing or there was not a sufficient demand for complete ground truth. As for training data, each image has a corresponding TXT file with coordinates of four vertices of bounding rectangle and a word. Text lines are separated and the text within rectangle is always one word. Extracting ground truth is done in the function \texttt{read\_gt\_bd} and unlike preceding datasets there was no parsing needed, only read the desired values from a file. Unfortunately, there are quite a few missing words, usually words that have two or less characters. This can affect the evaluation when the model finds such a short, missing word.\cite{born-digital1}
 
 \begin{figure}[hbtp]
     \centering
@@ -54,14 +54,18 @@ The dataset is available for download from the website of Robust Reading Competi
 
 \section{Results}
 
-I have split the experiments by the four datasets and made comparisons. Prediction methods were examined and where possible with different setting of parameters.
+I have split the experiments by the four datasets and made comparisons. Prediction methods were examined with a different setting of parameters where possible.
+
+The pipeline of each testing script is 
 
 \subsection*{Born-Digital}
+
+
 
 \begin{figure}[hbtp]
     \centering
     \includegraphics[scale=0.4]{obrazky/resBD-col.png}
-    \caption{Results of exmperiments performed on Born-Digital Images dataset.}
+    \caption{Results of experiments performed on Born-Digital Images dataset.}
     \label{Im:s}
 \end{figure}
 

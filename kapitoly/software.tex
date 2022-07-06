@@ -38,25 +38,39 @@ OCR software can be divided in four main types by its functionality - text detec
 
 \section{CRAFT}
 
-Character Region Awareness for Text Detection (CRAFT) is framework for scene text detection. It uses a Convolutional Neural Network. It performs well also on curved or differently deformed texts. Its methodology is to localize individual characters then characters belonging to the same word (based on distance) can be connected into word box or polygon. After that bounding box is created around it and output contains the rectangle coordinates.\cite{craft2}
+Character Region Awareness for Text Detection (CRAFT) is framework for scene text detection introduced by Clova AI research group. It uses a Convolutional Neural Network. It performs well also on curved or differently deformed texts. Its methodology is to localize individual characters then characters belonging to the same word (based on distance) can be connected into word box or polygon. After that bounding box is created around it and output contains the rectangle coordinates.\cite{craft2}
 
 CRAFT uses  a fully convolutional neural network based on VGG-16.%najit vgg16 a popsat!!!
 The network returns two values -- an affinity and region score. "The region score represents the probability that the given pixel is the center of the character and the affinity score represents the center probability of the space between adjacent characters" \cite[page 3]{craft2}. Because CRAFT detect individual characters it was necessary for the authors to create ground truth with bounding boxes for each character. Both scores, thus the probabilities they represent, are encoded with a Gaussian heatmap which is often used were ground truth regions are not strictly bounded. The model was trained on a synthetic dataset SynthText for 50k iterations, further weakly-supervised training was performed on ICDAR datasets.\cite{craft2}
 
-This method has similarly successful performance as other state-of-the-art methods and in last years it is often used as a detection tool in systems that recognize text from unsegmented images.
-
+This method has similarly successful performance as other state-of-the-art methods and in last years it is often used as a detection tool in systems that recognize text from unsegmented images. There exists an official Pytorch implementation of CRAFT for python which can be cloned from Clova AI GitHub repository\footnote{https://github.com/clovaai/CRAFT-pytorch}, however it is not a python package. A package for python of CRAFT detector exists under the name \texttt{
+craft-text-detector}.
 
 \subsection{Tesseract}
 
-Tesseract is an open source text recognition engine. It supports over 160 languages. Originally Tesseract was created by Hewlett-Packard in late 1980s, from 2006 it is developed and maintained by Google. As it does not have a built-in GUI direct use is via command line. However, there exist a significant number of GUIs for Linux, Windows, Mac for computer usage and also for Android and iOS to use on mobile phones and few online OCR services. Another way how to use the engine is via libraries for computer languages, namely for example they exist for Java called tess4j, Python called pytesseract, R, Ruby and others. \cite{tesseract1}
+Tesseract is an open source text recognition engine. It supports over 160 languages can be trained to recognize new ones. Originally Tesseract was created by Hewlett-Packard in late 1980s, from 2006 it is developed and maintained by Google. As it does not have a built-in GUI direct use is via command line. However, there exist a significant number of GUIs for Linux, Windows, Mac for computer usage and also for Android and iOS to use on mobile phones and few online OCR services. Another way how to use the engine is via libraries for computer languages, namely for example they exist for Java called tess4j, python called pytesseract, R, Ruby and others. \cite{tesseract1}
 
-Tesseract is mainly used as tool for recognizing documents (with both computer font text or hadwritten text). Best results are obtained on preprocessed images. The preprocessing includes noise reduction, horizontal alignment of text, elimination of dark borders around text region, conversion to binary black and white picture and other adjustments depending on the nature of the picture. Thus when used on scene text images it gives generally worse results than other OCR softwares. 
+Tesseract is mainly used as tool for recognizing documents (with both computer font text or hadwritten text). Best results are obtained on preprocessed images. The preprocessing includes noise reduction, horizontal alignment of text, elimination of dark borders around text region, conversion to binary black and white picture and other adjustments depending on the nature of the picture. The ideal image for Tesseract is a legible, typed, black text on plain white. Thus when used on scene text images it gives generally worse results than other OCR softwares. 
 
-Computarions with Tesseract are supported for GPU and also CPU. Tesseract uses for recognition Long Short Term Memory (LSTM) model (kind of RNN).
+Computations with Tesseract are supported for GPU and also CPU. Since version 4, that was announced in 2018, Tesseract uses for recognition Long Short Term Memory (LSTM) model (kind of RNN). A simple pipeline of Tesseract is in Figure \ref*{img:tesseractPipeline}. First a binary image is created from the input one, then characters are found with the connected components algorithm. Joined characters are then chopped and broken ones are connected, now each character should be separate. Then characters are recognized and further joined into words. The words are verified in a lexicon and a word with the smallest distance is selected.\cite{tesseract2}
 
-Page Segmentation models
-By default Tesseract expects a page of text -- black letters on white background grouped in horizontal lines, where font type and font size vary only slightly. To deal with differently distributed text over an image Tesseract provides thirteen page segmentation models (PSM). When selecting the right model Tesseract performance can increase from zero up to almost perfect results. Description of all the PSMs can be find directly via Tesseract help command in console application. 
-https://pyimagesearch.com/2021/11/15/tesseract-page-segmentation-modes-psms-explained-how-to-improve-your-ocr-accuracy/
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.4]{obrazky/tesseract.png}
+    \caption{Pipeline architecture of Tesseract OCR engine. \cite{tessPipeline}}
+    \label{img:tesseractPipeline}
+\end{figure}
+
+
+By default Tesseract expects a page of text -- black letters on white background grouped in horizontal lines, where font type and font size vary only slightly. To deal with differently distributed text over an image Tesseract provides thirteen page segmentation models (PSM). When selecting the right model Tesseract performance can increase from zero up to almost perfect results. Description of all the PSMs can be find directly via Tesseract help command in console application. Thanks to the various PSM Tesseract works also as a detection tool but often happens that during a search for text in scene images it mistakes objects and structers for text. Such example can be seen in Figure \ref*{img:tesseractMiss}. Besides the PSM parameter user can set also OCR engine modes (OEM). There are four settings differing in whether a LSTM network should be used. 
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.55]{obrazky/result_tesseract_CTW_u_miss.png}
+    \caption{Tesseract mistakes background texture for text. Red rectangles and characters denotes predicted words. Part of an preprocessed image from CTW1500 dataset.}
+    \label{img:tesseractMiss}
+\end{figure}
+
 
 \subsection{EasyOCR}
 

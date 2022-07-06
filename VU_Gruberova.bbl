@@ -55,6 +55,13 @@
 \newblock Available from:
   \url{https://www.ibm.com/cloud/learn/recurrent-neural-networks}.
 
+\bibitem{tessPipeline}
+{\sc M.~Gjoreski, G.~Zajkovski, A.~Bogatinov, G.~Madjarov, D.~Gjorgjevikj, and
+  H.~Gjoreski}.
+\newblock {\bf Optical character recognition applied on receipts printed in
+  macedonian language}.
+\newblock 04 2014.
+
 \bibitem{DIP}
 {\sc R.~C. Gonzalez and R.~E. Woods}.
 \newblock {\em Digital Image Processing (4th ed.)}.
@@ -175,6 +182,12 @@
   Recognition and Its Application to Scene Text Recognition}, 2015.
 \newblock Available from: \url{https://arxiv.org/abs/1507.05717}.
 
+\bibitem{tesseract2}
+{\sc R.~Smith}.
+\newblock {\bf An overview of the Tesseract OCR engine}.
+\newblock In {\em Ninth international conference on document analysis and
+  recognition (ICDAR 2007)}, ~{\bf 2}, pages 629--633. IEEE, 2007.
+
 \bibitem{svt}
 {\bf The street view text dataset}.
 \newblock Last accessed 22 Jul. 2022. [Online].
@@ -192,6 +205,14 @@
 \newblock {\bf Tesseract-OCR/tessdoc: Tesseract documentation}.
 \newblock Last accessed 6 May. 2022. [Online].
 \newblock Available from: \url{https://github.com/tesseract-ocr/tessdoc}.
+
+\bibitem{ulhassan2021}
+{\sc M.~Ul~Hassan}.
+\newblock {\bf VGG16 - convolutional network for classification and detection},
+  Feb 2021.
+\newblock Last accessed 6 Jul. 2022. [Online].
+\newblock Available from:
+  \url{https://neurohive.io/en/popular-networks/vgg16/}.
 
 \bibitem{google1}
 {\bf Vision AI | derive image insights via ML | cloud vision API google cloud}.
