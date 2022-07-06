@@ -56,19 +56,65 @@ The dataset is available for download from the website of Robust Reading Competi
 
 I have split the experiments by the four datasets and made comparisons. Prediction methods were examined with a different setting of parameters where possible.
 
-The pipeline of each testing script is 
+The pipeline of each testing script is as follows.
+\begin{enumerate}
+    \item Installation of packages that are not in the default Google Colab setting.
+    \item Importing dependencies for the project including custom utility functions from \texttt{utils.py}.
+    \item Google Drive of the user that runs Google Colab is mounted. (Authentication is needed)
+    \item Image files and ground truth files are loaded. Ground truth is converted from files to tuple of string and integer coordinates.
+    \item If desired a short preprocessing of images is done (grayscale, Otsu thresholding).
+    \item Setup of parameters for OCR.
+    \item Model loading.
+    \item Prediction.
+    \item Conversion of prediction to a unified format (List of tuples of string and integer coordinates for each image, then joined to a list, which contains prediction for all images.)
+    \item Computation of evaluation metrics IOU an CER.
+    \item Saving and visualizing results.
+\end{enumerate}
 
 \subsection*{Born-Digital}
 
+First, the Born-Digital Images dataset was tested with images in original image size, predictions and ground truth were set to be in lowercase and all special characters except for space were removed. There were 13 different testing runs with three tested methods.  In Figure \ref*{Im:resBD} are the results of this testing and in Table \ref*{Tab:resBD} is corresponding information about each run. 
 
+The best CER value was achieved by tuned EasyOCR engine, where no split was done on predicted text (letter D in Fig. \ref*{Im:resBD}). We can see from the graph and table, that EasyOCR and keras-OCR had significantly better results than Tesseract. Also it can be said that tuning of EasyOCR model results in higher both IOU and CER of approximately 20\% more than with basic EasyOCR setup of parameters. Keras-OCR performs simlarly with split and no split option and in both cases gives satisfactory results.
 
-\begin{figure}[hbtp]
+When we compare Tesseract with its own detection model and Tesseract with CRAFT tool, we can see that CRAFT increases the CER metric by more than 12\%, however the IOU metric fluctuates for all cases around 50\%. Whether the image is in RGB color scheme or in grayscale has only a little impact on the results, generally it differed only by about 2\%. If the Otsu thresholding was performed and the image was then binarized, results were worse than when Tesseract itself performs the binarization.
+
+{
+\begin{figure}[hbt!]
     \centering
-    \includegraphics[scale=0.4]{obrazky/resBD-col.png}
-    \caption{Results of experiments performed on Born-Digital Images dataset.}
-    \label{Im:s}
+    \includegraphics[scale=0.5]{obrazky/grafy/resBD.png}
+    \caption{Results of experiments performed on Born-Digital Images dataset. Information about each method is in Table \ref*{Tab:resBD}.}
+    \label{Im:resBD}
 \end{figure}
+\begin{table}[!hbt]
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+        Key & Method & Properties \\ \hline
+        A & tesseract+CRAFT &  no split, psm8\\ 
+        B & tesseract+CARFT &  split, psm8\\ \hline
+        C & easyOCR &  no split, no tuning\\ 
+        D & easyOCR &  no split, tuning\\ 
+        E & easyOCR &  split, no tuning\\ 
+        F & easyOCR &  split, tuning\\ \hline
+        G & keras-OCR &  no split\\ 
+        H & keras-OCR &  split\\ \hline
+        I & tesseract & colored, no split, psm11\\ 
+        J & tesseract & binary, split, psm11\\ 
+        K & tesseract & colored, split, psm11\\ 
+        L & tesseract & binary, split, psm4\\ 
+        M & tesseract & colored, split, psm4\\ \hline
+    \end{tabular}
+    \caption{A key table of methods and parameters of experiments performed on Born-Digital Images dataset for Figure \ref*{Im:resBD}.}
+    \label{Tab:resBD}
+\end{table}
+}
 
+Next I performed tests with case sensitive option and with special characters included.
+
+\subsection*{CTW}
+
+\subsection*{Kaist}
 
 \section{Tesseract}
 Potreba cernobile a threshold tesseract to ma radsi, problem delat centralne - otsu a po castech ale stejne tezke u spousty obrazku s ruznym osvetlenim.
