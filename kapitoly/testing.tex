@@ -54,6 +54,8 @@ The dataset is available for download from the website of Robust Reading Competi
 
 \section{Results}
 
+
+
 I have split the experiments by the four datasets and made comparisons. Prediction methods were examined with a different setting of parameters where possible.
 
 The pipeline of each testing script is as follows.
@@ -71,13 +73,31 @@ The pipeline of each testing script is as follows.
     \item Saving and visualizing results.
 \end{enumerate}
 
+Next I will shortly described possible setups of each of the three methods I used in the experiments. It will be  followed by discussion of the results of test divided into sections by the four datasets.
+
+\subsection*{EasyOCR}
+I used the version 1.5.0 of the EasyOCR python package. The experiments were run using a GPU. I used two different settings for EasyOCR engine -- the basic one which tends to detect and recognize text as single word objects and the second setting merges close words together creating text lines of words that belong together.
+
+\subsection*{Keras-OCR}
+The keras\_ocr-0.9.1 package for Python was used in experiments. It was necessary to compute the predictions on GPU, due to the limited GPU on Google Colab and the size of the images needed to be processed one by one although Keras allows to process images in batches. Keras-OCR predictions are case insensitive, because the default model does not support uppercase letters. I trained the Keras recognition model on SCUT-CTW1500 dataset (on the one thousand training images), first a trained the default model with lower case alphabet, then with the same alphabet and a space character and finally with uppercase letters and a set of special characters. In the results discussion it will be shown that after training the model does not offer better results than the original model. THe original model is already very successful and was well trained on much larger datasets.
+
+Each of the training took about an hour on Google Colab GPU. I set 100 epochs and an early stopping based on the value of validation loss. The validation data were taken from the train data as 20\% of the whole training part. First the I used early stopping after 10 non decreasing values, then after 30, but in both cases the model could not get any better than 14\% validation loss.
+
+% graph
+
+\subsection*{Tesseract}
+The version of Tesseract installed on Google Colab is tesseract 4.0.0-beta.1 with leptonica-1.75.3, which means that the LSTM network is available. For testing I used the OCR Engine mode (OEM) 3, that is Legacy + LSTM engines. As for Page segmentation modes (PSM) I used numbers 3, 4, 6, 8 and 11, which are "Fully automatic page segmentation, but no OSD. (Default)", "Assume a single column of text of variable sizes.",  "Assume a single uniform block of text.",  "Treat the image as a single word." and "Sparse text. Find as much text as possible in no particular order." respectively. I used PSM 3 only initially and dropped it beacuse prediction was strongly inefficient, so it is not included in result statistics. PSM 8 was used for testing Tesseract with CRAFT, because CRAFT crops an image into segments where there is only one word (or a short text line), therefore Tesseract needed to treat the image as a single word. The rest of mentioned PSMs were applied for examining the behavior of pure Tesseract engine. 
+
+
+
+
 \subsection*{Born-Digital}
 
-First, the Born-Digital Images dataset was tested with images in original image size, predictions and ground truth were set to be in lowercase and all special characters except for space were removed. There were 13 different testing runs with three tested methods.  In Figure \ref*{Im:resBD} are the results of this testing and in Table \ref*{Tab:resBD} is corresponding information about each run. 
+First, the Born-Digital Images dataset was tested with images in predictions and ground truth were set to be in lowercase and all special characters except for space were removed. There were 13 different testing runs with three tested methods.  In Figure \ref*{Im:resBD} are the results of this testing and in Table \ref*{Tab:resBD} is corresponding information about each run. 
 
 The best CER value was achieved by tuned EasyOCR engine, where no split was done on predicted text (letter D in Fig. \ref*{Im:resBD}). We can see from the graph and table, that EasyOCR and keras-OCR had significantly better results than Tesseract. Also it can be said that tuning of EasyOCR model results in higher both IOU and CER of approximately 20\% more than with basic EasyOCR setup of parameters. Keras-OCR performs simlarly with split and no split option and in both cases gives satisfactory results.
 
-When we compare Tesseract with its own detection model and Tesseract with CRAFT tool, we can see that CRAFT increases the CER metric by more than 12\%, however the IOU metric fluctuates for all cases around 50\%. Whether the image is in RGB color scheme or in grayscale has only a little impact on the results, generally it differed only by about 2\%. If the Otsu thresholding was performed and the image was then binarized, results were worse than when Tesseract itself performs the binarization.
+When we compare Tesseract with its own detection model and Tesseract with CRAFT tool, we can see that CRAFT increases the CER metric by more than 12\%, however the IOU metric fluctuates for all cases around 50\%. Whether the image is in RGB color scheme or in grayscale has only a little impact on the results, generally it differed only by about 2\%. Same minor difference is when split or no split option is set. If the Otsu thresholding was performed and the image was then binarized, results were worse than when Tesseract itself performs the binarization. Better results were when PSM tesseract parameter was set to 11 rather then PSM 4.
 
 {
 \begin{figure}[hbt!]
@@ -105,36 +125,98 @@ When we compare Tesseract with its own detection model and Tesseract with CRAFT 
         L & tesseract & binary, split, psm4\\ 
         M & tesseract & colored, split, psm4\\ \hline
     \end{tabular}
-    \caption{A key table of methods and parameters of experiments performed on Born-Digital Images dataset for Figure \ref*{Im:resBD}.}
+    \caption{A table of keys for methods and parameters of experiments performed on Born-Digital Images dataset for Figure \ref*{Im:resBD}.}
     \label{Tab:resBD}
 \end{table}
 }
 
 Next I performed tests with case sensitive option and with special characters included.
 
-\subsection*{CTW}
+\subsection*{SCUT-CTW1500 dataset}
+The SCUT-CTW1500 dataset was again first tested with predictions and ground truth were set to be in lowercase and all special characters except for space were removed. 14 different testing were run.  In Figure \ref*{Im:resCTW} are the results of the testing and the corresponding information about each run is in Table \ref*{Tab:resCTW}. 
 
-\subsection*{Kaist}
+This time the best CER value ($76.4\%$) was achieved by keras-OCR model, where split was performed on predicted text (letter H in Fig. \ref*{Im:resCTW}). It can be seen from the graph and table, that EasyOCR and keras-OCR had again significantly better results than Tesseract. In testing of CTW1500 dataset this time keras-OCR generally performed better than EasyOCR in CER metric by roughly 10\%. The tuning of EasyOCR model results in lower both IOU and CER of approximately 2\% less than with basic EasyOCR setup of parameters. This might by probably due to the fact that EasyOCR model was trained on data similar to CTW1500 dataset rather then Born-Digital Images dataset Keras-OCR performs simlarly with split and no split option and in both cases gives satisfactory results.
 
-\section{Tesseract}
-Potreba cernobile a threshold tesseract to ma radsi, problem delat centralne - otsu a po castech ale stejne tezke u spousty obrazku s ruznym osvetlenim.
-Tesseract zkousime u bitmap obr PSM 11 na Kaist a je o hodne horsi nez PSM 6, s 11 je to 9.6. proc. jinak u normlalnich obrazku je lepsi zase 11, taky treba o 9 procent rozdil.. pak jeste 4 to je obcas lepsi
-U CTW datasetu je to s 6 horsi.
+The Comparison of Tesseract with its own detection model and Tesseract with CRAFT tool shows that with CRAFT the CER metric increased by almost than 20\% as well as the IOU metric that increased by more than 30\%. Plain Tesseract results are again the worst and are not heavily influenced by color scheme or slight scaling changes. 
 
-jeste hrani s barvama nebo upraveny , jak kde
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.5]{obrazky/grafy/resCTW.png}
+    \caption{Results of experiments performed on CTW dataset. Information about each method is in Table \ref*{Tab:resCTW}.}
+    \label{Im:resCTW}
+\end{figure}
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+        Key & Method & Properties \\ \hline
+        A & tesseract+CRAFT & no split \\ 
+        B & tesseract+CRAFT & split \\ \hline
+        C & easyOCR & nosplit, notuning \\ 
+        D & easyOCR & no split, tuning \\ 
+        E & easyOCR & split, notuning \\ 
+        F & easyOCR & split, tuning \\ \hline
+        G & keras-OCR & original image width, no split \\ 
+        H & keras-OCR & original image width, split \\ 
+        I & keras-OCR & original image width, split, trained spaces \\ 
+        J & keras-OCR & original image width, split, trained \\ \hline
+        K & tesseract & 3000px image width, no split \\ 
+        L & tesseract & color, no split, psm11 \\ 
+        M & tesseract & split, psm11\\ 
+        N & tesseract & color, split, psm11 \\ \hline
+    \end{tabular}
+    \caption{A table of keys for methods and parameters of experiments performed on SCUT-CTW1500 dataset for Figure \ref*{Im:resCTW}.}
+    \label{Tab:resCTW}
+\end{table}
 
-verze
-tesseract 4.0.0-beta.1
- leptonica-1.75.3
-  libgif 5.1.4 : libjpeg 8d (libjpeg-turbo 1.5.2) : libpng 1.6.34 : libtiff 4.0.9 : zlib 1.2.11 : libwebp 0.6.1 : libopenjp2 2.3.0
+\subsection*{KAIST Scene Text Database}
 
- Found AVX2
- Found AVX
- Found SSE
+Testing of performance of the three methods on KAIST dataset with case insensitivity and no special characters was done in 22 different runs. Eight of them were on KAIST bitmap images, as these images do not have a misleading background the results are significantly better than on original photographes. The results can be seen in Figure \ref*{Im:resK} and the corresponding information is in Table \ref*{Tab:resK}. 
+The best results on the bitmap images part of KAIST dataset were performed by EasyOCR dataset with no splitting and CER value is $82.2\%$ high (letter B in Fig. \ref*{Im:resK}). This method with the same setup is also best with KAIST dataset unedited photographs. Due to the character of the dataset for all cases the no split option is distinctly better. 
 
-\section{Keras}
+Keras-OCR had slightly lower values of CER than EasyOCR and IOU values are even lower by generally 15\%. Still it is by 20\% higher than results of plain Tesseract and comparable with Tesseract and CRAFT combination. Tesseract had this time best but still way too low results with PSM 6. PSM 4 led to CER value as low as 18\%. Color scheme did not have a distinguishable impact on the results.
+ 
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.5]{obrazky/grafy/resKaist.png}
+    \caption{Results of experiments performed on KAIST Scene Text Database. Information about each method is in Table \ref*{Tab:resK}.}
+    \label{Im:resK}
+\end{figure}
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+        Key & Method & Properties \\ \hline
+        A & tesseract+CRAFT & no split \\ \hline
+        B & easyOCR & bmp, no split, no tuning \\ 
+        C & easyOCR & bmp, no split, tuning \\ 
+        D & easyOCR & bmp, split, no tuning \\ 
+        E & easyOCR & bmp, split, tuning \\ 
+        F & easyOCR & no split, no tuning \\ 
+        G & easyOCR & no split, tuning \\ 
+        H & easyOCR & split, no tuning \\ 
+        I & easyOCR & split, tuning \\ \hline
+        J & keras-OCR & bmp, no split \\ 
+        K & keras-OCR & bmp, split \\ 
+        L & keras-OCR & no split \\ 
+        M & keras-OCR & split \\ \hline
+        N & tesseract & bmp, no split, psm11 \\ 
+        O & tesseract & bmp, split, psm11 \\ 
+        P & tesseract & colored, no split, psm11 \\ 
+        Q & tesseract & colored, no split, psm4 \\ 
+        R & tesseract & colored, no split, psm6 \\ 
+        S & tesseract & no split, psm11 \\ 
+        T & tesseract & colored, split, psm11 \\ 
+        U & tesseract & colored, split, psm4 \\ 
+        V & tesseract & split, psm11 \\ \hline
+    \end{tabular}
+    \caption{A table of keys for methods and parameters of experiments performed on KAIST Scene Text Database for Figure \ref*{Im:resK}.}
+    \label{Tab:resK}
+\end{table}
 
-Training took one hour and stopped after 57 epochs ,10.979148864746094,20.5778751373291. Continued training.
+
+
+% Training took one hour and stopped after 57 epochs ,10.979148864746094,20.5778751373291. Continued training.
 
 % trained no spaces 
 % [[('bruno', 'brung', 0.2)],
