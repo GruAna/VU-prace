@@ -48,7 +48,7 @@ def image_text_crop(images, filenames, ground_truth, one_file=True, result_folde
     return all_texts
 \end{lstlisting}
 
-The function image\_text\_crop crops and saves images based on bounding boxes provided in ground truth for each text region in an image. This is done for all images in \lstinline{images} list. Also a text file is created with a corresponding text annotation. The name of the resulted file bears the original image name and a number is attached for each text region. The boolean parameter \lstinline{one_file} allows to save ground truths only to a single file. Each line consists then of the name of the cropped image and its annotation. The parameter \lstinline{skip_longer_than} skips ground truths that have more characters than stated, because some OCR tools (such as keras-OCR) does not support long strings.
+The function \tn{image\_text\_crop} crops and saves images based on bounding boxes provided in ground truth for each text region in an image. This is done for all images in \tn{images} list. Also a text file is created with a corresponding text annotation. The name of the resulted file bears the original image name and a number is attached for each text region. The boolean parameter \tn{one\_file} allows to save ground truths only to a single file. Each line consists then of the name of the cropped image and its annotation. The parameter \tn{skip\_longer\_than} skips ground truths that have more characters than stated, because some OCR tools (such as keras-OCR) does not support long strings.
 
 \begin{lstlisting}[caption=shrink\_all]
 def shrink_all(images, width):
@@ -65,7 +65,7 @@ def shrink_all(images, width):
     return scaled    
 \end{lstlisting}
 
-The function \lstinline{shrink_all} returns a list of resized images to a given width. Images already smaller than width are kept unaffected. The resizing aspects ratio.
+The function \tn{shrink\_all} returns a list of resized images to a given width. Images already smaller than width are kept unaffected. The resizing aspects ratio.
 
 \begin{lstlisting}[caption=bounding\_rectangle]
 def bounding_rectangle(coordinates):
@@ -74,8 +74,8 @@ def bounding_rectangle(coordinates):
     return np.array([[int(min(x)), int(min(y))], [int(max(x)), int(max(y))]])
 \end{lstlisting}
 
-The function \lstinline{bounding_rectangle}
-Returns top left and bottom right coordinates of a rectangle, that is circumscribed to a polygon defined by coordinates. These are obtained from ground truth as bounding box for each text region. In some datasets, the ground truth coordinates are already a rectangle.
+The function \tn{bounding\_rectangle}
+Returns top left and bottom right coordinates of a rectangle, that is circumscribed to a polygon defined by coordinates. These are obtained from predictions for each text region.
 
 % -------------------------- IOU --------------------------  
 
@@ -103,7 +103,7 @@ def iou(pred_box, gt_box):
 
 \end{lstlisting}
 
-The function \lstinline{iou} computes intersection over union of two bounding boxes, as defined in \ref*{sec:eval}. Both input parameters have to contain top left and bottom right coordinates of a bounding box rectangle.
+The function \tn{iou} computes intersection over union of two bounding boxes, as defined in \ref*{sec:eval}. Both input parameters have to contain top left and bottom right coordinates of a bounding box rectangle.
 
 \begin{lstlisting}[caption=iou\_image]
 def iou_image(pred_boxes, gt_boxes):
@@ -128,11 +128,9 @@ def iou_image(pred_boxes, gt_boxes):
 
 \end{lstlisting}
 
-The function \lstinline{iou_image} computes intersection over union for all text regions in one image.
+The function \tn{iou\_image} computes intersection over union for all text regions in one image.
 Each parameter shall contain a list of two coordinates - (top left, bottom right) of a bounding box rectangle.
-Returns a list of tuples - each tuple consists of the highest (best) iou value, the index of predicted bounding box and  the index of ground truth bounding box. The indeces are taken from the given lists of bounding boxes or ground truths belonging to one particular image.
-
-
+Returns a list of tuples - each tuple consists of the highest iou value (thus having the biggest overlap), the index of predicted bounding box and  the index of ground truth bounding box. The indeces are taken from the given lists of bounding boxes or ground truths belonging to one particular image.
 
 \begin{lstlisting}[caption=group\_text]
 def group_text(lst):
@@ -146,14 +144,113 @@ def group_text(lst):
     return grouped
 \end{lstlisting}
 
-The function \lstinline{group_text} is a utility function for matching corresponding strings in a list. \lstinline{key} is the third element of a list elem
-Returns list of tuples, where tuple contains sum of first element of list 
-and tuple of indeces that repeated for the key (key is the last (third) 
-element of given list). 
+The function \tn{group\_text} is a utility function for matching corresponding strings in a list. The list that is passed as an argument is a list of tuples of IOUs returned from the function \tn{iou\_image}. First for each ground truth bounding box, which is determined by the ground truth index (in this case the third element of the tuple) and it is used as a key. The returned tuple consists of a sum of IOUs, a list of indeces of predicted bounding boxes and ground truth index.
 
+% -------------------------- Text Comparision -------------------------- 
+
+
+\begin{lstlisting}[caption=compare\_text\_cer]
+def compare_text_cer(text, special_characters=False, case_sensitive=False, spaces=True, split=True):
+    text_gt, text_pred = text
+    # remove special characters and case sensitivity if necessary
+    if not spaces:
+        text_gt = "".join(char for char in text_gt if (char.isalnum()))
+        text_pred = "".join(char for char in text_pred if (char.isalnum()))
+    elif not special_characters:
+        text_gt = "".join(char for char in text_gt if (char.isalnum() or char.isspace()))
+        text_pred = "".join(char for char in text_pred if (char.isalnum() or char.isspace()))
+    if not case_sensitive:
+        text_gt = text_gt.lower()
+        text_pred = text_pred.lower()
+    
+    corresponding_words = []
+
+    if split:
+        words_gt = text_gt.split(" ")
+        words_pred = text_pred.split(" ")
+
+        # list of words that are corresponding (based on levenshtein distance)
+        # and cer value. (=tuple of three elements)
+        # for every predicted word find its corresponding gt wordle
+        for word_pred in words_pred:    
+            min_dist = (1000, (0, 0))
+            min_gt_word = ""                  
+            for word_gt in words_gt: 
+                l_dist = levenshtein_distance(word_gt, word_pred)
+                if l_dist[0] < min_dist[0]:
+                    min_dist = l_dist
+                    min_gt_word = word_gt
+            # count normalized cer (the result will be from 0 to 1), 1 is the worst
+            # for computation we devide Levenshtein dist. by sum 
+            # of the length of the word and count of insertions performed
+            if len(min_gt_word) > 0 and len(word_pred) > 0:
+                cer = min_dist[0] / (len(min_gt_word) + min_dist[1][2])
+            else:
+                cer = 1
+            corresponding_words.append((min_gt_word, word_pred, cer))
+
+        # no split of words    
+    else:
+        l_dist = levenshtein_distance(text_gt, text_pred)
+
+        if len(text_gt) > 0 and len(text_pred) > 0:
+            cer = l_dist[0] / (len(text_gt) + l_dist[1][2])
+        else:
+            cer = 1
+        corresponding_words.append((text_gt, text_pred, cer))
+
+    return sorted(corresponding_words)
+\end{lstlisting}
+
+The function \tn{compare\_text\_cer} returns a sorted list of corresponding words. Each pair of corresponding words is represented as a tuple of ground truth string, predicted string and a CER value. The first parameter have to be a tuple of a single ground truth string and a predicted string. The argument \tn{special\_characters} ignores all characters except alphanumeric characters and space when \tn{False}. This is applied to both predicted and ground truth strings. When the argument \tn{case\_sensitive} is \tn{False} then all texts are set to lowercase. The \tn{spaces} parameter allows only alphanumeric characters and all spaces are removed. The last one of arguments is \tn{split} and it is used optionally depending on the OCR engine and on dataset. When \tn{True}, strings from ground truth and prediction are split with space used as a separator. Then the Levenshtein distance is computed for each pair of ground truth and predicted word. The best one is chosen for each predicted word and returned together with the two closest words. In case of no split, the Levenshtein distance is computed directly for the strings in the original tuple \tn{text}. It is recommended to use split when the OCR model tends to detect words that belongs to each other as separate words and ground truth marks them as a text line with multiple words. Or when ground truth is one-word and model predicts strings with multiple words together.
+
+The function \tn{levenshtein\_distance} computes the Levenshtein distance (definition can be found in section \ref*{sec:eval}). The implementation is taken from a console application called xer. The code is available from \url{https://github.com/jpuigcerver/xer/blob/master/xer}. It returns a tuple of counts of the three performed operations --  substitution, deletion, insertion.
+
+% -------------------------- Final Visualisation -------------------------- 
+\begin{lstlisting}[caption=plot\_results]
+def plot_results(image, ground_truth, predicted, size=15):
+    # Create figure and axes
+    figure, ax = plt.subplots(figsize=(size, size))
+
+    # Display the image
+    ax.imshow(cv.cvtColor(image, cv.COLOR_BGR2RGB), cmap=plt.get_cmap('gray'))
+    ax.axis('off')
+
+    for label, bbox  in ground_truth:
+        topleft = bbox[0]
+        height = bbox[1,1] - bbox[0,1]
+        width = bbox[1,0] - bbox[0,0]
+
+        # create and add rectangle
+        rect = patches.Rectangle((topleft), width, height, linewidth=1, edgecolor='g', facecolor='none')
+        ax.add_patch(rect)
+
+        # add labels
+        ax.text(topleft[0]+width, topleft[1],label,verticalalignment='top', color='g',fontsize=13, bbox=dict(facecolor='g', alpha=0.2, edgecolor='g'))
+
+    for label, bbox  in predicted:
+        topleft = bbox[0]
+        height = bbox[1,1] - bbox[0,1]
+        width = bbox[1,0] - bbox[0,0]
+
+        # create and add rectangle
+        rect = patches.Rectangle((topleft), width, height, linewidth=1, edgecolor='r', facecolor='none')
+        ax.add_patch(rect)
+
+        # add labels
+        ax.text(topleft[0]-2, topleft[1]-5,label,verticalalignment='top', color='r',fontsize=13, bbox=dict(facecolor='r', alpha=0.2, edgecolor='r'))
+    
+    # smaller white borders
+    plt.subplots_adjust(left=0, bottom=0.1, right=1, top=0.9, wspace=0, hspace=0)
+
+    return plt 
+\end{lstlisting}
+
+The function \tn{plot\_results} returns a plot with an image and both predicted and ground truth bounding boxes 
+and corresponding labels. The ground truths are marked with green color and predictions with red. Objects are drawn using the package matplotlib.
 
 \begin{lstlisting}[caption=]
 
 \end{lstlisting}
 
-The function \lstinline{}
+The function \tn{}
