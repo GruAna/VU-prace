@@ -45,10 +45,37 @@
 \newcommand{\tb}{\textbf} % zkrácený příkaz pro tučné písmo
 \newcommand{\tn}{\texttt} % zkrácený příkaz pro neproporcionalni písmo
 
+% Vzhled kodu - lstlistings - python
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{framegray}{rgb}{0.8,0.8,0.8}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
-% Vzhled kódu
-\renewcommand{\lstlistingname}{Kód}
+\lstdefinestyle{mystyle}{
+    language=Python,
+    frame=single,
+    rulecolor=\color{framegray},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta}\bfseries,     numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
 
+\renewcommand{\lstlistingname}{Function}
+
+%-----------------------------------------------
 
 \newenvironment{repl}
 {\fontfamily{cmvtt}\selectfont \begin{mdframed}

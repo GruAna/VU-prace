@@ -1,1 +1,159 @@
 \chapter{Functions description}
+
+In this chapter functions used in testing scripts are shown and briefly described. Note that docstrings of functions were omitted as they provide similar information as the descriptions, but in a shorter version.                                                    
+
+\begin{lstlisting}[caption=image\_text\_crop]
+def image_text_crop(images, filenames, ground_truth, one_file=True, result_folder='./results', skip_longer_than=40):
+    # test if there are not more gts than images
+    # else the for loop will never get to those exceeding image count
+    gt_length = len(ground_truth)
+    if len(images) > gt_length:
+        images = images[:gt_length]
+
+    if not os.path.isdir(result_folder):
+        os.mkdir(result_folder)
+    
+    all_texts = []
+    for i, img in tqdm(enumerate(images)):
+        name, ext = os.path.splitext(filenames[i])
+
+        # count regions in one image - used for file naming purposes
+        region = 1
+        
+        for text, bbox in ground_truth[i]:
+            if len(text) > skip_longer_than:
+                continue
+            # select image within coordinates (bbox)
+            cropped = img[bbox[0,1]:bbox[1,1], bbox[0,0]:bbox[1,0]]
+
+            # create image file:
+            # name in format "original-00region.ext"
+            new_name = name + '-' + str(region).zfill(3)
+
+            cv.imwrite(os.path.join(result_folder, new_name + ext), cropped)
+            # create  text annotation file(s)
+            if one_file:
+                all_texts.append(new_name + ext + '\t' + text)
+            else:
+                # one file for each image with word
+                with open(os.path.join(result_folder, new_name + '.gt.txt'), 'w') as f:
+                    f.write(text)
+            region += 1
+    
+    if one_file:
+        with open(os.path.join(result_folder, 'gt.txt'), 'w') as f:
+            for line in all_texts:
+                f.writelines(line+'\n')
+
+    return all_texts
+\end{lstlisting}
+
+The function image\_text\_crop crops and saves images based on bounding boxes provided in ground truth for each text region in an image. This is done for all images in \lstinline{images} list. Also a text file is created with a corresponding text annotation. The name of the resulted file bears the original image name and a number is attached for each text region. The boolean parameter \lstinline{one_file} allows to save ground truths only to a single file. Each line consists then of the name of the cropped image and its annotation. The parameter \lstinline{skip_longer_than} skips ground truths that have more characters than stated, because some OCR tools (such as keras-OCR) does not support long strings.
+
+\begin{lstlisting}[caption=shrink\_all]
+def shrink_all(images, width):
+    scaled = []
+    
+    for image in images:
+        if image.shape[1] > width:
+            ratio = width / image.shape[1]
+            height = int(image.shape[0] * ratio)
+            new_size = (width, height)  
+            scaled.append(cv.resize(image, new_size, interpolation=cv.INTER_AREA))
+        else:
+            scaled.append(image)
+    return scaled    
+\end{lstlisting}
+
+The function \lstinline{shrink_all} returns a list of resized images to a given width. Images already smaller than width are kept unaffected. The resizing aspects ratio.
+
+\begin{lstlisting}[caption=bounding\_rectangle]
+def bounding_rectangle(coordinates):
+    x, y = zip(*coordinates)
+
+    return np.array([[int(min(x)), int(min(y))], [int(max(x)), int(max(y))]])
+\end{lstlisting}
+
+The function \lstinline{bounding_rectangle}
+Returns top left and bottom right coordinates of a rectangle, that is circumscribed to a polygon defined by coordinates. These are obtained from ground truth as bounding box for each text region. In some datasets, the ground truth coordinates are already a rectangle.
+
+% -------------------------- IOU --------------------------  
+
+\begin{lstlisting}[caption=iou]
+def iou(pred_box, gt_box):
+    # find intersection rectangle coordinates
+    x_left = max(pred_box[0][0], gt_box[0][0])
+    x_right = min(pred_box[1][0], gt_box[1][0])
+    y_top = max(pred_box[0][1], gt_box[0][1])
+    y_bottom = min(pred_box[1][1], gt_box[1][1])
+
+    if x_right < x_left or y_bottom < y_top:
+        return 0
+    
+    # compute intersection area
+    intersection = (x_right - x_left) * (y_bottom - y_top)
+
+    # compute union area
+    pred_area = (pred_box[1][0] - pred_box[0][0]) * (pred_box[1][1] - pred_box[0][1]) 
+    gt_area = (gt_box[1][0] - gt_box[0][0]) * (gt_box[1][1] - gt_box[0][1]) 
+    union  = pred_area + gt_area - intersection
+
+    # return iou
+    return  intersection/union
+
+\end{lstlisting}
+
+The function \lstinline{iou} computes intersection over union of two bounding boxes, as defined in \ref*{sec:eval}. Both input parameters have to contain top left and bottom right coordinates of a bounding box rectangle.
+
+\begin{lstlisting}[caption=iou\_image]
+def iou_image(pred_boxes, gt_boxes):
+    ious = []
+
+    # have to determine which prediction bounding box contains same (similar) 
+    #  text region as ground truth bounding box
+    # find and save the best iou for a prediction box and gt box
+    for pred_ind, pred in enumerate(pred_boxes):
+        max_iou = 0
+        max_ind = 0
+        for gt_ind, gt in enumerate(gt_boxes):
+            iou_value = iou(pred, gt)
+            if (iou_value > max_iou):
+                max_iou = iou_value
+                max_ind = gt_ind
+
+        # match words from prediction and ground thruth (indeces)     
+        ious.append((max_iou, pred_ind, max_ind))
+
+    return ious
+
+\end{lstlisting}
+
+The function \lstinline{iou_image} computes intersection over union for all text regions in one image.
+Each parameter shall contain a list of two coordinates - (top left, bottom right) of a bounding box rectangle.
+Returns a list of tuples - each tuple consists of the highest (best) iou value, the index of predicted bounding box and  the index of ground truth bounding box. The indeces are taken from the given lists of bounding boxes or ground truths belonging to one particular image.
+
+
+
+\begin{lstlisting}[caption=group\_text]
+def group_text(lst):
+    grouped = []
+    key = lambda x: x[2]
+
+    for k, g in itertools.groupby(sorted(lst, key=key), key):
+        list_data = list(zip(*g))
+        grouped.append((sum(list_data[0]), list_data[1], k))
+
+    return grouped
+\end{lstlisting}
+
+The function \lstinline{group_text} is a utility function for matching corresponding strings in a list. \lstinline{key} is the third element of a list elem
+Returns list of tuples, where tuple contains sum of first element of list 
+and tuple of indeces that repeated for the key (key is the last (third) 
+element of given list). 
+
+
+\begin{lstlisting}[caption=]
+
+\end{lstlisting}
+
+The function \lstinline{}
