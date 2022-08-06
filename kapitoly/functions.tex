@@ -1,6 +1,53 @@
 \chapter{Functions description}
 
 In this chapter functions used in testing scripts are shown and briefly described. Note that docstrings of functions were omitted as they provide similar information as the descriptions, but in a shorter version.                                                    
+\begin{lstlisting}[caption=]
+
+\end{lstlisting}
+
+The function \tn{}
+
+
+% -------------------------- XML parsing -------------------------- 
+\subsection*{Functions for extracting ground truth}
+
+I created the following functions in order to extract ground truth information from  text files -- in most cases XML files. Each dataset unfortunately uses a different form of annotations. The styles differ in order of data, tag names, even in type of the recorded data (sometimes individual characters and their position is written or information about curvature). For XML parsing I utilized the The ElementTree XML API, which is imported as xml.etree.ElementTree.
+
+\begin{lstlisting}[caption=read\_gt\_ctw\_test]
+def read_gt_ctw_test(data, scaling_ratio=1):
+    """
+    SCUT-CTW1500 dataset (test labels parser)
+    Returns ground truth in a tuple - first contains word (string), 
+    second coordinates (array with left top xy coordinate and right bottom coor).
+    If image was previously scaled, one might need to scale also gt coordinates by given ratio.
+    """
+    # one line = one bounding polygon : list of coordinates, each separated by commas, last is the text inside 
+    # there are #### before each text, two additional ## no text recognized
+
+
+    annotations = []
+    with open(data, "r") as file:
+        for line in file:
+            line = line.rstrip('\n')
+            text = line.split("####")
+            label = text[-1]
+            coordinates = text[0].split(",")[:-1]
+            c = [int(i) for i in coordinates]
+            minX = min(c[::2])*scaling_ratio
+            maxX = max(c[::2])*scaling_ratio
+            minY = min(c[1::2])*scaling_ratio
+            maxY = max(c[1::2])*scaling_ratio
+
+            bbox_coords = np.array( [[minX, minY], [maxX, maxY]] )
+            annotations.append((label, bbox_coords))
+
+    return annotations
+\end{lstlisting}
+
+The function \tn{read\_gt\_ctw\_test} reads 
+
+
+
 
 \begin{lstlisting}[caption=image\_text\_crop]
 def image_text_crop(images, filenames, ground_truth, one_file=True, result_folder='./results', skip_longer_than=40):
