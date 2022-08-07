@@ -52,7 +52,45 @@ The dataset is available for download from the website of Robust Reading Competi
 
 \subsection{Vienna City Poster Dataset}
 
-The Vienna City Library possesses a collection of 350,000 poster images.
+The Vienna City Library possesses a collection of 350,000 poster images. A sample of the collection was provided by the organization to the Technical University of Vienna for research purposes. It consists of 5050 images. From these images we manually labeled 257 images and created a testing dataset. Sample of the dataset is in Figure \ref*{Im:Dvienna}. As it can be seen from the example images, the dataset includes mainly posters with German language, though few images have words in English or Czech.
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.5]{obrazky/Dataset_vienna.png}
+    \caption{Sample images of Vienna City Poster Dataset.}
+    \label{Im:Dvienna}
+\end{figure}
+
+
+The posters have neither the characteristic of a scanned text documents, neither of scene images. They are most similar to born digital images. However for the posters is typical one thing -- a part of the text is large relative to the image size and another part is tiny. The huge text is usually a brand or product name or a name of an event. The small text is the name of the author of the poster or the printer where the posters was printed. Both of these texts are a challenge for an OCR engine, because large letters are misinterpreted as objects and the height of the tiny ones is not bigger then twenty pixels and letters are often blurred. Middle-sized text also appears in the posters and is generally well recognized.
+
+Due to the presence of the small text. All images in the dataset need  to be in the original resolution. The bigger side is always 4096 pixels. This leads to a large dataset even when the number of images is less then three hundred. A single JPG image has approximately 4 Megabytes. A PNG image in the dataset has about 20 Megabytes. To reduce the final size of the dataset I decided to convert the PNG files to JPG\footnote{For converting the images I used the console application ImageMagick, with the command \newline \tn{for f in *.png ; do convert "\$f" "../alljpg/\$\{f\%.*\}.jpg" ; done}.}. The final dataset of JPG images is 1.1 GB large, before it was 2.8 GB. The high resolution of images makes demands on the hardware when working with the dataset and makes it impossible to run on machines with insufficiently large computing memory.
+
+The annotation tool used for labeling the selected posters is called Aletheia from the PRiMA Research\footnote{More information available at https://www.primaresearch.org/tools/Aletheia}. The program can be downloaded for Windows operating system, it offers both Lite and Pro version. A free one month trial is offered or for academic use the PRiMA Research gives an extended license. Using this tool we labeled every separate word or group of letters (such as poster identification number) found in an image on the selected posters. Words that were forming a text line, were afterwards labeled as a text line (single word is a text line consisting of one word). Individual characters were not labeled. Bounding boxes for both words and text lines are rectangles, even for curved text. Word bounding boxes were drawn pixel precise with the intention of no margin between the box and the word. Aletheia software produces a XML file with PRiMA Research tags, example for the image P-2151.jpg is in the code below. 
+
+\begin{lstlisting}[label=lst:xml]
+<?xml version="1.0" encoding="UTF-8"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15/pagecontent.xsd">
+<Creator></Creator>
+<Created>2022-03-14T11:42:27</Created>
+<LastChange>2022-03-14T11:42:27</LastChange></Metadata>
+<Page imageFilename="P-2151.jpg" imageWidth="2524" imageHeight="4096">
+<TextRegion id="tempReg357564684568544579089">
+<Coords points="0,0 1,0 1,1 0,1"/>
+<TextLine id="l4">
+<Coords points="264,2496 264,2810 2301,2810 2301,2496"/>
+<Word id="w10">
+<Coords points="264,2496 264,2810 2301,2810 2301,2496"/>
+<TextEquiv>
+<Unicode>GENERATION</Unicode></TextEquiv></Word>
+<TextEquiv>
+<Unicode>GENERATION</Unicode></TextEquiv></TextLine>
+...
+\end{lstlisting}
+
+
+
+
 
 
 
@@ -285,3 +323,19 @@ Case sensitivity
 
 when default model is used and special characters and case sensitivity of ground truth labels is observed CER accuracy reaches only less than thirty percent. 
 
+
+\subsection*{Vienna}
+
+easyocr tuning split
+easyocr tuning split special char, sensitivity
+easyocr tuning split no correction
+
+easyocr tuning nosplit - better one deci
+easyocr tuning no split special char, sensitivity - better
+
+easyocr notuning split
+easyocr notuning nosplit 
+keras 15 minut easyocr 3 minuty
+
+
+keras sensitivita a specila na nic pac to neumi 32procent

@@ -21,6 +21,6 @@
 \contentsline {subsection}{\numberline {5.1.2}KAIST Scene Text Database}{36}{subsection.5.1.2}
 \contentsline {subsection}{\numberline {5.1.3}Born-Digital Images}{37}{subsection.5.1.3}
 \contentsline {subsection}{\numberline {5.1.4}Vienna City Poster Dataset}{38}{subsection.5.1.4}
-\contentsline {section}{\numberline {5.2}Results}{38}{section.5.2}
+\contentsline {section}{\numberline {5.2}Results}{40}{section.5.2}
 \contentsline {chapter}{\numberline {6}Functions description}{47}{chapter.6}
 \contentsline {chapter}{\numberline {7}Conclusion}{55}{chapter.7}
