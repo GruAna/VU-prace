@@ -7,7 +7,7 @@ In the experiments I chose three methods to be tested, namely, Tesseract, EasyOC
 \section{Datasets}
 \label{sec:expDatasets}
 
-\subsection{SCUT-CTW1500 dataset}
+\subsection{SCUT-CTW1500 Dataset}
 
 SCUT-CTW1500 dataset contains exactly 1500 images of real-world, scene text in English language. Sample images can be seen in Figure \ref*{Im:Dctw}. The key feature of this dataset is that each image contains horizontally aligned text, multioriented text and curved text. There are cases where the curvature is only slight and cases where text forms a circle with letter upside down. Recognizing multi-oriented and curved text is more of a challenge than pure horizontal text. This dataset is split to train and test data. Two thirds of dataset thus one thousand images for training and five hundred for testing. According to the description of this dataset on relevant GitHub repository dataset was manually labeled and lately corrected, therefore labels seem to be very accurate. However for example ground truth for image 1313.jpg misses all occurences of letter I, as the depicted font was probably misread.\cite{ctw,ctw2}
 
@@ -339,3 +339,9 @@ keras 15 minut easyocr 3 minuty
 
 
 keras sensitivita a specila na nic pac to neumi 32procent
+
+Navrhy na zlepseni
+
+As in other image recognition problems context is a key element in optical character recognition. 
+
+When posters and advertisements are considered it is probable that a product name 

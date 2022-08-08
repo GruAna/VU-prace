@@ -1,4 +1,4 @@
-\chapter{Functions description}
+\chapter{Function Description}
 
 In this chapter functions used in testing scripts are shown and briefly described. Note that docstrings of functions were omitted as they provide similar information as the descriptions, but in a shorter version.                                                    
 \begin{lstlisting}[caption=]
@@ -9,21 +9,18 @@ The function \tn{}
 
 
 % -------------------------- XML parsing -------------------------- 
-\subsection*{Functions for extracting ground truth}
+\subsection*{Functions for Extracting Ground Truth}
 
-I created the following functions in order to extract ground truth information from  text files -- in most cases XML files. Each dataset unfortunately uses a different form of annotations. The styles differ in order of data, tag names, even in type of the recorded data (sometimes individual characters and their position is written or information about curvature). For XML parsing I utilized the The ElementTree XML API, which is imported as xml.etree.ElementTree.
+I created the following functions in order to extract ground truth information from  text files -- in most cases XML files. Each dataset unfortunately uses a different form of annotations. The styles differ in order of data, tag names, even in type of the recorded data (sometimes individual characters and their position is written or information about curvature). For XML parsing I utilized the The ElementTree XML API, which is imported as xml.etree.ElementTree. Information in XML files is stored in a tree where individual values can be accessed gradually using tags and their attributes.
+
+All functions return annotations in the following format :
+\newline \tn{(label, [[top left X, top left Y], [bottom right X, bottom right Y]])}, a tuple of label and bounding rectangle coordinates in an array. 
+If the images in the dataset were scaled then coordinates in annotations need to be scaled with same ratio. This ratio can be passed as a function argument and is default to one.
 
 \begin{lstlisting}[caption=read\_gt\_ctw\_test]
 def read_gt_ctw_test(data, scaling_ratio=1):
-    """
-    SCUT-CTW1500 dataset (test labels parser)
-    Returns ground truth in a tuple - first contains word (string), 
-    second coordinates (array with left top xy coordinate and right bottom coor).
-    If image was previously scaled, one might need to scale also gt coordinates by given ratio.
-    """
     # one line = one bounding polygon : list of coordinates, each separated by commas, last is the text inside 
     # there are #### before each text, two additional ## no text recognized
-
 
     annotations = []
     with open(data, "r") as file:
@@ -44,10 +41,134 @@ def read_gt_ctw_test(data, scaling_ratio=1):
     return annotations
 \end{lstlisting}
 
-The function \tn{read\_gt\_ctw\_test} reads 
+The function \tn{read\_gt\_ctw\_test} reads TXT files that contains the annotations for testing part of the SCUT-CTW1500 dataset.
 
 
+\begin{lstlisting}[caption=read\_gt\_ctw\_train]
+def read_gt_ctw_train(xml_file, scaling_ratio=1):
+    gt = []
 
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+
+    # get values in this order: height, left coordinate, top coordinate, width
+    for i, bbox in enumerate(root[0].findall('box')):
+        # create list of integers with bounding box values, sort by attribute name
+        # in case in different document there is a different order of attributes
+        bbox_integer = [int(val) for key, val in sorted(bbox.attrib.items(), key = lambda el: el[0])]
+        
+        # calculate bottom coordinate of bounding rectangle x+width, y+height
+        x_right= int((bbox_integer[1] + bbox_integer[3]) * scaling_ratio)
+        y_bottom = int((bbox_integer[2] + bbox_integer[0]) * scaling_ratio)
+        x_left = int(bbox_integer[1] * scaling_ratio)
+        y_top = int(bbox_integer[2] * scaling_ratio)
+
+        bbox_coords = np.array([[x_left, y_top], [x_right, y_bottom]])
+
+        # get label
+        label = root[0][i].find('label').text
+
+        # create list of labels and corresponding bounding boxes
+        gt.append((label, bbox_coords))
+
+    return gt
+\end{lstlisting}
+
+The function \tn{read\_gt\_ctw\_train} reads the annotations from  XML files for training part of the SCUT-CTW1500 dataset.
+
+\begin{lstlisting}[caption=read\_gt\_kaist]
+def read_gt_kaist(xml_file, scaling_ratio=1):
+    gt = []
+
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+
+    # some files has images as root tag, 
+    # some image as root tag (one tree layer (tag images) is missing)
+    try:
+        image_tag = root[0][2]
+    except IndexError:
+        image_tag = root[2]
+
+    # get values in this order: height, width, x (left) coordinate, y (top) coordinate
+    for i, bbox in enumerate(image_tag.findall('word')):
+        # create list of integers with bounding box values, sort by attribute name
+        # in case in different document there is a different order of attributes
+        bbox_integer = [int(val) for key, val in sorted(bbox.attrib.items(), key = lambda el: el[0])]
+        
+        # calculate bottom coordinate of bounding rectangle x+width, y+height
+        x_right= int((bbox_integer[2] + bbox_integer[1]) * scaling_ratio)
+        y_bottom = int((bbox_integer[3] + bbox_integer[0]) * scaling_ratio)
+        x_left = int(bbox_integer[2] * scaling_ratio)
+        y_top = int(bbox_integer[3] * scaling_ratio)
+
+        bbox_coords = np.array([[x_left, y_top], [x_right, y_bottom]])
+
+        # get label
+        label = ""
+        for char in image_tag[i].findall('character'):
+            ch = char.get('char')
+            label += ch
+        # create list of labels and corresponding boundin boxes
+        gt.append((label, bbox_coords))
+
+    return gt
+\end{lstlisting}
+
+The function \tn{read\_gt\_kaist} extract annotations from XML files with labels for KAIST Scene Text dataset.
+
+\begin{lstlisting}[caption=read\_gt\_bd]
+def read_gt_bd(data, scaling_ratio=1):
+    annotations = []
+
+    with open(data, "r", encoding='utf-8-sig') as file:
+        for line in file:
+            line = line.rstrip('\n')
+            text = line.split(",")
+            bbox_coords = np.array(
+                [[int(text[0])*scaling_ratio, int(text[1])*scaling_ratio], 
+                [int(text[4])*scaling_ratio, int(text[5])*scaling_ratio]])
+            annotations.append((text[-1], bbox_coords))
+
+    return annotations
+
+\end{lstlisting}
+
+Annotations for the Born-Digital dataset are stored in simple TXT file, where there are only four coordinates of the four corners of each bounding rectangle and a word within the rectangele. These values are processed by the function \tn{read\_gt\_bd}.
+
+\begin{lstlisting}[caption=read\_gt\_wien]
+def read_gt_wien(xml_file, scaling_ratio=1, resized_previously=False):
+    # poster dataset
+    # returns labels in a tuple - first contains coordinates (8 numbers), second word (string)
+
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+    image_width = root.find('{http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15}Page').get('imageWidth')
+
+    if resized_previously:
+        scaling_ratio = scaling_ratio / int(image_width)
+
+    root.iter('{http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15}TextRegion')
+
+    annotations = []
+    for word in root.iter('{http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15}Word'):
+        coordinates = word.find('{http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15}Coords').get('points')
+        text = word.find('{http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15}TextEquiv')
+        # extract only top left and bottom right coordinates and apply scale
+        coords = coordinates.split(" ")
+        topL = coords[0].split(",")
+        bottomR = coords[2].split(",")
+        bbox_coords = np.array(
+                    [[int(int(topL[0])*scaling_ratio), int(int(topL[1])*scaling_ratio)], 
+                    [int(int(bottomR[0])*scaling_ratio), int(int(bottomR[1])*scaling_ratio)]])
+        annotations.append((text[0].text, bbox_coords))
+
+    return annotations
+\end{lstlisting}
+
+The function \tn{read\_gt\_wien} takes the label and coordinate values form a XML files for the Vienna City Poster Dataset. The XML files produced by the software Aletheia are in a format created by PRiMA Research. When going through the XML tree an information about the research organization is embodied in the tag names.
+
+\subsection*{Functions for Editing Images}
 
 \begin{lstlisting}[caption=image\_text\_crop]
 def image_text_crop(images, filenames, ground_truth, one_file=True, result_folder='./results', skip_longer_than=40):
@@ -114,6 +235,8 @@ def shrink_all(images, width):
 
 The function \tn{shrink\_all} returns a list of resized images to a given width. Images already smaller than width are kept unaffected. The resizing aspects ratio.
 
+
+
 \begin{lstlisting}[caption=bounding\_rectangle]
 def bounding_rectangle(coordinates):
     x, y = zip(*coordinates)
@@ -123,6 +246,8 @@ def bounding_rectangle(coordinates):
 
 The function \tn{bounding\_rectangle}
 Returns top left and bottom right coordinates of a rectangle, that is circumscribed to a polygon defined by coordinates. These are obtained from predictions for each text region.
+
+\subsection*{Functions for Computing Metrics}
 
 % -------------------------- IOU --------------------------  
 
@@ -253,7 +378,35 @@ The function \tn{compare\_text\_cer} returns a sorted list of corresponding word
 
 The function \tn{levenshtein\_distance} computes the Levenshtein distance (definition can be found in section \ref*{sec:eval}). The implementation is taken from a console application called xer. The code is available from \url{https://github.com/jpuigcerver/xer/blob/master/xer}. It returns a tuple of counts of the three performed operations --  substitution, deletion, insertion.
 
-% -------------------------- Final Visualisation -------------------------- 
+% -------------------------- Testing Scripts -------------------------- 
+\subsection*{Functions Used in Testing Scripts}
+
+\begin{lstlisting}[caption=]
+
+\end{lstlisting}
+
+The function \tn{}
+
+
+% -------------------------- Final Visualization -------------------------- 
+\subsection*{Functions for Final Visualizations}
+
+\begin{lstlisting}[caption=get\_results]
+def get_results(filenames, iou_in_image, cer_in_image):
+    df_results = pd.DataFrame(list(zip(filenames, iou_in_image, cer_in_image)), columns =['Filename', 'IoU', 'CER'])
+    mean_iou = round(df_results['IoU'].mean() * 100, 1)
+    mean_cer = round((1 - df_results['CER'].mean()) * 100, 1)
+    
+    print(f"mean IoU accuracy = {mean_iou}%, mean CER accuracy = {mean_cer}%")
+    display(df_results)
+    
+    return mean_iou, mean_cer, df_results
+    
+\end{lstlisting}
+
+The function \tn{get\_results} prints returns average IOU and CER for the whole dataset and a dataframe with these metrics for each image.
+
+
 \begin{lstlisting}[caption=plot\_results]
 def plot_results(image, ground_truth, predicted, size=15):
     # Create figure and axes
@@ -295,9 +448,3 @@ def plot_results(image, ground_truth, predicted, size=15):
 
 The function \tn{plot\_results} returns a plot with an image and both predicted and ground truth bounding boxes 
 and corresponding labels. The ground truths are marked with green color and predictions with red. Objects are drawn using the package matplotlib.
-
-\begin{lstlisting}[caption=]
-
-\end{lstlisting}
-
-The function \tn{}
