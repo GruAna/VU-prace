@@ -24,6 +24,5 @@
 \contentsline {section}{\numberline {5.2}Results}{40}{section.5.2}
 \contentsline {chapter}{\numberline {6}Implementation}{63}{chapter.6}
 \contentsline {section}{\numberline {6.1}Scripts Description}{63}{section.6.1}
-\contentsline {section}{\numberline {6.2}Function Description}{63}{section.6.2}
-\contentsline {section}{\numberline {6.3}Visualisation}{75}{section.6.3}
+\contentsline {section}{\numberline {6.2}Function Description}{64}{section.6.2}
 \contentsline {chapter}{\numberline {7}Conclusion}{77}{chapter.7}

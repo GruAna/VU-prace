@@ -8,8 +8,11 @@ There are four scripts for the tested methods -- EasyOCR, Keras-OCR, Tesseract, 
 
 Each script begins with downloading required packages, that are not already installed in Google Colab environment. This is followed by importing packages to the environment. Then Google Drive is mounted, because that is where image datasets are stored and where is located a file with utility functions. After that the utility functions can be imported, too.
 
-Next stage is dataset loading. Each dataset is loading separately because tests are performed gradually for each dataset within each method.
+The next stage is dataset loading. Each dataset is loading separately because tests are performed gradually for each dataset within each method. Images and respective ground truths are loaded and saved in variables. The list of image and text data are sorted so that corresponding data have the same indices.
 
+Another step is the prediction. During this phase models are loaded and detection and recognition parameters specified. 
+
+Then metrics are computed. First the predictions are arranged into a same format. Then intersection over union metric for bounding boxes is computed and character error rate for comparing predicted and original texts. Averages of these metrics throughout an image are made for each image and these results are saved. Optionally one can save an image with the original image and bounding boxes and annotations drawn over it.
 
 \section{Function Description}
 
@@ -304,7 +307,7 @@ def iou_image(pred_boxes, gt_boxes):
                 max_iou = iou_value
                 max_ind = gt_ind
 
-        # match words from prediction and ground thruth (indeces)     
+        # match words from prediction and ground thruth (indices)     
         ious.append((max_iou, pred_ind, max_ind))
 
     return ious
@@ -313,7 +316,7 @@ def iou_image(pred_boxes, gt_boxes):
 
 The function \tn{iou\_image} computes intersection over union for all text regions in one image.
 Each parameter shall contain a list of two coordinates - (top left, bottom right) of a bounding box rectangle.
-Returns a list of tuples - each tuple consists of the highest iou value (thus having the biggest overlap), the index of predicted bounding box and  the index of ground truth bounding box. The indeces are taken from the given lists of bounding boxes or ground truths belonging to one particular image.
+Returns a list of tuples - each tuple consists of the highest iou value (thus having the biggest overlap), the index of predicted bounding box and  the index of ground truth bounding box. The indices are taken from the given lists of bounding boxes or ground truths belonging to one particular image.
 
 \begin{lstlisting}[caption=group\_text]
 def group_text(lst):
@@ -327,7 +330,7 @@ def group_text(lst):
     return grouped
 \end{lstlisting}
 
-The function \tn{group\_text} is a utility function for matching corresponding strings in a list. The list that is passed as an argument is a list of tuples of IOUs returned from the function \tn{iou\_image}. First for each ground truth bounding box, which is determined by the ground truth index (in this case the third element of the tuple) and it is used as a key. The returned tuple consists of a sum of IOUs, a list of indeces of predicted bounding boxes and ground truth index.
+The function \tn{group\_text} is a utility function for matching corresponding strings in a list. The list that is passed as an argument is a list of tuples of IOUs returned from the function \tn{iou\_image}. First for each ground truth bounding box, which is determined by the ground truth index (in this case the third element of the tuple) and it is used as a key. The returned tuple consists of a sum of IOUs, a list of indices of predicted bounding boxes and ground truth index.
 
 % -------------------------- Text Comparision -------------------------- 
 
@@ -538,5 +541,5 @@ def plot_results(image, ground_truth, predicted, size=15):
 The function \tn{plot\_results} returns a plot with an image and both predicted and ground truth bounding boxes 
 and corresponding labels. The ground truths are marked with green color and predictions with red. Objects are drawn using the package matplotlib.
 
-\section{Visualisation}
- The notebook \tn{results\_visualization}.
+% \section{Visualisation}
+%  The notebook \tn{results\_visualization}.
