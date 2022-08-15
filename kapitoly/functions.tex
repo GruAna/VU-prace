@@ -1,6 +1,10 @@
-\chapter{Function Description}
+\chapter{Implementation}
 
-In this chapter functions used in testing scripts are shown and briefly described. Note that docstrings of functions were omitted as they provide similar information as the descriptions, but in a shorter version.                                                    
+In this chapter the description of testing Python scripts is provided as well as comment on functions used in testing scripts. Note that int he following function definitions respective docstrings are omitted as they provide similar information as the descriptions, but in a 	briefer version.      
+
+\section{Testing Scripts Description}
+
+\section{Function Description}
 \begin{lstlisting}[caption=]
 
 \end{lstlisting}
@@ -180,7 +184,7 @@ def image_text_crop(images, filenames, ground_truth, one_file=True, result_folde
 
     if not os.path.isdir(result_folder):
         os.mkdir(result_folder)
-    
+
     all_texts = []
     for i, img in tqdm(enumerate(images)):
         name, ext = os.path.splitext(filenames[i])
@@ -189,6 +193,8 @@ def image_text_crop(images, filenames, ground_truth, one_file=True, result_folde
         region = 1
         
         for text, bbox in ground_truth[i]:
+            if text is None:
+                continue
             if len(text) > skip_longer_than:
                 continue
             # select image within coordinates (bbox)
@@ -197,17 +203,19 @@ def image_text_crop(images, filenames, ground_truth, one_file=True, result_folde
             # create image file:
             # name in format "original-00region.ext"
             new_name = name + '-' + str(region).zfill(3)
+            
+            if np.size(cropped):
+                cv.imwrite(os.path.join(result_folder, new_name + ext), cropped)
+                # create  text annotation file(s)
+                if one_file:
+                    all_texts.append(new_name + ext + '\t' + text)
+                else:
+                    # one file for each image with word
+                    all_texts.append(new_name + ext + '\t' + text)
+                    with open(os.path.join(result_folder, new_name + '.gt.txt'), 'w') as f:
+                        f.write(text)
+                region += 1
 
-            cv.imwrite(os.path.join(result_folder, new_name + ext), cropped)
-            # create  text annotation file(s)
-            if one_file:
-                all_texts.append(new_name + ext + '\t' + text)
-            else:
-                # one file for each image with word
-                with open(os.path.join(result_folder, new_name + '.gt.txt'), 'w') as f:
-                    f.write(text)
-            region += 1
-    
     if one_file:
         with open(os.path.join(result_folder, 'gt.txt'), 'w') as f:
             for line in all_texts:
@@ -448,3 +456,6 @@ def plot_results(image, ground_truth, predicted, size=15):
 
 The function \tn{plot\_results} returns a plot with an image and both predicted and ground truth bounding boxes 
 and corresponding labels. The ground truths are marked with green color and predictions with red. Objects are drawn using the package matplotlib.
+
+\section{Visualisation}
+ The notebook \tn{results\_visualization}.
