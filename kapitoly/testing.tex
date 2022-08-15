@@ -15,7 +15,7 @@ The ground truth for train data are in XML format and each file carries informat
 
 \begin{figure}[hbtp]
     \centering
-    \includegraphics[scale=0.4]{obrazky/Dataset_ctw.png}
+    \includegraphics[width=\textwidth]{obrazky/Dataset_ctw.png}
     \caption{Sample images of SCUT-CTW1500 dataset.}
     \label{Im:Dctw}
 \end{figure}
@@ -31,7 +31,7 @@ Despite these shortcomings this dataset is useful because of the bitmap files. T
 
 \begin{figure}[hbtp]
     \centering
-    \includegraphics[scale=0.4]{obrazky/Dataset_kaist.png}
+    \includegraphics[width=\textwidth]{obrazky/Dataset_kaist.png}
     \caption{Sample images of KAIST Scene Text Database dataset.}
     \label{Im:Dkaist}
 \end{figure}
@@ -44,7 +44,7 @@ The dataset is available for download from the website of Robust Reading Competi
 
 \begin{figure}[hbtp]
     \centering
-    \includegraphics[scale=0.4]{obrazky/Dataset_born-digital.png}
+    \includegraphics[width=\textwidth]{obrazky/Dataset_born-digital.png}
     \caption{Sample images of Born-Digital Images dataset.}
     \label{Im:Dbd}
 \end{figure}
@@ -56,7 +56,7 @@ The Vienna City Library possesses a collection of 350,000 poster images. A sampl
 
 \begin{figure}[hbtp]
     \centering
-    \includegraphics[scale=0.5]{obrazky/Dataset_vienna.png}
+    \includegraphics[width=\textwidth]{obrazky/Dataset_vienna.png}
     \caption{Sample images of Vienna City Poster Dataset.}
     \label{Im:Dvienna}
 \end{figure}
@@ -144,9 +144,9 @@ The best CER value was achieved by tuned EasyOCR engine, where no split was done
 When we compare Tesseract with its own detection model and Tesseract with CRAFT tool, we can see that CRAFT increases the CER metric by more than 12\%, however the IOU metric fluctuates for all cases around 50\%. Whether the image is in RGB color scheme or in grayscale has only a little impact on the results, generally it differed only by about 2\%. Same minor difference is when split or no split option is set. If the Otsu thresholding was performed and the image was then binarized, results were worse than when Tesseract itself performs the binarization. Better results were when PSM tesseract parameter was set to 11 rather then PSM 4.
 
 {
-\begin{figure}[hbt!]
+\begin{figure}[hbtp!]
     \centering
-    \includegraphics[scale=0.5]{obrazky/grafy/resBD.png}
+    \includegraphics[width=\textwidth]{obrazky/grafy/resBD.png}
     \caption{Results of experiments performed on Born-Digital Images dataset. Information about each method is in Table \ref*{Tab:resBD}.}
     \label{Im:resBD}
 \end{figure}
@@ -183,9 +183,9 @@ This time the best CER value ($76.4\%$) was achieved by keras-OCR model, where s
 
 The Comparison of Tesseract with its own detection model and Tesseract with CRAFT tool shows that with CRAFT the CER metric increased by almost than 20\% as well as the IOU metric that increased by more than 30\%. Plain Tesseract results are again the worst and are not heavily influenced by color scheme or slight scaling changes. 
 
-\begin{figure}[hbt!]
+\begin{figure}[hbtp!]
     \centering
-    \includegraphics[scale=0.5]{obrazky/grafy/resCTW.png}
+    \includegraphics[width=\textwidth]{obrazky/grafy/resCTW.png}
     \caption{Results of experiments performed on CTW dataset. Information about each method is in Table \ref*{Tab:resCTW}.}
     \label{Im:resCTW}
 \end{figure}
@@ -220,9 +220,9 @@ The best results on the bitmap images part of KAIST dataset were performed by Ea
 
 Keras-OCR had slightly lower values of CER than EasyOCR and IOU values are even lower by generally 15\%. Still it is by 20\% higher than results of plain Tesseract and comparable with Tesseract and CRAFT combination. Tesseract had this time best but still way too low results with PSM 6. PSM 4 led to CER value as low as 18\%. Color scheme did not have a distinguishable impact on the results.
  
-\begin{figure}[hbt!]
+\begin{figure}[hbtp!]
     \centering
-    \includegraphics[scale=0.5]{obrazky/grafy/resKaist.png}
+    \includegraphics[width=\textwidth]{obrazky/grafy/resKaist.png}
     \caption{Results of experiments performed on KAIST Scene Text Database. Information about each method is in Table \ref*{Tab:resK}.}
     \label{Im:resK}
 \end{figure}
@@ -332,9 +332,9 @@ I used different parameters that can be set in each method. However, in the resu
 
 Due to the fact that this dataset is mainly in German language, in all models I set German as the language that is to be predicted. The defualt was English for all models. I implemented possible language correction which takes common syllables that appear in German. The function is described in \ref{sec:other}. For some predictors these corrections were not necessary and predicted similarly without them. 
 
-\begin{figure}[hbt!]
+\begin{figure}[hbtp!]
     \centering
-    \includegraphics[scale=0.46]{obrazky/grafy/resvienna.png}
+    \includegraphics[width=\textwidth]{obrazky/grafy/resvienna.png}
     \caption{Results of experiments performed on Vienna City Poster Dataset. Information about each method is in Table \ref*{Tab:resV}.}
     \label{Im:resV}
 \end{figure}
@@ -372,64 +372,243 @@ When CRAFT package was used as a detector and cropped detected words were sent t
 
 \subsubsection*{Examples}
 
-In this section selected images with predictions and ground truth bounding boxes and labels are presented. Also I added comments on used method and achieved CER score.
+In this section selected images with predictions and ground truth bounding boxes and labels are presented. Red colour is for predictions and green for ground truth. Also I added comments on used method and achieved CER score. Some images are cropped because in the upper part of the picture is no text and results are then better comparable.
 
-The original image with ground truth displaeyd in Aletheia labeling tool is in Fig. \ref{Im1:orig}. 
 
-In Fig. ref{Im1:ex:easytun} and ref{Im1:ex:easy} are results from both tuned and not tuned EasyOCR. Images are croppelmmm, because in the upper part of the picture is no text and results are then better comparable.
+%--------balerina image
+First image %!!! nazev
+has well readable letters and for all tested models this image was not difficult to read and only minor mistakes occured.
 
-\begin{figure}[hbt!]
+In Fig. \ref{Im2:ex:easy} are results from tuned EasyOCR. 
+
+\begin{figure}[hbtp!]
     \centering
-    \includegraphics[scale=0.46]{obrazky/plakaty/result_easyOCR_vienna1_split_tuning-91.png}
-    \caption{EasyOCR, tuning.}
-    \label{Im1:ex:easytun}
+    \includegraphics[scale=0.36]{obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-21.png}
+    \caption{EasyOCR, tuning}
+    \label{Im2:ex:easy}
 \end{figure}
 
-\begin{figure}[hbt!]
+In Fig. \ref{Im2:ex:keras} are results from Keras-OCR. 
+\begin{figure}[hbtp!]
     \centering
-    \includegraphics[scale=0.46]{obrazky/plakaty/result_easyOCR_vienna1_nosplit_notuning-91.png}
-    \caption{EasyOCR, no tuning.}
-    \label{Im1:ex:easy}
+    \includegraphics[scale=0.36]{obrazky/plakaty/result_kerasOCR_vienna1_nosplit_nocorrection-21.png}
+    \caption{Keras-OCR, untrained}
+    \label{Im2:ex:keras}
 \end{figure}
 
-\begin{figure}[hbt!]
+In Fig. \ref{Im1:ex:craft} are results from both Tesseract recognizer used with CRAFT detector.
+\begin{figure}[hbtp!]
     \centering
-    \includegraphics[scale=0.46]{obrazky/plakaty/result_kerasOCRtrained_vienna1_split-90.png}
-    \caption{Keras-OCR, trained}
-    \label{Im1:ex:kertr}
+    \includegraphics[scale=0.36]{obrazky/plakaty/result_carfttesseract_vienna1_split-21.png}
+    \caption{Tesseract+CRAFT}
+    \label{Im2:ex:Craft}
+\end{figure}
+
+In Fig. \ref{Im2:ex:tess} are results from Tesseract tool with PSM 11 and 3. In the first case, Tesseract found some non existing words and tried to predict them.
+\begin{figure}[hbtp!]
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.36]{obrazky/plakaty/result_tesseract_vienna1_nosplit_psm11-21.png}
+        \caption{PSM 11}
+        \label{Im2:ex:tess11}
+    \end{subfigure}
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.36]{obrazky/plakaty/result_tesseract_vienna1_split_psm4-21.png}
+        \caption{PSM 4}
+        \label{Im2:ex:tess4}
+    \end{subfigure}
+    \caption{Tesseract}
+    \label{Im2:ex:tess}
 \end{figure}
 
 
-\begin{figure}[hbt!]
-    \centering
-    \includegraphics[scale=0.46]{obrazky/plakaty/result_kerasOCR_vienna1_nosplit_nocorrection-90.png}
+%--------Drimmel image --------
+
+The original image named %!!!!! nazev a \referenci
+with ground truth displayed in Aletheia labeling tool is in Fig. \ref{Im1:orig}. 
+
+In Fig. \ref{Im1:ex:EasyOCR} are results from both tuned and not tuned EasyOCR. 
+
+\begin{figure}[hbtp!]
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.36]{obrazky/plakaty/result_easyOCR_vienna1_split_tuning-91.png}
+        \caption{tuning}
+        \label{Im1:ex:easytun}
+    \end{subfigure}
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.36]{obrazky/plakaty/result_easyOCR_vienna1_nosplit_notuning-91.png}
+        \caption{no tuning}
+        \label{Im1:ex:easy}
+    \end{subfigure}
+    \caption{EasyOCR}
+    \label{Im1:ex:EasyOCR}
+\end{figure}
+
+In Fig. \ref{Im1:ex:Keras} are results from both trained and untrained Keras-OCR model.
+
+\begin{figure}[hbtp!]
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.36]{obrazky/plakaty/result_kerasOCRtrained_vienna1_split-90.png}
+        \caption{Keras-OCR, trained}
+        \label{Im1:ex:kertr}
+    \end{subfigure}
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.36]{obrazky/plakaty/result_kerasOCR_vienna1_nosplit_nocorrection-90.png}
+        \caption{Keras-OCR}
+        \label{Im1:ex:ker}
+    \end{subfigure}
+    
     \caption{Keras-OCR}
-    \label{Im1:ex:ker}
+    \label{Im1:ex:Keras}
 \end{figure}
 
 
-\begin{figure}[hbt!]
+In Fig. \ref{Im1:ex:craft} are results from Tesseract recognizer used with CRAFT detector.
+
+\begin{figure}[hbtp!]
     \centering
-    \includegraphics[scale=0.46]{obrazky/plakaty/result_carfttesseract_vienna1_split_special_snesitive-91.png}
+    \includegraphics[scale=0.36]{obrazky/plakaty/result_carfttesseract_vienna1_split_special_snesitive-91.png}
     \caption{Tesseract+CRAFT}
     \label{Im1:ex:craft}
 \end{figure}
 
+In Fig. \ref{Im1:ex:craft} are results from Tesseract tool with PSM 11. As it can be seen in the picture, Tesseract found many non existing words and tried to predict them.
 
-\begin{figure}[hbt!]
-    \centering
-    \includegraphics[scale=0.46]{obrazky/plakaty/result_tesseract_vienna1_split_psm11-91.png}
+\begin{figure}[hbtp!]  
+      \centering
+    \includegraphics[scale=0.36]{obrazky/plakaty/result_tesseract_vienna1_split_psm11-91.png}
     \caption{Tesseract, PSM 11}
     \label{Im1:ex:tess11}
 \end{figure}
 
+%----------plakat dalsi clovek
+
+In Fig. \ref{Im3:ex:EasyOCR} are results from both tuned and not tuned EasyOCR. 
+
+\begin{figure}[hbtp!]
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.29]{obrazky/plakaty/result_easyOCR_vienna2_nosplit_tuning-83.png}
+        \caption{tuning}
+        \label{Im3:ex:easytun}
+    \end{subfigure}
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.29]{obrazky/plakaty/result_easyOCR_vienna2_nosplit_notuning_nocorrection-83.png}
+        \caption{no tuning}
+        \label{Im3:ex:easy}
+    \end{subfigure}
+    \caption{EasyOCR}
+    \label{Im3:ex:EasyOCR}
+\end{figure}
+
+In Fig. \ref{Im3:ex:keras} are results from Keras-OCR. 
+\begin{figure}[hbtp!]
+    \centering
+   \includegraphics[scale=0.3]{obrazky/plakaty/result_kerasOCR_vienna2_nosplit-83.png}
+    \caption{Keras-OCR, untrained}
+    \label{Im3:ex:keras}
+\end{figure}
+
+
+In Fig. \ref{Im1:ex:craft} are results from Tesseract recognizer used with CRAFT detector.
+
+\begin{figure}[hbtp!]
+    \centering
+    \includegraphics[scale=0.3]{obrazky/plakaty/result_carfttesseract_vienna2_split_special_snesitive-83.png}
+    \caption{Tesseract+CRAFT}
+    \label{Im3:ex:craft}
+\end{figure}
+
+
+In Fig. \ref{Im3:ex:tess} are results from Tesseract tool with PSM 11 and 3. With mode 11 Tesseract again found some non existing words and tried to predict them.
+
+\begin{figure}[hbtp!]
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[scale=0.29]{obrazky/plakaty/result_tesseract_vienna2_nosplit_psm11-83.png}
+        \caption{PSM 11}
+        \label{Im4:ex:tess11}
+    \end{subfigure}
+
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[scale=0.29]{obrazky/plakaty/result_tesseract_vienna2_split_psm4-83.png}
+        \caption{PSM 4}
+        \label{Im4:ex:tess4}
+    \end{subfigure}
+
+    \caption{Tesseract}
+    \label{Im3:ex:tess}
+\end{figure}
+
+%--------dalsi obr
+% result_easyOCR_vienna1_split_tuning_special_sensitive-55.png
+% result_easyOCR_vienna2_nosplit_notuning_nocorrection-70.png
+
+I have chosen following images to show that among the posters there are cases with complicated text for detection and recognition. They are readable by a human but machines might struggle because they remind more of images than letters, or are only half visible and strong contextual information is needed.
+
+First image P-236873.jpg has a text that is supposed to look like northern lights in a night sky and is not easy to read even by humans. None of the models were able to identify the wavy text. See Fig. \ref*{Im4:ex:compl}.
+
+\begin{figure}[hbtp!]
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[scale=0.3]{obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-73complecatedP-236873.png}
+        \caption{EasyOCR}
+        \label{Im4:ex:easy}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[scale=0.3]{obrazky/plakaty/result_carfttesseract_vienna1_split_special_snesitive-73.png}
+        \caption{Tesseract+CRAFT}
+        \label{Im4:ex:craft}
+    \end{subfigure}
+
+    \caption{Tesseract}
+    \label{Im4:ex:compl}
+\end{figure}
+
+Another image %!!!nazev
+is a challenge for the detector and recognizer because there is a large number 10. The height and width of the number is same as the dimensions of the whole image and on top of that the number zero is not completely visible. Then there is curved text, which is also challenging. Results of the performance of EasyOCR tool on this image are in Fig. \ref*{Im5:ex:easy}.
+
+\begin{figure}[hbtp!]
+    \centering
+    \includegraphics[scale=0.8]{obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-55.png}
+    \caption{EasyOCR on image P-}
+    \label{Im5:ex:easy}
+\end{figure}
+
+A part of an image %!!!nazev
+is shown in Fig. \ref*{Im6:ex:easy} This image has a very spexific font, which without former knowledge is very difficult to recognize.
+
+\begin{figure}[hbtp!]
+    \centering
+    \includegraphics[width=\textwidth]{obrazky/plakaty/result_easyOCR_vienna2_nosplit_notuning_nocorrection-70.png}
+    \caption{EasyOCR on image P-}
+    \label{Im6:ex:easy}
+\end{figure}
+
+
+The image %!!! nazev
+demonstrates that vertical text is more complicated for the recognizer although it is quite legible as swown in Fig. \ref{Im7:ex:easy}.
+
+\begin{figure}[hbtp!]
+    \centering
+    \includegraphics[width=\textwidth]{obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-60verticaltextproblem.png}
+    \caption{EasyOCR on image P-}
+    \label{Im7:ex:easy}
+\end{figure}
+
+
 \newpage
 \section*{Result Conclusion}
 
+The previous section contains a discussion over achieved results. From this discussion it can be concluded that Keras-OCR and EasyOCR have the best results for all datasets. The CER score fluctuates between $65\%$ and $80\%$. The upper boundary is very good and the lower also indicates acceptable predictions. The detection statistics, IOU, for these two winning methods is between $63\%$ and $75\%$.
 
+If there was a bigger labeled dataset for testing the methods, the score values would be more precise and the very difficult fonts and images would not have such an impact on the statistics.
 
-Navrhy na zlepseni
-
-As in other image recognition problems context is a key element in optical character recognition. 
-
-When posters and advertisements are considered it is probable that a product name 

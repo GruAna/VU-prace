@@ -2,14 +2,17 @@
 
 In this chapter the description of testing Python scripts is provided as well as comment on functions used in testing scripts. Note that int he following function definitions respective docstrings are omitted as they provide similar information as the descriptions, but in a 	briefer version.      
 
-\section{Testing Scripts Description}
+\section{Scripts Description}
+
+There are four scripts for the tested methods -- EasyOCR, Keras-OCR, Tesseract, Tesseract with CRAFT detector. 
+
+Each script begins with downloading required packages, that are not already installed in Google Colab environment. This is followed by importing packages to the environment. Then Google Drive is mounted, because that is where image datasets are stored and where is located a file with utility functions. After that the utility functions can be imported, too.
+
+Next stage is dataset loading. Each dataset is loading separately because tests are performed gradually for each dataset within each method.
+
 
 \section{Function Description}
-\begin{lstlisting}[caption=]
 
-\end{lstlisting}
-
-The function \tn{}
 
 
 % -------------------------- XML parsing -------------------------- 
@@ -389,11 +392,89 @@ The function \tn{levenshtein\_distance} computes the Levenshtein distance (defin
 % -------------------------- Testing Scripts -------------------------- 
 \subsection*{Functions Used in Testing Scripts}
 
-\begin{lstlisting}[caption=]
+For each testing method there is a funcion called \tn{get\_predicted\_\{method\_name\}} where the format that is returned by a particular method is converted to a specific format. This format is a tuple of \tn{(text, [upper left coordinates, bottom right coordinates])}. It is the same format as is used for ground truth.
 
+Two following functions manipulate with the IOU and CER scores.
+
+\begin{lstlisting}[caption=get\_iou\_cer]
+def get_iou_cer(ground_truth, predicted, special_chars=False, case_sensitivity=False, split=False):
+    iou_images = []
+    cer_images = []
+    n_imgs = len(predicted)
+    
+    # loop through images:
+    for i in range(n_imgs):
+        # separate list on columns (iterate through tuples in the list)
+        if len(predicted[i]) and len(ground_truth[i]):
+            predicted_cols = list(zip(*predicted[i]))
+        else:
+            iou_images.append(None)
+            cer_images.append(None)
+            continue
+        ground_truth_cols = list(zip(*ground_truth[i]))
+
+        # take only coordinate arrays from list for each images
+        pred_boxes = predicted_cols[1]
+        gt_boxes = ground_truth_cols[1]
+        iou_from_image = iou_image(pred_boxes, gt_boxes)
+        iou_text_regions = group_text(iou_from_image)
+      
+        # take only labels for each image
+        pred_labels = predicted_cols[0]
+        gt_labels = ground_truth_cols[0]
+
+        # compare corresponding labels
+        # comparision is a list of all text regions on one image
+        comparision = []
+
+        for observation in iou_text_regions:
+            gt_ind = observation[-1]
+            pred_ind = observation[1]
+            predicted_text = " ".join([pred_labels[i] for i in pred_ind])
+
+            if split:
+                gt_text = " ".join([i for i in gt_labels if i is not None])
+            else:
+                gt_text = gt_labels[gt_ind]
+
+            if gt_text is None or predicted_text is None:
+                continue
+                
+            gt_pred_text = (gt_text, predicted_text)
+
+            # comparision for one text region (on one image)
+            comparision.append((compare_text_cer(gt_pred_text, special_characters=special_chars, case_sensitive=case_sensitivity, split=split)))
+
+        iou_images.append((iou_text_regions))
+        cer_images.append((comparision))
+
+    return iou_images, cer_images
 \end{lstlisting}
 
-The function \tn{}
+The function \tn{get\_iou\_cer} returns IOU and CER metric for bounding boxes for all images for each text region detected in an image. Thus there are two tuples with the length of number of images in a dataset.
+
+\begin{lstlisting}[caption=get\_iou\_cer\_average]
+def get_iou_cer_average(iou_images, cer_images):
+    iou_in_image = []
+    cer_in_image = []
+    n_imgs = len(iou_images)
+    
+    for i in range(n_imgs):
+        # calculate mean based on results 
+        if isinstance(cer_images[i], list):
+            length = len(cer_images[i])
+            mean_in_regions = average([average(list(zip(*cer_images[i][j]))[2]) for j in range(length) ])
+            iou_in_image.append(average(list(zip(*iou_images[i]))[0]))
+        else:
+            mean_in_regions = None
+            iou_in_image.append(None)
+
+        cer_in_image.append(mean_in_regions)
+        
+    return iou_in_image, cer_in_image
+\end{lstlisting}
+   
+The function \tn{get\_iou\_cer\_average} returns two tuples of average IOU and CER value for each image in dataset.
 
 
 % -------------------------- Final Visualization -------------------------- 

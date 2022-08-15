@@ -22,8 +22,8 @@
 \contentsline {subsection}{\numberline {5.1.3}Born-Digital Images}{37}{subsection.5.1.3}
 \contentsline {subsection}{\numberline {5.1.4}Vienna City Poster Dataset}{38}{subsection.5.1.4}
 \contentsline {section}{\numberline {5.2}Results}{40}{section.5.2}
-\contentsline {chapter}{\numberline {6}Implementation}{53}{chapter.6}
-\contentsline {section}{\numberline {6.1}Testing Scripts Description}{53}{section.6.1}
-\contentsline {section}{\numberline {6.2}Function Description}{53}{section.6.2}
-\contentsline {section}{\numberline {6.3}Visualisation}{63}{section.6.3}
-\contentsline {chapter}{\numberline {7}Conclusion}{65}{chapter.7}
+\contentsline {chapter}{\numberline {6}Implementation}{63}{chapter.6}
+\contentsline {section}{\numberline {6.1}Scripts Description}{63}{section.6.1}
+\contentsline {section}{\numberline {6.2}Function Description}{63}{section.6.2}
+\contentsline {section}{\numberline {6.3}Visualisation}{75}{section.6.3}
+\contentsline {chapter}{\numberline {7}Conclusion}{77}{chapter.7}
