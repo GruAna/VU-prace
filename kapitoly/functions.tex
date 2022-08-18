@@ -250,7 +250,6 @@ def shrink_all(images, width):
 The function \tn{shrink\_all} returns a list of resized images to a given width. Images already smaller than width are kept unaffected. The resizing aspects ratio.
 
 
-
 \begin{lstlisting}[caption=bounding\_rectangle]
 def bounding_rectangle(coordinates):
     x, y = zip(*coordinates)
@@ -391,6 +390,68 @@ def compare_text_cer(text, special_characters=False, case_sensitive=False, space
 The function \tn{compare\_text\_cer} returns a sorted list of corresponding words. Each pair of corresponding words is represented as a tuple of ground truth string, predicted string and a CER value. The first parameter have to be a tuple of a single ground truth string and a predicted string. The argument \tn{special\_characters} ignores all characters except alphanumeric characters and space when \tn{False}. This is applied to both predicted and ground truth strings. When the argument \tn{case\_sensitive} is \tn{False} then all texts are set to lowercase. The \tn{spaces} parameter allows only alphanumeric characters and all spaces are removed. The last one of arguments is \tn{split} and it is used optionally depending on the OCR engine and on dataset. When \tn{True}, strings from ground truth and prediction are split with space used as a separator. Then the Levenshtein distance is computed for each pair of ground truth and predicted word. The best one is chosen for each predicted word and returned together with the two closest words. In case of no split, the Levenshtein distance is computed directly for the strings in the original tuple \tn{text}. It is recommended to use split when the OCR model tends to detect words that belongs to each other as separate words and ground truth marks them as a text line with multiple words. Or when ground truth is one-word and model predicts strings with multiple words together.
 
 The function \tn{levenshtein\_distance} computes the Levenshtein distance (definition can be found in section \ref*{sec:eval}). The implementation is taken from a console application called xer. The code is available from \url{https://github.com/jpuigcerver/xer/blob/master/xer}. It returns a tuple of counts of the three performed operations --  substitution, deletion, insertion.
+
+\subsection*{Other Functions}
+
+\begin{lstlisting}[caption=correct]
+def correct(string, char_mistakes):
+    """
+    Find defined mistake in a string and replace it with defined correction.
+    Returns corrected string.
+    """
+    
+    for oldchar, newchar in char_mistakes:
+        string = string.replace(oldchar, newchar)
+
+    return string
+\end{lstlisting}   
+
+% \begin{lstlisting}[caption=correct\_german]    
+% def correct_german(text):
+%     """
+%     Return corrected text based on typical language syllables 
+%     and common mistakes caused by optical character recognizers.
+%     """
+    
+%     # For all texts correct these mistakes
+%     text = correct(text, [('iu','in'),('LN','IN')])
+
+%     length = len(text)
+
+%     # ! shall be at the end of the text, if not it is probably the letter I
+%     if length > 1 and text.find('!') != length-1:
+%         text = text.replace('!','I')
+
+%     # For longer texts other mistakes can be corrected
+%     if length > 2:
+
+%         char_mistakes = [('{','f'),('$','S'),('[','L'),('/','I'),('|','I'),('ETN','EIN'),
+%                          ('CE','GE'),('GH','CH'),('GU','QU'),('gu','qu'),('IZ','TZ'),
+%                          ('UNO','UND'),('uno','und'),('Wlen','Wien'),('wlen','wien')]
+%         text = correct(text, char_mistakes)
+        
+%         # No Y at the begining of german words
+%         if text.find('Y')==0:
+%             text = 'V' + text[1:]
+
+
+%         # Characters that do appear in text sometimes, but usually alongside numbers
+%         # not if there are no numbers 
+%         char_difficult = [('1','I'),('€','E')]
+%         for old, new in char_difficult:
+%             if text.find(old) is not -1 and text.replace(' ','').replace(old,'').isalpha():
+%                 text = text.replace(old,new)
+
+%         if text.find('(') is not -1 and text.find(')') is -1:
+%             text = text.replace('(','C')
+
+%         spaces = text.count(' ')
+%         if  spaces > length/2 - 2:
+%             text = text.replace(' ','')
+            
+%     return text
+% \end{lstlisting}   
+
 
 % -------------------------- Testing Scripts -------------------------- 
 \subsection*{Functions Used in Testing Scripts}
