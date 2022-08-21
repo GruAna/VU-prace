@@ -11,18 +11,16 @@
 \contentsline {section}{\numberline {3.3}Convolutional Recurrent Neural Networks}{27}{section.3.3}
 \contentsline {chapter}{\numberline {4}OCR tools}{29}{chapter.4}
 \contentsline {section}{\numberline {4.1}CRAFT}{29}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Tesseract}{30}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}EasyOCR}{31}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Keras-ocr}{32}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Google Cloud Vision}{33}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}Tesseract}{30}{section.4.2}
+\contentsline {section}{\numberline {4.3}EasyOCR}{31}{section.4.3}
+\contentsline {section}{\numberline {4.4}Keras-ocr}{32}{section.4.4}
+\contentsline {section}{\numberline {4.5}Other}{33}{section.4.5}
 \contentsline {chapter}{\numberline {5}Experiments}{35}{chapter.5}
 \contentsline {section}{\numberline {5.1}Datasets}{35}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}SCUT-CTW1500 Dataset}{35}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}KAIST Scene Text Database}{36}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Born-Digital Images}{37}{subsection.5.1.3}
-\contentsline {subsection}{\numberline {5.1.4}Vienna City Poster Dataset}{38}{subsection.5.1.4}
-\contentsline {section}{\numberline {5.2}Results}{40}{section.5.2}
-\contentsline {chapter}{\numberline {6}Implementation}{63}{chapter.6}
-\contentsline {section}{\numberline {6.1}Scripts Description}{63}{section.6.1}
-\contentsline {section}{\numberline {6.2}Function Description}{64}{section.6.2}
-\contentsline {chapter}{\numberline {7}Conclusion}{77}{chapter.7}
+\contentsline {section}{\numberline {5.2}Implementation}{40}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Script Description}{40}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Function Description}{41}{subsection.5.2.2}
+\contentsline {chapter}{\numberline {6}Results}{55}{chapter.6}
+\contentsline {chapter}{\numberline {7}Conclusion}{65}{chapter.7}
+\contentsline {chapter}{Literatura}{71}{chapter*.50}
+\contentsline {chapter}{Appendix}{71}{chapter*.50}

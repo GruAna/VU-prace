@@ -77,12 +77,12 @@ Datasets that were used for comparison of detection and recognition methods, nam
 A detection model tries to detect a text regions as precise as possible. It predicts a bounding box around the text and return its coordinates. As said earlier it can be an irregular polygon or a rectangle.
 % In experiments performed in this thesis I used results only in the rectangular shape, therefore I will concern in this section only this case.
 
-For measuring the performance of a detection model in general object detection a intersection over union (IOU) is used and it can be evenly applied on text detection. The principle is to compute the intersection of a ground truth bounding box and predicted bounding box and divide it by union of those two areas.\cite{pyimage_iou}
+For measuring the performance of a detection model in general object detection a intersection over union (IoU) is used and it can be evenly applied on text detection. The principle is to compute the intersection of a ground truth bounding box and predicted bounding box and divide it by union of those two areas.\cite{pyimage_iou}
 
 \begin{figure}[hbtp]
     \centering
     \includegraphics[scale=0.4]{obrazky/iou_equation.png}
-    \caption{Iou formula with a bounding box visual interpretation.}
+    \caption{IoU formula with a bounding box visual interpretation.}
     \label{Im:iou}
 \end{figure}
 

@@ -69,8 +69,8 @@
 \pagenumbering{arabic} % číslování stránek arabskými číslicemi
 \pagestyle{plain}      % stránky číslované dole uprostřed
 
-\parindent=0pt % odsazení 1. řádku odstavce
-\parskip=7pt   % mezera mezi odstavci
+% \parindent=20pt % odsazení 1. řádku odstavce
+% \parskip=0pt   % mezera mezi odstavci
 
 \input{tex/makra.tex}
 
@@ -240,8 +240,8 @@ V \kde\ dne .................... &........................................ \\	% 
 \input{kapitoly/nn.tex}
 \input{kapitoly/software.tex}
 % \input{kapitoly/datasets.tex}
-\input{kapitoly/testing.tex}
 \input{kapitoly/functions.tex}
+\input{kapitoly/results.tex}
 \input{kapitoly/conslusion.tex}
 
 
@@ -266,17 +266,15 @@ V \kde\ dne .................... &........................................ \\	% 
 
 %%%%%%%%%%%% PŘÍLOHY PRÁCE %%%%%%%%%%%%
 \newpage % SEM NESAHEJTE!
-\addcontentsline{toc}{chapter}{Přílohy} % SEM NESAHEJTE!
+\addcontentsline{toc}{chapter}{Appendix} % SEM NESAHEJTE!
 \appendix % SEM NESAHEJTE!
+\label{ch:appendix}
 
 
 %%%%%%%%%%%% Příloha A (tj. 1. kapitola v rámci příloh) %%%%%%%%%%%%
 
 % \chapter{Obsah přiloženého CD}
-%
-
-%
-% \input{priloha_A.tex} % text vkládán ze souboru, kde je i příkaz \chapter{...}
+\input{kapitoly/examples.tex} % text vkládán ze souboru, kde je i příkaz \chapter{...}
 
 
 \end{document} % SEM NESAHEJTE! Konec.

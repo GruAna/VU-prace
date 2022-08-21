@@ -46,7 +46,7 @@ The network returns two values -- an affinity and region score. "The region scor
 This method has similarly successful performance as other state-of-the-art methods and in last years it is often used as a detection tool in systems that recognize text from unsegmented images. There exists an official Pytorch implementation of CRAFT for python which can be cloned from Clova AI GitHub repository\footnote{https://github.com/clovaai/CRAFT-pytorch}, however it is not a python package. A package for python of CRAFT detector exists under the name \texttt{
 craft-text-detector}.
 
-\subsection{Tesseract}
+\section{Tesseract}
 
 Tesseract is an open source text recognition engine. It supports over 160 languages can be trained to recognize new ones. Originally Tesseract was created by Hewlett-Packard in late 1980s, from 2006 it is developed and maintained by Google. As it does not have a built-in GUI direct use is via command line. However, there exist a significant number of GUIs for Linux, Windows, Mac for computer usage and also for Android and iOS to use on mobile phones and few online OCR services. Another way how to use the engine is via libraries for computer languages, namely for example they exist for Java called tess4j, python called pytesseract, R, Ruby and others. \cite{tesseract1}
 
@@ -72,7 +72,7 @@ By default Tesseract expects a page of text -- black letters on white background
 \end{figure}
 
 
-\subsection{EasyOCR}
+\section{EasyOCR}
 
 EasyOCR is a product of Jaded AI for both image text detection and recognition. it supports over 80 languages and various scripts such as Latin, Chinese, Arabic etc. The company offers software with web interface for free and also prepaid version which enables usage of a new model for custom data. However, in addition to the web interface, the company also created a python package under the same name.\cite{easyocr1}
 
@@ -87,7 +87,7 @@ EasyOCR package by default computes annotation on GPU, however there is a possib
     \label{img:easyocrPipeline}
 \end{figure}
 
-\subsection{Keras-ocr}
+\section{Keras-ocr}
 
 keras-ocr is a python library used for detecting and recognizing text in images created by Fausto Morales. It works with variety of languages and with different writing scripts. It allows computing on CPU as well as on GPU.  It unites the CRAFT text detection model and an implementation in Keras python library of CRNN for recognizing text, worth mentioning this is a different implementation of CRNN than in EasyOCR.\cite{keras-ocr1}
 
@@ -100,12 +100,12 @@ To use these models in the keras-ocr library one either doesn't specify anything
 Keras-ocr offers preprocessing for four public datasets though any text image dataset can be examined using this tool. These four datasets are: BornDigital dataset, COCO-Text dataset, ICDAR 2013 dataset, ICDAR 2019 dataset (only Latin-only scripts).\cite{keras-ocrDocu}
 
 
-\subsection{Google Cloud Vision}
+\section{Other}
+
+% \subsubsection{AWS Rekognition}
+
+\subsection*{Google Cloud Vision}
 
 Google Cloud Vision is software from Google which consist of two products: AutoML Vision and Vision API. Vision API detects objects, faces and text from images with already pretrained model. With AutoML Vision user can train custom model from own data. It has free and paid version with a GUI.\cite{google1}
 % @misc{google1, title={Vision AI | derive image insights via ML &nbsp;|&nbsp; cloud vision API &nbsp;|&nbsp; google cloud}, url={https://cloud.google.com/vision/}, journal={Google}, publisher={Google}} 
-API for python
-
-% \subsection{Other}
-
-% \subsubsection{AWS Rekognition}
+% API for python

@@ -1,12 +1,121 @@
-\chapter{Implementation}
+\chapter{Experiments}
+\label{ch:testing}
 
-In this chapter the description of testing Python scripts is provided as well as comment on functions used in testing scripts. Note that int he following function definitions respective docstrings are omitted as they provide similar information as the descriptions, but in a 	briefer version.      
+This section is divided into two main section -- one describes used datasets in the experiments, the other provides an implementation of functions I have written for the testing.
 
-\section{Scripts Description}
+\section{Datasets}
+\label{sec:expDatasets}
 
-There are four scripts for the tested methods -- EasyOCR, Keras-OCR, Tesseract, Tesseract with CRAFT detector. 
+\subsection*{SCUT-CTW1500 Dataset}
 
-Each script begins with downloading required packages, that are not already installed in Google Colab environment. This is followed by importing packages to the environment. Then Google Drive is mounted, because that is where image datasets are stored and where is located a file with utility functions. After that the utility functions can be imported, too.
+SCUT-CTW1500 dataset contains exactly 1500 images of real-world, scene text in English language. Sample images can be seen in Figure \ref*{Im:Dctw}. The key feature of this dataset is that each image contains horizontally aligned text, multioriented text and curved text. There are cases where the curvature is only slight and cases where text forms a circle with letter upside down. Recognizing multi-oriented and curved text is more of a challenge than pure horizontal text. This dataset is split to train and test data. Two thirds of dataset thus one thousand images for training and five hundred for testing. According to the description of this dataset on relevant GitHub repository dataset was manually labeled and lately corrected, therefore labels seem to be very accurate. However for example ground truth for image 1313.jpg misses all occurences of letter I, as the depicted font was probably misread.\cite{ctw,ctw2}
+
+The ground truth for train data are in XML format and each file carries information about the file name of respective image file, text information -- i.e., words in a text line, 14 coordinates of a bounding polygon and coordinates, height and width of a circumscribed rectangle. Later the authors added coordinates of center point of each English letter to be used as detection ground truth. The ground truth of test data is in simple text file (TXT) and contains only 14 coordinates of the bounding polygon and a text which is within that region. There is a minor issue with labels that it usually contains a full text line with multiple words and coordinates are not assigned to individual words but to text region as whole. Most end-to-end system detect words rather than groups of corresponding words. This fact needs to be taken into account when evaluating results.
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=\textwidth]{obrazky/Dataset_ctw.png}
+    \caption{Sample images of SCUT-CTW1500 dataset.}
+    \label{Im:Dctw}
+\end{figure}
+
+\subsection*{KAIST Scene Text Database}
+
+This dataset contains 3000 images of photographed text. It can be divided into three major categories -- text of Korean language, English language and mixed languages. As I concentrate on text in latin script in this paper further information relates to the English language dataset. The number of images is then reduced to less than four hundred images. Figure \ref*{Im:Dkaist} shows few samples of this dataset. Photographed objects are mostly shop banners or parts of magazine front pages. Photographs were either taken by a high-resolution digital camera or a low-resolution mobile phone camera.\cite{kaist} Each photography has a ground truth description and a bitmap image. In the bitmap file only text is highlighted (by white or red color) and everything else apart from text is set as black. Ground truth files are in XML format and includes a name of an image, its resolution and bounding box for each word and also a bounding box for each letter of the word.
+
+To use this dataset for testing and training the XML ground truth needed to be converted to string and int values. I wrote a parser, that combines letters to form a word that is within a given bounding box. I changed the notation of bounding boxes from one coordinate, width and height attributes to two top left and bottom right coordinates. The name of the parsing function is \texttt{read\_gt\_kaist}.
+
+Unfortunately this dataset has few errors in filenames of corresponding files or in the content of XML files. Usually these are only typos, however they prevent automatic preprocessing of dataset. Due to this problem these mistakes need to be found and  manually corrected. Also there is a small number of ground truth XML file with fully missing data. 
+Despite these shortcomings this dataset is useful because of the bitmap files. This allows to compare results of both images affected by shooting conditions and images dependent only on font and position.
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=\textwidth]{obrazky/Dataset_kaist.png}
+    \caption{Sample images of KAIST Scene Text Database dataset.}
+    \label{Im:Dkaist}
+\end{figure}
+
+\subsection*{Born-Digital Images}
+
+Born-Digital Images contains data of images with text that can be found on various websites. Samples of this dataset can be found is in Figure \ref*{Im:Dbd}. There are mostly advertisements, company logos or website headers. Such pictures cannot be classified neither as real scene dataset, neither as synthetic one. On one hand  this dataset shares with scene datasets the variability in font styles and sizes, different text orientations and complex colour placement. On the other hand it differs in size because low resolution is significant in smooth and fast loading on websites. Also no noise is present due to lighting conditions. Geometrical deformations that result when capturing a real scene with camera also do not appear here. However compression to lower resolution can lead to artifacts and aliasing. In general we can say that letters are more clearly visible than in photographed text as easy readability is crucial in successful advertising.\cite{born-digital1}
+
+The dataset is available for download from the website of Robust Reading Competition. First version was published in 2011 and revised two years later, it contains separate dataset for text localization, segmentation and then for word recognition. In 2015 they published an end-to-end dataset with ground truth for all tasks. The dataset is split in training and testing data. However, ground truth for testing data contains only a possible vocabulary of words in images and no coordinates. This might be due to the fact that the competition might be still ongoing or there was not a sufficient demand for complete ground truth. As for training data, each image has a corresponding TXT file with coordinates of four vertices of bounding rectangle and a word. Text lines are separated and the text within rectangle is always one word. Extracting ground truth is done in the function \texttt{read\_gt\_bd} and unlike preceding datasets there was no parsing needed, only read the desired values from a file. Unfortunately, there are quite a few missing words, usually words that have two or less characters. This can affect the evaluation when the model finds such a short, missing word.\cite{born-digital1}
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=\textwidth]{obrazky/Dataset_born-digital.png}
+    \caption{Sample images of Born-Digital Images dataset.}
+    \label{Im:Dbd}
+\end{figure}
+
+
+\subsection*{Vienna City Poster Dataset}
+
+The Vienna City Library possesses a collection of 350,000 poster images. A sample of the collection was provided by the organization to the Technical University of Vienna for research purposes. It consists of 5050 images. From these images we manually labeled 257 images and created a testing dataset. Sample of the dataset is in Figure \ref*{Im:Dvienna}. As it can be seen from the example images, the dataset includes mainly posters with German language, though few images have words in English or Czech.
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=\textwidth]{obrazky/Dataset_vienna.png}
+    \caption{Sample images of Vienna City Poster Dataset.}
+    \label{Im:Dvienna}
+\end{figure}
+
+
+The posters have neither the characteristic of a scanned text documents, neither of scene images. They are most similar to born digital images. However for the posters is typical one thing -- a part of the text is large relative to the image size and another part is tiny. The huge text is usually a brand or product name or a name of an event. The small text is the name of the author of the poster or the printer where the posters was printed. Both of these texts are a challenge for an OCR engine, because large letters are misinterpreted as objects and the height of the tiny ones is not bigger then twenty pixels and letters are often blurred. Middle-sized text also appears in the posters and is generally well recognized.
+
+Due to the presence of the small text. All images in the dataset need  to be in the original resolution. The bigger side is always 4096 pixels. This leads to a large dataset even when the number of images is less then three hundred. A single JPG image has approximately 4 Megabytes. A PNG image in the dataset has about 20 Megabytes. To reduce the final size of the dataset I decided to convert the PNG files to JPG\footnote{For converting the images I used the console application ImageMagick, with the command \newline \tn{for f in *.png ; do convert "\$f" "../alljpg/\$\{f\%.*\}.jpg" ; done}.}. The final dataset of JPG images is 1.1 GB large, before it was 2.8 GB. The high resolution of images makes demands on the hardware when working with the dataset and makes it impossible to run on machines with insufficiently large computing memory.
+
+The annotation tool used for labeling the selected posters is called Aletheia from the PRiMA Research\footnote{More information available at https://www.primaresearch.org/tools/Aletheia}. The program can be downloaded for Windows operating system, it offers both Lite and Pro version. A free one month trial is offered or for academic use the PRiMA Research gives an extended license. Using this tool we labeled every separate word or group of letters (such as poster identification number) found in an image on the selected posters. Words that were forming a text line, were afterwards labeled as a text line (single word is a text line consisting of one word). Individual characters were not labeled. Bounding boxes for both words and text lines are rectangles, even for curved text. Word bounding boxes were drawn pixel precise with the intention of no margin between the box and the word. Aletheia software produces a XML file with PRiMA Research tags, example for the image P-2151.jpg is in the code below and in Figure \ref{Im:aletheia} is a graphical representation of this XML file.
+
+\begin{lstlisting}[label=lst:xml]
+<?xml version="1.0" encoding="UTF-8"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15/pagecontent.xsd">
+<Creator></Creator>
+<Created>2022-03-14T11:42:27</Created>
+<LastChange>2022-03-14T11:42:27</LastChange></Metadata>
+<Page imageFilename="P-2151.jpg" imageWidth="2524" imageHeight="4096">
+<TextRegion id="tempReg357564684568544579089">
+<Coords points="0,0 1,0 1,1 0,1"/>
+<TextLine id="l4">
+<Coords points="264,2496 264,2810 2301,2810 2301,2496"/>
+<Word id="w10">
+<Coords points="264,2496 264,2810 2301,2810 2301,2496"/>
+<TextEquiv>
+<Unicode>GENERATION</Unicode></TextEquiv></Word>
+<TextEquiv>
+<Unicode>GENERATION</Unicode></TextEquiv></TextLine>
+...
+\end{lstlisting}
+
+
+\begin{figure}[hbtp!]
+    \centering
+    % \includegraphics[width=\textwidth]{}
+    \caption{}
+    \label{Im:aletheia}
+\end{figure}
+
+
+
+
+
+
+
+
+% ------------------------------- Implementation -----------------------------
+
+\section{Implementation}
+\label{sec:implement}
+
+In this section I briefly described the structure of the experiment scripts and the function used inside them.
+
+I wrote all testing scripts and auxiliary functions in Python programming language. The scripts were written as Jupyter Notebook environment and saved in the corresponding file format \texttt{.ipynb}, lately these notebooks were saved as \texttt{.py} Python scripts. The set of utility functions is located in a file called \texttt{utils.py}. All experiments were run within Google Colaboratory\footnote{Google Colaboratory (Colab for short) is an product from Google Research. It allow Google users to write and execute python code within a web browser using a remote computer and its computing power. In the free version of Colab the computational resources are limited and vary over time due to the demands of other users. The product is available at \url{https://colab.research.google.com/}.} which provides a 12 GB RAM and a GPU Nvidia K80 with 12 GB memory.
+
+In the experiments I have chosen three methods to be tested, namely, Tesseract, EasyOCR and keras-ocr. Each of them has corresponding Python package. For Tesseract I tried two approaches, one with pure Tesseract and another with CRAFT detection tool followed by Tesseract recognizer. 
+
+\subsection{Script Description}
+
+There are four scripts for the tested methods. Each script begins with downloading required packages, that are not already installed in Google Colab environment. This is followed by importing packages to the environment. Then Google Drive is mounted, because that is where image datasets are stored and where is located a file with utility functions. After that the utility functions can be imported, too.
 
 The next stage is dataset loading. Each dataset is loading separately because tests are performed gradually for each dataset within each method. Images and respective ground truths are loaded and saved in variables. The list of image and text data are sorted so that corresponding data have the same indices.
 
@@ -14,12 +123,27 @@ Another step is the prediction. During this phase models are loaded and detectio
 
 Then metrics are computed. First the predictions are arranged into a same format. Then intersection over union metric for bounding boxes is computed and character error rate for comparing predicted and original texts. Averages of these metrics throughout an image are made for each image and these results are saved. Optionally one can save an image with the original image and bounding boxes and annotations drawn over it.
 
-\section{Function Description}
+The pipeline can be summarized in a set of steps.
+\begin{enumerate}
+    \item Installation of packages that are not in the default Google Colab setting.
+    \item Importing dependencies for the project including custom utility functions from \texttt{utils.py}.
+    \item Google Drive of the user that runs Google Colab is mounted. (Authentication is needed)
+    \item Image files and ground truth files are loaded. Ground truth is converted from files to tuple of string and integer coordinates.
+    \item If desired a short preprocessing of images is done (grayscale, Otsu thresholding).
+    \item Setup of parameters for OCR.
+    \item Model loading.
+    \item Prediction.
+    \item Conversion of prediction to a unified format (List of tuples of string and integer coordinates for each image, then joined to a list, which contains prediction for all images.)
+    \item Computation of evaluation metrics IoU an CER.
+    \item Saving and visualizing results.
+\end{enumerate}
 
 
+\subsection{Function Description}
+In the rest of this chapter the description of testing Python scripts is provided as well as comment on functions used in testing scripts. Note that int he following function definitions respective docstrings are omitted as they provide similar information as the descriptions, but in a 	briefer version.    
 
 % -------------------------- XML parsing -------------------------- 
-\subsection*{Functions for Extracting Ground Truth}
+\subsubsection*{Functions for Extracting Ground Truth}
 
 I created the following functions in order to extract ground truth information from  text files -- in most cases XML files. Each dataset unfortunately uses a different form of annotations. The styles differ in order of data, tag names, even in type of the recorded data (sometimes individual characters and their position is written or information about curvature). For XML parsing I utilized the The ElementTree XML API, which is imported as xml.etree.ElementTree. Information in XML files is stored in a tree where individual values can be accessed gradually using tags and their attributes.
 
@@ -178,7 +302,7 @@ def read_gt_wien(xml_file, scaling_ratio=1, resized_previously=False):
 
 The function \tn{read\_gt\_wien} takes the label and coordinate values form a XML files for the Vienna City Poster Dataset. The XML files produced by the software Aletheia are in a format created by PRiMA Research. When going through the XML tree an information about the research organization is embodied in the tag names.
 
-\subsection*{Functions for Editing Images}
+\subsubsection*{Functions for Editing Images}
 
 \begin{lstlisting}[caption=image\_text\_crop]
 def image_text_crop(images, filenames, ground_truth, one_file=True, result_folder='./results', skip_longer_than=40):
@@ -260,9 +384,9 @@ def bounding_rectangle(coordinates):
 The function \tn{bounding\_rectangle}
 Returns top left and bottom right coordinates of a rectangle, that is circumscribed to a polygon defined by coordinates. These are obtained from predictions for each text region.
 
-\subsection*{Functions for Computing Metrics}
+\subsubsection*{Functions for Computing Metrics}
 
-% -------------------------- IOU --------------------------  
+% -------------------------- IoU --------------------------  
 
 \begin{lstlisting}[caption=iou]
 def iou(pred_box, gt_box):
@@ -329,7 +453,7 @@ def group_text(lst):
     return grouped
 \end{lstlisting}
 
-The function \tn{group\_text} is a utility function for matching corresponding strings in a list. The list that is passed as an argument is a list of tuples of IOUs returned from the function \tn{iou\_image}. First for each ground truth bounding box, which is determined by the ground truth index (in this case the third element of the tuple) and it is used as a key. The returned tuple consists of a sum of IOUs, a list of indices of predicted bounding boxes and ground truth index.
+The function \tn{group\_text} is a utility function for matching corresponding strings in a list. The list that is passed as an argument is a list of tuples of IoUs returned from the function \tn{iou\_image}. First for each ground truth bounding box, which is determined by the ground truth index (in this case the third element of the tuple) and it is used as a key. The returned tuple consists of a sum of IoUs, a list of indices of predicted bounding boxes and ground truth index.
 
 % -------------------------- Text Comparision -------------------------- 
 
@@ -389,9 +513,9 @@ def compare_text_cer(text, special_characters=False, case_sensitive=False, space
 
 The function \tn{compare\_text\_cer} returns a sorted list of corresponding words. Each pair of corresponding words is represented as a tuple of ground truth string, predicted string and a CER value. The first parameter have to be a tuple of a single ground truth string and a predicted string. The argument \tn{special\_characters} ignores all characters except alphanumeric characters and space when \tn{False}. This is applied to both predicted and ground truth strings. When the argument \tn{case\_sensitive} is \tn{False} then all texts are set to lowercase. The \tn{spaces} parameter allows only alphanumeric characters and all spaces are removed. The last one of arguments is \tn{split} and it is used optionally depending on the OCR engine and on dataset. When \tn{True}, strings from ground truth and prediction are split with space used as a separator. Then the Levenshtein distance is computed for each pair of ground truth and predicted word. The best one is chosen for each predicted word and returned together with the two closest words. In case of no split, the Levenshtein distance is computed directly for the strings in the original tuple \tn{text}. It is recommended to use split when the OCR model tends to detect words that belongs to each other as separate words and ground truth marks them as a text line with multiple words. Or when ground truth is one-word and model predicts strings with multiple words together.
 
-The function \tn{levenshtein\_distance} computes the Levenshtein distance (definition can be found in section \ref*{sec:eval}). The implementation is taken from a console application called xer. The code is available from \url{https://github.com/jpuigcerver/xer/blob/master/xer}. It returns a tuple of counts of the three performed operations --  substitution, deletion, insertion.
+The function \tn{levenshtein\_distance} computes the Levenshtein distance (definition can be found in subsection \ref*{sec:eval}). The implementation is taken from a console application called xer. The code is available from \url{https://github.com/jpuigcerver/xer/blob/master/xer}. It returns a tuple of counts of the three performed operations --  substitution, deletion, insertion.
 
-\subsection*{Other Functions}
+\subsubsection*{Other Functions}
 
 \begin{lstlisting}[caption=correct]
 def correct(string, char_mistakes):
@@ -454,11 +578,11 @@ def correct(string, char_mistakes):
 
 
 % -------------------------- Testing Scripts -------------------------- 
-\subsection*{Functions Used in Testing Scripts}
+\subsubsection*{Functions Used in Testing Scripts}
 
-For each testing method there is a funcion called \tn{get\_predicted\_\{method\_name\}} where the format that is returned by a particular method is converted to a specific format. This format is a tuple of \tn{(text, [upper left coordinates, bottom right coordinates])}. It is the same format as is used for ground truth.
+For each testing method there is a function called \tn{get\_predicted\_\{method\_name\}} where the format that is returned by a particular method is converted to a specific format. This format is a tuple of \tn{(text, [upper left coordinates, bottom right coordinates])}. It is the same format as is used for ground truth.
 
-Two following functions manipulate with the IOU and CER scores.
+Two following functions manipulate with the IoU and CER scores.
 
 \begin{lstlisting}[caption=get\_iou\_cer]
 def get_iou_cer(ground_truth, predicted, special_chars=False, case_sensitivity=False, split=False):
@@ -488,7 +612,7 @@ def get_iou_cer(ground_truth, predicted, special_chars=False, case_sensitivity=F
         gt_labels = ground_truth_cols[0]
 
         # compare corresponding labels
-        # comparision is a list of all text regions on one image
+        # comparison is a list of all text regions on one image
         comparision = []
 
         for observation in iou_text_regions:
@@ -515,7 +639,7 @@ def get_iou_cer(ground_truth, predicted, special_chars=False, case_sensitivity=F
     return iou_images, cer_images
 \end{lstlisting}
 
-The function \tn{get\_iou\_cer} returns IOU and CER metric for bounding boxes for all images for each text region detected in an image. Thus there are two tuples with the length of number of images in a dataset.
+The function \tn{get\_iou\_cer} returns IoU and CER metric for bounding boxes for all images for each text region detected in an image. Thus there are two tuples with the length of number of images in a dataset.
 
 \begin{lstlisting}[caption=get\_iou\_cer\_average]
 def get_iou_cer_average(iou_images, cer_images):
@@ -538,11 +662,11 @@ def get_iou_cer_average(iou_images, cer_images):
     return iou_in_image, cer_in_image
 \end{lstlisting}
    
-The function \tn{get\_iou\_cer\_average} returns two tuples of average IOU and CER value for each image in dataset.
+The function \tn{get\_iou\_cer\_average} returns two tuples of average IoU and CER value for each image in dataset.
 
 
 % -------------------------- Final Visualization -------------------------- 
-\subsection*{Functions for Final Visualizations}
+\subsubsection*{Functions for Final Visualizations}
 
 \begin{lstlisting}[caption=get\_results]
 def get_results(filenames, iou_in_image, cer_in_image):
@@ -557,7 +681,7 @@ def get_results(filenames, iou_in_image, cer_in_image):
     
 \end{lstlisting}
 
-The function \tn{get\_results} prints returns average IOU and CER for the whole dataset and a dataframe with these metrics for each image.
+The function \tn{get\_results} prints returns average IoU and CER for the whole dataset and a dataframe with these metrics for each image.
 
 
 \begin{lstlisting}[caption=plot\_results]
@@ -602,5 +726,5 @@ def plot_results(image, ground_truth, predicted, size=15):
 The function \tn{plot\_results} returns a plot with an image and both predicted and ground truth bounding boxes 
 and corresponding labels. The ground truths are marked with green color and predictions with red. Objects are drawn using the package matplotlib.
 
-% \section{Visualisation}
+% \subsection{Visualisation}
 %  The notebook \tn{results\_visualization}.
