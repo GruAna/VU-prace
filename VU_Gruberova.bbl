@@ -214,10 +214,6 @@
 \newblock Available from:
   \url{https://neurohive.io/en/popular-networks/vgg16/}.
 
-\bibitem{google1}
-{\bf Vision AI | derive image insights via ML | cloud vision API google cloud}.
-\newblock Available from: \url{https://cloud.google.com/vision/. [Online].}
-
 \bibitem{wang2019shape}
 {\sc W.~Wang, E.~Xie, X.~Li, W.~Hou, T.~Lu, G.~Yu, and S.~Shao}.
 \newblock {\bf Shape robust text detection with progressive scale expansion

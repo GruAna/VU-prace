@@ -1,5 +1,26 @@
-\chapter{Conclusion}
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
 
-As in other image recognition problems contextual information is a key element in optical character recognition. As humans we obtain this information by quickly scanning an image. For example when posters and advertisements are considered it is probable that a product name might occur multiple times without changes.
+The aim of this paper was to examine different methods of optical character recognition (OCR) and test these methods on multiple datasets, including Vienna City Poster Dataset provided by the City Library of Vienna.
 
-!!!!TBC
+First, I introduced the topic optical character recognition. I defined text detection and text recognition and described individual approaches used in both of these task. Then I briefly mentioned types and examples of available datasets, that are related to text recognition tasks. I also described two main evaluation metrics that are applied to text predictions. I followed up on these information when implementing the testing of methods.
+
+In the second chapter I expanded the widely used approach applied in OCR -- neural networks. I gradually described different types of networks from the simplest ones to the more complex ones, that are used in OCR tools. 
+
+In the following chapter is a description od four OCR tools I had chosen for experiments -- namely CRAFT, Tesseract, EasyOCR and keras-ocr. All of them are freely available and are accesible in Python language.
+
+The last, most important, chapter contains a part of the implementation of testing scripts and a discussion of achieved results. In this chapter I also described the datasets I had selected for the experiments. I have chosen three free datasets and I created a fully labeled dataset of 257 images from given poster data with a manual labeling tool Aletheia.
+
+I came up with a method of matching ground truth and predictions in image based on two evaluation metrics -- Intersection over Union and Character Error Rate. By establishing the right match between original and predicted label I filtered most of the mistakes caused by wrong detection. For the German language, which is major in Vienna City Poster Dataset, I proposed  possible swaps of characters in most common German syllables.
+
+I have chosen Python as the language in which the testing experiments are written. Mainly to its popularity in machine learning tasks and also due to the fact that all selected OCR tools are supported. I performed over sixty tests. I tested the four different methods and I changed their parameters. For each dataset I provided a statistics with results of individual methods with different settings. I have found out that from the four free methods. EasyOCR and keras-OCR, both available as Python packages, give the best results no matter the given dataset. At the same time I came to a conclusion that Tesseract, a favourite OCR tool for scanned documents, is very unsuccessful when it comes to detection and recognition of text in images. I was able to obtain a $80\%$  accuracy of characters in prediction compared to the ground truth with EasyOCR software.
+
+The general accuracy of results was around $70\%$ when the two most successful methods were used. This number would be more precise if the testing datasets were larger. However, this would need more time both for humans, which manually label the dataset and for computers to perform predictions.
+
+Another possible improvement lies in further research and it is to extend the ability of a recognizer to work better with a contextual information. Because as humans we obtain this information by quickly scanning an image. For example when posters and advertisements are considered it is probable that a product name might occur multiple times without changes. This knowledge helps us to guess illegible words. Neural networks used in OCR however successful still need more of this ability to guess a result when struggling to give a precise prediction.
+
+% As in other image recognition problems, contextual information is a key element in optical character recognition. As humans we obtain this information by quickly scanning an image. For example when posters and advertisements are considered it is probable that a product name might occur multiple times without changes. 
+
+% !!!!TBC
+
+%

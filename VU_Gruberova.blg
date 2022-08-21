@@ -8,45 +8,45 @@ Warning--empty booktitle in tessPipeline
 Warning--empty journal in activation
 Warning--empty journal in ctc
 Warning--empty journal in svtp
-You've used 40 entries,
+You've used 39 entries,
             2776 wiz_defined-function locations,
-            833 strings with 11316 characters,
-and the built_in function-call counts, 15246 in all, are:
-= -- 1559
-> -- 543
+            828 strings with 11182 characters,
+and the built_in function-call counts, 15013 in all, are:
+= -- 1536
+> -- 542
 < -- 7
-+ -- 227
++ -- 226
 - -- 182
-* -- 856
-:= -- 2126
-add.period$ -- 132
-call.type$ -- 40
-change.case$ -- 181
+* -- 847
+:= -- 2104
+add.period$ -- 130
+call.type$ -- 39
+change.case$ -- 178
 chr.to.int$ -- 0
-cite$ -- 44
-duplicate$ -- 549
-empty$ -- 1495
+cite$ -- 43
+duplicate$ -- 539
+empty$ -- 1461
 format.name$ -- 182
-if$ -- 3783
+if$ -- 3716
 int.to.chr$ -- 0
-int.to.str$ -- 40
+int.to.str$ -- 39
 missing$ -- 18
-newline$ -- 214
+newline$ -- 210
 num.names$ -- 60
-pop$ -- 502
+pop$ -- 492
 preamble$ -- 1
-purify$ -- 181
+purify$ -- 178
 quote$ -- 0
-skip$ -- 956
+skip$ -- 934
 stack$ -- 0
-substring$ -- 485
-swap$ -- 177
+substring$ -- 480
+swap$ -- 175
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 158
+type$ -- 154
 warning$ -- 4
 while$ -- 82
-width$ -- 42
-write$ -- 413
+width$ -- 41
+write$ -- 406
 (There were 5 warnings)
