@@ -20,6 +20,6 @@
 \contentsline {subsection}{\numberline {4.2.1}Script Description}{34}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Function Description}{35}{subsection.4.2.2}
 \contentsline {chapter}{\numberline {5}Results}{49}{chapter.5}
-\contentsline {chapter}{Conclusion}{58}{chapter*.50}
-\contentsline {chapter}{Literatura}{64}{chapter*.51}
-\contentsline {chapter}{Appendix}{64}{chapter*.51}
+\contentsline {chapter}{Conclusion}{59}{chapter*.53}
+\contentsline {chapter}{Literatura}{65}{chapter*.54}
+\contentsline {chapter}{Appendix}{65}{chapter*.54}

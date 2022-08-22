@@ -12,7 +12,14 @@ The main factors that make STR a more difficult task are listed below.\cite{chen
 
 Apart from these main categories of image text data there exist born-digital images (e. g. web advertisements or any cases where text was digitally added on images or videos) and poster/newspaper images. These share with scene images the diversity of text but are free from visual distortions caused by cameras. Examples of different image data are in sections \ref*{sec:datasets} and \ref*{sec:expDatasets}. 
 
-Digital reading of a text on an image consists of two main tasks -- text detection and text recognition. Both processes are described in the next sections.
+Digital reading of a text on an image consists of two main tasks -- text detection and text recognition. Both processes are described in the next sections. The structure can be seen in the Fig. \ref{Im:rozdeleni}.
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[scale=0.4]{obrazky/rozdeleni.png}
+    \caption{The structure of OCR tasks.}
+    \label{Im:rozdeleni}
+\end{figure}
 
 \section{Text Detection}
 
@@ -34,7 +41,7 @@ A popular method in recent years is Character Region Awareness for Text Detectio
 
 \section{Text Recognition}
 
-Text recognition converts a detected text on an image to a string. Analogous to detection methods again recognition methods can be divided to classical methods and deep learning methods. Traditional methods work with image features such as histogram of gradients, features from SIFT\footnote{Scale-Invariant Feature Transform}, which are then classified by SVM or nearest neighbor algorithms. Moreover methods can be divided on segmentation-based and segmentation free methods. The former classify single characters gradually and then connect them into a word. The latter examine the text line as a whole, so it can use word neighborhood for contextual information. In the following subsection four stages of segmentation free methods are described.\cite{chen2021text,raisi2020text}
+Text recognition converts a detected text on an image to a string. Analogous to detection methods again recognition methods can be divided to classical methods and deep learning methods. Traditional methods work with image features such as histogram of gradients, features from SIFT\footnote{Scale-Invariant Feature Transform}, which are then classified by SVM or nearest neighbor algorithms. Moreover methods can be divided on segmentation based and segmentation free methods. The former classify single characters gradually and then connect them into a word. The latter examine the text line as a whole, so it can use word neighborhood for contextual information. In the following subsection four stages of segmentation free methods are described.\cite{chen2021text,raisi2020text}
 
 \subsection*{Segmentation Free Methods}
 
@@ -68,7 +75,7 @@ Synthetic datasets are usually used for training the models, because it is easie
 
 In this paragraph sample datasets are introduced. To begin with synthetic dataset MJSynth is a very important dataset because it consists of almost 9 million images covering 90,000 English words. It includes data only for recognition which means that one image has only one word and border of the image  represents the word bounding rectangle.\cite{mjsynth}. Another synthetic dataset is called SynthText and contains 800 thousand images with approximately 8 million word instances written on the images \cite{synthtext}. Three scene text datasets were created for International Conference on Document Analysis and Recognition (ICDAR) competition. Sets ICDAR03, ICDAR13 and ICDAR15 were used in competitions in years 2003, 2013 and 2015, respectively. First two ICDAR datasets include only horizontal text, text of various orientation appears  in set from 2015 \cite{raisi2020text}. Another widely used dataset is The Street View Text (SVT) which contains images with text harvested from Google Street View \cite{svt}. SVT and most other scene text datasets offers mainly frontal text with minimal perspective distortion. However, perspective text is frequent in real life applications of OCR for example previously mentioned street photographs, where it is impossible to capture every visible text from frontal view. Thus Phan et. al \cite{svtp} created a new StreetViewText-Perspective derived from SVT, it shows the same places as SVT but from different perspective. Another dataset CUT80 focuses on curved text as well as CTW1500 dataset. For text recognition there exist for example IIIT5k dataset containing 5000 cropped images harvested from Google image search. It combines both scene text images and born-digital images \cite{IIIT}. One of the most widely used dataset is COCO-Text which includes over 60,000 images with almost 250,000 word instances \cite{coco}.
 
-Datasets that were used for comparison of detection and recognition methods, namely, SCUT-CTW1500 dataset, Kaist Scene Text Database, Born-Digital Images, are described in more detail in Chapter \ref{ch:testing}. 
+Datasets that were used for comparison of detection and recognition methods, namely, SCUT-CTW1500 dataset, Kaist Scene Text Database, Born-Digital Images and the historical poster dataset are described in more detail in Chapter \ref{ch:testing}. 
 
 \section{Evaluation}
 \label{sec:eval}

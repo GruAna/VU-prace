@@ -15,18 +15,38 @@ Each of the training took about an hour on Google Colab GPU. I set 100 epochs an
 % graph
 
 \subsection*{Tesseract}
-The version of Tesseract installed on Google Colab is tesseract 4.0.0-beta.1 with leptonica-1.75.3, which means that the LSTM network is available. For testing I used the OCR Engine mode (OEM) 3, that is Legacy + LSTM engines. As for Page segmentation modes (PSM) I used numbers 3, 4, 6, 8 and 11, which are "Fully automatic page segmentation, but no OSD. (Default)", "Assume a single column of text of variable sizes.",  "Assume a single uniform block of text.",  "Treat the image as a single word." and "Sparse text. Find as much text as possible in no particular order." respectively. I used PSM 3 only initially and dropped it beacuse prediction was strongly inefficient, so it is not included in result statistics. PSM 8 was used for testing Tesseract with CRAFT, because CRAFT crops an image into segments where there is only one word (or a short text line), therefore Tesseract needed to treat the image as a single word. The rest of mentioned PSMs were applied for examining the behavior of pure Tesseract engine. 
+The version of Tesseract installed on Google Colab is tesseract 4.0.0-beta.1 with leptonica-1.75.3, which means that the LSTM network is available. For testing I used the OCR Engine mode (OEM) 3, that is Legacy + LSTM engines. As for Page segmentation modes (PSM) I used numbers 3, 4, 6, 8 and 11, which are "Fully automatic page segmentation, but no OSD. (Default)", "Assume a single column of text of variable sizes.",  "Assume a single uniform block of text.",  "Treat the image as a single word." and "Sparse text. Find as much text as possible in no particular order." respectively. I used PSM 3 only initially and dropped it because prediction was strongly inefficient, so it is not included in result statistics. PSM 8 was used for testing Tesseract with CRAFT, because CRAFT crops an image into segments where there is only one word (or a short text line), therefore Tesseract needed to treat the image as a single word. The rest of mentioned PSMs were applied for examining the behavior of pure Tesseract engine. 
 
+\section*{Experiments}
 
+In this section the results of experiments are divided into four parts based on the four datasets used for testing.
 
+In table \ref{Tab:terms} is explanation of terms used in experiments and result discussion.
 
+\begin{table}[!hbt]
+    \centering
+    \begin{tabular}{|p{2cm}|p{\textwidth-3cm}|}
+    \hline
+        Term & Explanation \\
+    \hline
+        split & If there is a split option, it denotes that predicted strings were chopped into individual words separated by spaces. \\
+        no split & It means that predicted string was not changed. \\
+        tuning & Parameters of the model, other than the default ones, were set to produce better predictions. \\
+        psm & Page segmentation mode -- a parameter for Tesseract. \\
+    \hline
+    \end{tabular}
+    \caption{Explanation of terms used in experiments.}
+    \label{Tab:terms}
+\end{table}
+
+\newpage
 \subsection*{Born-Digital}
 
 First, the Born-Digital Images dataset was tested with images in predictions and ground truth were set to be in lowercase and all special characters except for space were removed. There were 13 different testing runs with three tested methods.  In Figure \ref*{Im:resBD} are the results of this testing and in Table \ref*{Tab:resBD} is corresponding information about each run. 
 
 The best CER value was achieved by tuned EasyOCR engine, where no split was done on predicted text (letter D in Fig. \ref*{Im:resBD}). We can see from the graph and table, that EasyOCR and keras-OCR had significantly better results than Tesseract. Also it can be said that tuning of EasyOCR model results in higher both IoU and CER of approximately 20\% more than with basic EasyOCR setup of parameters. Keras-OCR performs similarly with split and no split option and in both cases gives satisfactory results. The best IoU score was equal to $64.6\%$ (letters G and H) and belongs to Keras-OCR model. Tuned EasyOCR can get up to $60.3\%$ without tuning $20\%$ lower than that.
 
-When we compare Tesseract with its own detection model and Tesseract with CRAFT tool, we can see that CRAFT increases the CER metric by more than 12\%, however the IoU metric fluctuates for all cases around 50\%. Whether the image is in RGB color scheme or in grayscale has only a little impact on the results, generally it differed only by about 2\%. Same minor difference is when split or no split option is set. If the Otsu thresholding was performed and the image was then binarized, results were worse than when Tesseract itself performs the binarization. Better results were when PSM tesseract parameter was set to 11 rather then PSM 4.
+When we compare Tesseract with its own detection model and Tesseract with CRAFT tool, we can see that CRAFT increases the CER metric by more than 12\%, however the IoU metric fluctuates for all cases around 50\%. Whether the image is in RGB color scheme or in grayscale has only a little impact on the results, generally it differed only by about 2\%. Same minor difference is when split or no split option is set. If the Otsu thresholding was performed and the image was then binarized, results were worse than when Tesseract itself performs the binarization. Better results were when PSM Tesseract parameter was set to 11 rather then PSM 4. 
 
 {
 \begin{figure}[hbtp!]
@@ -59,7 +79,8 @@ When we compare Tesseract with its own detection model and Tesseract with CRAFT 
 \end{table}
 }
 
-Next I performed tests with case sensitive option and with special characters included.
+Next I performed tests with case sensitive option and with special characters included, this option caused a decrease in CER value due to the fact that there are lots of special characters and uppercase words. However, it is good to have a recognizer that can predict more than lowercase strings even at the cost of slightly reducing the accuracy.
+
 
 \subsection*{SCUT-CTW1500 dataset}
 The SCUT-CTW1500 dataset was again first tested with predictions and ground truth were set to be in lowercase and all special characters except for space were removed. 14 different testing were run.  In Figure \ref*{Im:resCTW} are the results of the testing and the corresponding information about each run is in Table \ref*{Tab:resCTW}. 
@@ -71,7 +92,7 @@ The Comparison of Tesseract with its own detection model and Tesseract with CRAF
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[width=\textwidth]{obrazky/grafy/resCTW.png}
-    \caption{Results of experiments performed on CTW dataset. Information about each method is in Table \ref*{Tab:resCTW}.}
+    \caption{Results of experiments performed on CTW dataset. Information about each method is in Table \ref{Tab:resCTW}.}
     \label{Im:resCTW}
 \end{figure}
 \begin{table}[!ht]
@@ -94,7 +115,7 @@ The Comparison of Tesseract with its own detection model and Tesseract with CRAF
         M & tesseract & split, psm11\\ 
         N & tesseract & color, split, psm11 \\ \hline
     \end{tabular}
-    \caption{A table of keys for methods and parameters of experiments performed on SCUT-CTW1500 dataset for Figure \ref*{Im:resCTW}.}
+    \caption{A table of keys for methods and parameters of experiments performed on SCUT-CTW1500 dataset for Figure \ref{Im:resCTW}.}
     \label{Tab:resCTW}
 \end{table}
 
@@ -108,7 +129,7 @@ Keras-OCR had slightly lower values of CER than EasyOCR and IoU values are even 
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[width=\textwidth]{obrazky/grafy/resKaist.png}
-    \caption{Results of experiments performed on KAIST Scene Text Database. Information about each method is in Table \ref*{Tab:resK}.}
+    \caption{Results of experiments performed on KAIST Scene Text Database. Information about each method is in Table \ref{Tab:resK}.}
     \label{Im:resK}
 \end{figure}
 \begin{table}[!ht]
@@ -139,7 +160,7 @@ Keras-OCR had slightly lower values of CER than EasyOCR and IoU values are even 
         U & tesseract & colored, split, psm4 \\ 
         V & tesseract & split, psm11 \\ \hline
     \end{tabular}
-    \caption{A table of keys for methods and parameters of experiments performed on KAIST Scene Text Database for Figure \ref*{Im:resK}.}
+    \caption{A table of keys for methods and parameters of experiments performed on KAIST Scene Text Database for Figure \ref{Im:resK}.}
     \label{Tab:resK}
 \end{table}
 
@@ -208,19 +229,20 @@ Keras-OCR had slightly lower values of CER than EasyOCR and IoU values are even 
 
 % when default model is used and special characters and case sensitivity of ground truth labels is observed CER accuracy reaches only less than thirty percent. 
 
+\newpage
 
 \subsection*{Vienna City Poster Dataset}
 
 The Vienna City Poster Dataset was detected and recognized with the same method as previously mentioned datasets. Even though the dataset has only a little over 250 images, it is that large that the RAM size available in Google Colab struggled to work with the dataset as whole I had to split the dataset into two parts and perform computations on them separately. Then I combined the corresponding results. Specifically, the first group included first 123 images, the second the rest, where data were sorted by name of the files.
 
-I used different parameters that can be set in each method. However, in the result table \ref*{Tab:resV} and graph \ref*{Im:resV} I selected only the best ones within each method. Thus the results contains     thirteen CER and IoU values. In the featured results for all cases except one I tested only alphanumeric characters without the sensitivity to their case.
+I used different parameters that can be set in each method. However, in the result table \ref{Tab:resV} and graph \ref*{Im:resV} I selected only the best ones within each method. Thus the results contains     thirteen CER and IoU values. In the featured results for all cases except one I tested only alphanumeric characters without the sensitivity to their case.
 
-Due to the fact that this dataset is mainly in German language, in all models I set German as the language that is to be predicted. The defualt was English for all models. I implemented possible language correction which takes common syllables that appear in German. The function is described in \ref{sec:other}. For some predictors these corrections were not necessary and predicted similarly without them. 
+Due to the fact that this dataset is mainly in German language, in all models I set German as the language that is to be predicted. The defualt was English for all models. I implemented possible language correction which takes common syllables that appear in German. The function is described in \ref{lst:correctgerman}. For some predictors these corrections were not necessary and predicted similarly without them. 
 
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[width=\textwidth]{obrazky/grafy/resvienna.png}
-    \caption{Results of experiments performed on Vienna City Poster Dataset. Information about each method is in Table \ref*{Tab:resV}.}
+    \caption{Results of experiments performed on Vienna City Poster Dataset. Information about each method is in Table \ref{Tab:resV}.}
     \label{Im:resV}
 \end{figure}
 
@@ -243,10 +265,11 @@ Due to the fact that this dataset is mainly in German language, in all models I 
         L & tesseract & split, psm11" \\ 
         M & tesseract & split, psm4" \\ \hline
     \end{tabular}
+    \caption{A table of keys for methods and parameters of experiments performed on Vienna City Poster dataset dataset for Figure \ref{Im:resV}.}
     \label{Tab:resV}
 \end{table}
 
-The best results were obtained by EasyOCR and Keras-OCR. The highest IoU score is equal to $75.4\%$ and it belongs to EasyOCR method with its parameters tuned to create tighter bounding boxes than pure EasyOCR (letters E and F in Fig. \ref*{Im:resV}). In this case the CER values ranged around $64\%$ and correction for German language was involved.
+The best results were obtained by EasyOCR and Keras-OCR. The highest IoU score is equal to $75.4\%$ and it belongs to EasyOCR method with its parameters tuned to create tighter bounding boxes than pure EasyOCR (letters E and F in Fig. \ref{Im:resV}). In this case the CER values ranged around $64\%$ and correction for German language was involved.
 Keras-OCR is responsible for the highest CER value -- $69.75\%$, for both with and without correction. Though the IoU value is sligtly smaller than the best one -- $74.2\%$ (letters G-J). 
 
 As EasyOCR is able to predict also special characters and can be sensitive to case in its result I tested the two best settings (letters E and F) with this option. The CER scores lowered by approximately $3.5\%$. Which means that even with case sensitivity and more characters the model can give very good results. In contrast with Keras-OCR which cannot predict special characters and ignores text case without training. To gain this aibility, I trained the Keras-OCR model on the Vienna Dataset. I used the the second group of the dataset data as a training images and the first 123 images as testing ones. After seventeen minutes, which accords with twenty epochs, the training ended, because last ten epochs the validation loss stopped decreasing. Unfortunately the trainind dataset would need more data. After tests the IoU score was equal to $73.2\%$ and CER score was $72.1\%$ without my language corrections and with split applied to predictions. These numbers shows that Keras-OCR outperforms other models in both with simple characters and with special characters.

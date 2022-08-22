@@ -51,7 +51,7 @@ The dataset is available for download from the website of Robust Reading Competi
 
 \subsection*{Vienna City Poster Dataset}
 
-The Vienna City Library possesses a collection of 350,000 poster images. A sample of the collection was provided by the organization to the Technical University of Vienna for research purposes. It consists of 5050 images. From these images we manually labeled 257 images and created a testing dataset. Sample of the dataset is in Figure \ref*{Im:Dvienna}. As it can be seen from the example images, the dataset includes mainly posters with German language, though few images have words in English or Czech.
+The Vienna City Library possesses a collection of 350,000 poster images. A sample of the collection was provided by the organization to the Technical University of Vienna for research purposes. It consists of 5050 images. From these images we manually labeled 257 images and created a testing dataset. Sample of the dataset is in Figure \ref{Im:Dvienna}. As it can be seen from the example images, the dataset includes mainly posters with German language, though few images have words in English or Czech.
 
 \begin{figure}[hbtp]
     \centering
@@ -522,7 +522,7 @@ def correct(string, char_mistakes):
     """
     Find defined mistake in a string and replace it with defined correction.
     Returns corrected string.
-    """
+    """correct
     
     for oldchar, newchar in char_mistakes:
         string = string.replace(oldchar, newchar)
@@ -530,52 +530,48 @@ def correct(string, char_mistakes):
     return string
 \end{lstlisting}   
 
-% \begin{lstlisting}[caption=correct\_german]    
-% def correct_german(text):
-%     """
-%     Return corrected text based on typical language syllables 
-%     and common mistakes caused by optical character recognizers.
-%     """
-    
-%     # For all texts correct these mistakes
-%     text = correct(text, [('iu','in'),('LN','IN')])
+\begin{lstlisting}[caption=correct\_german,label={lst:correctgerman}]    
+def correct_german(text):    
+    # For all texts correct these mistakes
+    text = correct(text, [('iu','in'),('LN','IN')])
 
-%     length = len(text)
+    length = len(text)
 
-%     # ! shall be at the end of the text, if not it is probably the letter I
-%     if length > 1 and text.find('!') != length-1:
-%         text = text.replace('!','I')
+    # ! shall be at the end of the text, if not it is probably the letter I
+    if length > 1 and text.find('!') != length-1:
+        text = text.replace('!','I')
 
-%     # For longer texts other mistakes can be corrected
-%     if length > 2:
+    # For longer texts other mistakes can be corrected
+    if length > 2:
 
-%         char_mistakes = [('{','f'),('$','S'),('[','L'),('/','I'),('|','I'),('ETN','EIN'),
-%                          ('CE','GE'),('GH','CH'),('GU','QU'),('gu','qu'),('IZ','TZ'),
-%                          ('UNO','UND'),('uno','und'),('Wlen','Wien'),('wlen','wien')]
-%         text = correct(text, char_mistakes)
-        
-%         # No Y at the begining of german words
-%         if text.find('Y')==0:
-%             text = 'V' + text[1:]
+    char_mistakes = [('{','f'),('$','S'),('[','L'),('/','I'),('|','I'),('ETN','EIN'),
+                    ('CE','GE'),('GH','CH'),('GU','QU'),('gu','qu'),('IZ','TZ'),
+                    ('UNO','UND'),('uno','und'),('Wlen','Wien'),('wlen','wien')]
+    text = correct(text, char_mistakes)
+
+    # No Y at the begining of german words
+    if text.find('Y')==0:
+        text = 'V' + text[1:]
 
 
-%         # Characters that do appear in text sometimes, but usually alongside numbers
-%         # not if there are no numbers 
-%         char_difficult = [('1','I'),('€','E')]
-%         for old, new in char_difficult:
-%             if text.find(old) is not -1 and text.replace(' ','').replace(old,'').isalpha():
-%                 text = text.replace(old,new)
+    # Characters that do appear in text sometimes, but usually alongside numbers
+    # not if there are no numbers 
+    char_difficult = [('1','I'),('{euro sign}','E')]
+    for old, new in char_difficult:
+        if text.find(old) is not -1 and text.replace(' ','').replace(old,'').isalpha():
+            text = text.replace(old,new)
 
-%         if text.find('(') is not -1 and text.find(')') is -1:
-%             text = text.replace('(','C')
+    if text.find('(') is not -1 and text.find(')') is -1:
+        text = text.replace('(','C')
 
-%         spaces = text.count(' ')
-%         if  spaces > length/2 - 2:
-%             text = text.replace(' ','')
+    spaces = text.count(' ')
+    if  spaces > length/2 - 2:
+        text = text.replace(' ','')
             
-%     return text
-% \end{lstlisting}   
+    return text
+\end{lstlisting}   
 
+The function returns corrected text based on typical German language syllables  and common mistakes caused by optical character recognizers.
 
 % -------------------------- Testing Scripts -------------------------- 
 \subsubsection*{Functions Used in Testing Scripts}
