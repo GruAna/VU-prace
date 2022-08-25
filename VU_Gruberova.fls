@@ -476,6 +476,9 @@ INPUT /home/anna/Documents/skola/VU/text/obrazky/Dataset_vienna.png
 INPUT /home/anna/Documents/skola/VU/text/obrazky/Dataset_vienna.png
 INPUT /home/anna/Documents/skola/VU/text/obrazky/Dataset_vienna.png
 INPUT /usr/share/texmf/fonts/tfm/public/lm/rm-lmtk10.tfm
+INPUT /home/anna/Documents/skola/VU/text/obrazky/aletheiaim.png
+INPUT /home/anna/Documents/skola/VU/text/obrazky/aletheiaim.png
+INPUT /home/anna/Documents/skola/VU/text/obrazky/aletheiaim.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /home/anna/Documents/skola/VU/text/kapitoly/results.tex
 INPUT /home/anna/Documents/skola/VU/text/kapitoly/results.tex
@@ -559,12 +562,12 @@ INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_carfttesseract_v
 INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-55.png
 INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-55.png
 INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-55.png
-INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna2_nosplit_notuning_nocorrection-70.png
-INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna2_nosplit_notuning_nocorrection-70.png
-INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna2_nosplit_notuning_nocorrection-70.png
 INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-60verticaltextproblem.png
 INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-60verticaltextproblem.png
 INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-60verticaltextproblem.png
+INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna2_nosplit_notuning_nocorrection-70.png
+INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna2_nosplit_notuning_nocorrection-70.png
+INPUT /home/anna/Documents/skola/VU/text/obrazky/plakaty/result_easyOCR_vienna2_nosplit_notuning_nocorrection-70.png
 INPUT /home/anna/Documents/skola/VU/text/VU_Gruberova.aux
 INPUT /home/anna/Documents/skola/VU/text/VU_Gruberova.out
 INPUT /home/anna/Documents/skola/VU/text/VU_Gruberova.out

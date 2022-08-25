@@ -11,21 +11,21 @@ This image has well readable letters and for all tested models this image was no
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[scale=0.36]{obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-21.png}
-    \caption{EasyOCR, tuning}
+    \caption{EasyOCR, tuning on image P-117050}
     \label{Im2:ex:easy}
 \end{figure}
 
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[scale=0.36]{obrazky/plakaty/result_kerasOCR_vienna1_nosplit_nocorrection-21.png}
-    \caption{Keras-OCR, untrained}
+    \caption{Keras-OCR, untrained on image P-117050}
     \label{Im2:ex:keras}
 \end{figure}
 
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[scale=0.36]{obrazky/plakaty/result_carfttesseract_vienna1_split-21.png}
-    \caption{Tesseract+CRAFT}
+    \caption{Tesseract+CRAFT on image P-117050}
     \label{Im2:ex:Craft}
 \end{figure}
 
@@ -43,7 +43,7 @@ This image has well readable letters and for all tested models this image was no
         \caption{PSM 4}
         \label{Im2:ex:tess4}
     \end{subfigure}
-    \caption{Tesseract}
+    \caption{Tesseract on image P-117050}
     \label{Im2:ex:tess}
 \end{figure}
 
@@ -64,7 +64,7 @@ This image has well readable letters and for all tested models this image was no
         \caption{no tuning}
         \label{Im1:ex:easy}
     \end{subfigure}
-    \caption{EasyOCR}
+    \caption{EasyOCR on image P-2638}
     \label{Im1:ex:EasyOCR}
 \end{figure}
 
@@ -83,7 +83,7 @@ This image has well readable letters and for all tested models this image was no
         \label{Im1:ex:ker}
     \end{subfigure}
     
-    \caption{Keras-OCR}
+    \caption{Keras-OCR  on image P-2638}
     \label{Im1:ex:Keras}
 \end{figure}
 
@@ -91,18 +91,19 @@ This image has well readable letters and for all tested models this image was no
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[scale=0.36]{obrazky/plakaty/result_carfttesseract_vienna1_split_special_snesitive-91.png}
-    \caption{Tesseract+CRAFT}
+    \caption{Tesseract+CRAFT  on image P-2638}
     \label{Im1:ex:craft}
 \end{figure}
 
 
 \begin{figure}[hbtp!]  
-      \centering
+    \centering
     \includegraphics[scale=0.36]{obrazky/plakaty/result_tesseract_vienna1_split_psm11-91.png}
-    \caption{Tesseract, PSM 11. Tesseract found many non existing words and tried to predict them.}
-    \label{Im1:ex:tess11}
+    \caption{Tesseract, PSM 11  on image P-2638. Tesseract found many non existing words and tried to predict them.}
+    \l2638abel{Im1:ex:tess11}
 \end{figure}
 
+\newpage
 \subsection*{P-315617}
 
 \begin{figure}[hbtp!]
@@ -119,41 +120,44 @@ This image has well readable letters and for all tested models this image was no
         \caption{no tuning}
         \label{Im3:ex:easy}
     \end{subfigure}
-    \caption{EasyOCR}
+    \caption{EasyOCR on image P-315617}
     \label{Im3:ex:EasyOCR}
 \end{figure}
 
 \begin{figure}[hbtp!]
     \centering
    \includegraphics[scale=0.3]{obrazky/plakaty/result_kerasOCR_vienna2_nosplit-83.png}
-    \caption{Keras-OCR, untrained}
+    \caption{Keras-OCR, untrained  on image P-315617}
     \label{Im3:ex:keras}
 \end{figure}
 
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[scale=0.3]{obrazky/plakaty/result_carfttesseract_vienna2_split_special_snesitive-83.png}
-    \caption{Tesseract+CRAFT}
+    \caption{Tesseract+CRAFT  on image P-315617}
     \label{Im3:ex:craft}
 \end{figure}
 
 \begin{figure}[hbtp!]
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\textwidth}
+        \centering
         \includegraphics[scale=0.29]{obrazky/plakaty/result_tesseract_vienna2_nosplit_psm11-83.png}
-        \caption{PSM 11. Tesseract found many non existing words and tried to predict them.}
+        \caption{PSM 11 on image P-315617. Tesseract found many non existing words and tried to predict them.}
         \label{Im4:ex:tess11}
     \end{subfigure}
 
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\textwidth}
+        \centering
         \includegraphics[scale=0.29]{obrazky/plakaty/result_tesseract_vienna2_split_psm4-83.png}
         \caption{PSM 4}
         \label{Im4:ex:tess4}
     \end{subfigure}
 
-    \caption{Tesseract}
+    \caption{Tesseract  on image P-315617}
     \label{Im3:ex:tess}
 \end{figure}
 
+\newpage
 \subsection*{P-236873}
 % result_easyOCR_vienna1_split_tuning_special_sensitive-55.png
 % result_easyOCR_vienna2_nosplit_notuning_nocorrection-70.png
@@ -172,28 +176,19 @@ This image has a text that is supposed to look like northern lights in a night s
         \label{Im4:ex:craft}
     \end{subfigure}
 
-    \caption{Tesseract}
+    \caption{Tesseract on image P-236873}
     \label{Im4:ex:compl}
 \end{figure}
 
+\newpage
 \subsection*{P-229767}
 This image is a challenge for the detector and recognizer because there is a large number 10. The height and width of the number is same as the dimensions of the whole image and on top of that the number zero is not completely visible. Then there is curved text, which is also challenging. 
 
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[scale=0.8]{obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-55.png}
-    \caption{EasyOCR}
+    \caption{EasyOCR  on image P-229767}
     \label{Im5:ex:easy}
-\end{figure}
-
-\subsection*{P-310877}
-This image has a very specific font, which without former knowledge is very difficult to recognize.
-
-\begin{figure}[hbtp!]
-    \centering
-    \includegraphics[width=\textwidth]{obrazky/plakaty/result_easyOCR_vienna2_nosplit_notuning_nocorrection-70.png}
-    \caption{EasyOCR on image P-}
-    \label{Im6:ex:easy}
 \end{figure}
 
 
@@ -203,8 +198,19 @@ This image demonstrates that vertical text is more complicated for the recognize
 \begin{figure}[hbtp!]
     \centering
     \includegraphics[width=\textwidth]{obrazky/plakaty/result_easyOCR_vienna1_split_tuning_special_sensitive-60verticaltextproblem.png}
-    \caption{EasyOCR on image P-}
+    \caption{EasyOCR on image P-231248}
     \label{Im7:ex:easy}
+\end{figure}
+
+
+\subsection*{P-310877}
+This image has a very specific font, which is, without former knowledge, very difficult to recognize.
+
+\begin{figure}[hbtp!]
+    \centering
+    \includegraphics[width=\textwidth]{obrazky/plakaty/result_easyOCR_vienna2_nosplit_notuning_nocorrection-70.png}
+    \caption{EasyOCR on image P-310877}
+    \label{Im6:ex:easy}
 \end{figure}
 
 
